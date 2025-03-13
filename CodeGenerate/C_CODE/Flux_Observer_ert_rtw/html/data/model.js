@@ -1,0 +1,1 @@
+var modelInfo = {model:"Flux_Observer"};var modelHierarchy=[{model:"Flux_Observer",relativePath:"_internal.html",parent:"null"},];var AddCode = true;var ProtectedModel = false;
