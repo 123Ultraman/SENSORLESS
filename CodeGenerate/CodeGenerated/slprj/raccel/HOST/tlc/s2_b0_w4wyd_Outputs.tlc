@@ -1,0 +1,265 @@
+%implements s2_b0_w4wyd_Outputs "C"
+
+%function Outputs(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+a1mumdhxai b_obj;
+a1mumdhxai *obj;
+a1mumdhxai *obj_p;
+dyih3sogw2 *data;
+fops2f5bc4 *serialObject;
+ftbvbe5nvy *dataPlus;
+ftbvbe5nvy *outval;
+ftbvbe5nvy *searchData;
+ftbvbe5nvy *serialObject_p;
+habembxjyg *obj_e;
+he1ich2doy *match_out;
+he1ich2doy *matches;
+hgyzgm1py1 *searchDataChar;
+i0lstc3zfv *obj_i;
+i3054vb1je *arridx;
+i3054vb1je *indices;
+k5qu3japck dataAvailable;
+k5qu3japck status;
+k5qu3japck *dataAvailable_p;
+k5qu3japck *status_p;
+real_T a__5;
+real_T count;
+int32_T a__6_size[2];
+int32_T match_idx;
+int32_T ns;
+int32_T text_len;
+int32_T tmp_m;
+real32_T tmp;
+real32_T tmp_e;
+real32_T tmp_i;
+real32_T tmp_p;
+char_T a__6_data[9];
+boolean_T b_tokenFound;
+boolean_T exitg1;
+boolean_T guard1;
+%closefile localVarDecl
+%assign tlcOutputsFcnOfS2B2 = OpaqueTLCBlockFcn("Outputs", 2, 2, 0, 120, 0)
+%assign tlcOutputsFcnOfS2B3 = OpaqueTLCBlockFcn("Outputs", 2, 3, 0, 120, 1)
+%assign tlcOutputsFcnOfS2B4 = OpaqueTLCBlockFcn("Outputs", 2, 4, 0, 120, 2)
+%assign tlcOutputsFcnOfS2B5 = OpaqueTLCBlockFcn("Outputs", 2, 5, 0, 120, 3)
+%<SLibGetRootInportsFromFile(system, TLC_FALSE)>
+%<SLibGenerateExtModeOutput(system)>
+if (%<(SLibCGIRIsSampleHit(1, 2))>) {
+    if (rtDW.klxgxorkij.TunablePropsChanged) {
+        rtDW.klxgxorkij.TunablePropsChanged = false;
+    }
+    b_obj.matlabCodegenIsDeleted = false;
+    b_obj.contents = &rtDW.klxgxorkij;
+    dataAvailable.contents = true;
+    obj = &b_obj;
+    dataAvailable_p = &dataAvailable;
+    status_p = &status;
+    obj_p = &b_obj;
+    serialObject = &b_obj.contents->SerialObj;
+    b_tokenFound = false;
+    %<(SLibCGCallSubFcn("i2ato1xcxy", [], 0, 120, 0))>;
+    %<(SLibCGCallSubFcn("mw2mi4zvh2", ["&searchData", "2"], 0, 120, 28))>;
+    %<(SLibCGCallSubFcn("c2wgnvw4uy", ["&searchDataChar", "2"], 0, 120, 29))>;
+    %<(SLibCGCallSubFcn("enuerpyldf", ["&arridx", "2"], 0, 120, 30))>;
+    %<(SLibCGCallSubFcn("iv4amyl51q", ["&match_out", "2"], 0, 120, 31))>;
+    %<(SLibCGCallSubFcn("iv4amyl51q", ["&matches", "2"], 0, 120, 32))>;
+    exitg1 = false;
+    while ((!exitg1) && (%<(SLibCGCallSubFcn("btyi2yuuqq", [], 0, 120, 1))> < %<(SLibCGCallSubFcn("lcng5t0i0z", ["serialObject"], 0, 120, 2))>)) {
+        %<(SLibCGCallSubFcn("o4wczq2e3h", ["serialObject"], 0, 120, 3))>;
+        obj_e = serialObject->TransportChannel;
+        obj_i = &obj_e->AsyncIOChannel->InputStream;
+        count = %<(SLibCGCallSubFcn("dwh2lws3bw", ["obj_i->StreamImpl"], 0, 120, 4))>;
+        count += obj_i->PartialPacketCount;
+        if (count > 0.0) {
+            obj_i = &obj_e->AsyncIOChannel->InputStream;
+            count = %<(SLibCGCallSubFcn("dwh2lws3bw", ["obj_i->StreamImpl"], 0, 120, 5))>;
+            count += obj_i->PartialPacketCount;
+            %<(SLibCGCallSubFcn("d1cnfcxsqs", ["&obj_e->AsyncIOChannel->InputStream", "count", "searchData", "&a__5", "a__6_data", "a__6_size"], 0, 120, 6))>;
+            %<(SLibCGCallSubFcn("g1pihrrgkp", ["&obj_e->UnreadDataBuffer", "searchData"], 0, 120, 7))>;
+        }
+        count = %<(SLibCGCallSubFcn("dwh2lws3bw", ["obj_e->UnreadDataBuffer.InputStream.StreamImpl"], 0, 120, 8))>;
+        count += obj_e->UnreadDataBuffer.InputStream.PartialPacketCount;
+        count += obj_e->UnreadDataBuffer.PartialPacketCount;
+        count /= obj_e->UnreadDataBuffer.BytesPerElement;
+        if (count != 0.0) {
+            count = %<(SLibCGCallSubFcn("dwh2lws3bw", ["obj_e->UnreadDataBuffer.InputStream.StreamImpl"], 0, 120, 9))>;
+            count += obj_e->UnreadDataBuffer.InputStream.PartialPacketCount;
+            count += obj_e->UnreadDataBuffer.PartialPacketCount;
+            count /= obj_e->UnreadDataBuffer.BytesPerElement;
+            if (count != 0.0) {
+                count = %<(SLibCGCallSubFcn("dwh2lws3bw", ["obj_e->UnreadDataBuffer.InputStream.StreamImpl"], 0, 120, 10))>;
+                count += obj_e->UnreadDataBuffer.InputStream.PartialPacketCount;
+                count += obj_e->UnreadDataBuffer.PartialPacketCount;
+                count /= obj_e->UnreadDataBuffer.BytesPerElement;
+                if (count == 0.0) {
+                    searchData->size[0] = 0;
+                    searchData->size[1] = 0;
+                } else {
+                    %<(SLibCGCallSubFcn("idaplsfg2k", ["&obj_e->UnreadDataBuffer", "count * obj_e->UnreadDataBuffer.BytesPerElement", "searchData"], 0, 120, 11))>;
+                }
+            } else {
+                searchData->size[0] = 0;
+                searchData->size[1] = 0;
+            }
+            tmp_m = searchDataChar->size[0] * searchDataChar->size[1];
+            searchDataChar->size[0] = searchData->size[0];
+            searchDataChar->size[1] = searchData->size[1];
+            %<(SLibCGCallSubFcn("kt1e3yths5", ["searchDataChar", "tmp_m"], 0, 120, 19))>;
+            ns = searchData->size[0] * searchData->size[1];
+            for (text_len = 0; text_len < ns; text_len++) {
+                searchDataChar->data[text_len] = (int8_T)searchData->data[text_len];
+            }
+            if ((searchDataChar->size[0] == 0) || (searchDataChar->size[1] == 0)) {
+                arridx->size[1] = 0;
+            } else {
+                text_len = searchDataChar->size[0] * searchDataChar->size[1];
+                tmp_m = matches->size[0] * matches->size[1];
+                matches->size[0] = 1;
+                matches->size[1] = text_len;
+                %<(SLibCGCallSubFcn("nvhcqcdzap", ["matches", "tmp_m"], 0, 120, 21))>;
+                match_idx = 0;
+                for (ns = 0; ns < text_len; ns++) {
+                    if (searchDataChar->data[ns] == 'S') {
+                        matches->data[match_idx] = ns + 1;
+                        match_idx++;
+                    }
+                }
+                tmp_m = match_out->size[0] * match_out->size[1];
+                match_out->size[0] = 1;
+                match_out->size[1] = match_idx;
+                %<(SLibCGCallSubFcn("nvhcqcdzap", ["match_out", "tmp_m"], 0, 120, 22))>;
+                if (match_idx - 1 >= 0) {
+                    memcpy(&match_out->data[0], &matches->data[0], (uint32_T)match_idx * sizeof(int32_T));
+                }
+                tmp_m = arridx->size[0] * arridx->size[1];
+                arridx->size[1] = match_out->size[1];
+                %<(SLibCGCallSubFcn("hndnmfdyav", ["arridx", "tmp_m"], 0, 120, 23))>;
+            }
+            b_tokenFound = (arridx->size[1] != 0);
+            %<(SLibCGCallSubFcn("g1pihrrgkp", ["&obj_e->UnreadDataBuffer", "searchData"], 0, 120, 12))>;
+        }
+        if (b_tokenFound) {
+            exitg1 = true;
+        } else {
+            %<(SLibCGCallSubFcn("jrnq5jhfee", ["0.001"], 0, 120, 13))>;
+        }
+    }
+    %<(SLibCGCallSubFcn("ptt1gjr52i", ["&matches"], 0, 120, 42))>;
+    %<(SLibCGCallSubFcn("ptt1gjr52i", ["&match_out"], 0, 120, 41))>;
+    %<(SLibCGCallSubFcn("of42omp0rq", ["&arridx"], 0, 120, 40))>;
+    %<(SLibCGCallSubFcn("ec2asd4d0o", ["&searchDataChar"], 0, 120, 39))>;
+    %<(SLibCGCallSubFcn("lv0yfzd1c2", ["&searchData"], 0, 120, 38))>;
+    status_p->contents = b_tokenFound;
+    if (!status_p->contents) {
+        dataAvailable_p->contents = false;
+        tmp = obj->contents->SaveOutput[0];
+        tmp_p = obj->contents->SaveOutput[1];
+        tmp_e = obj->contents->SaveOutput[2];
+        tmp_i = obj->contents->SaveOutput[3];
+    } else {
+        serialObject = &obj_p->contents->SerialObj;
+        %<(SLibCGCallSubFcn("o4wczq2e3h", ["serialObject"], 0, 120, 14))>;
+        %<(SLibCGCallSubFcn("mw2mi4zvh2", ["&serialObject_p", "2"], 0, 120, 33))>;
+        %<(SLibCGCallSubFcn("grofjyw12k", ["serialObject->TransportChannel", "serialObject_p"], 0, 120, 15))>;
+        %<(SLibCGCallSubFcn("lv0yfzd1c2", ["&serialObject_p"], 0, 120, 43))>;
+        %<(SLibCGCallSubFcn("enuerpyldf", ["&indices", "2"], 0, 120, 25))>;
+        %<(SLibCGCallSubFcn("no0t3uuspe", ["&obj->contents->SerialObj", "&b_tokenFound", "indices"], 0, 120, 16))>;
+        status.contents = b_tokenFound;
+        %<(SLibCGCallSubFcn("mw2mi4zvh2", ["&outval", "2"], 0, 120, 24))>;
+        %<(SLibCGCallSubFcn("mw2mi4zvh2", ["&dataPlus", "2"], 0, 120, 26))>;
+        %<(SLibCGCallSubFcn("mtemkfzopj", ["&data", "2"], 0, 120, 27))>;
+        guard1 = false;
+        if (!status.contents) {
+            guard1 = true;
+        } else {
+            ns = indices->size[0] * indices->size[1] - 1;
+            b_tokenFound = false;
+            text_len = 0;
+            exitg1 = false;
+            while ((!exitg1) && (text_len <= ns)) {
+                if (indices->data[text_len] == 17.0) {
+                    b_tokenFound = true;
+                    exitg1 = true;
+                } else {
+                    text_len++;
+                }
+            }
+            if (!b_tokenFound) {
+                guard1 = true;
+            } else {
+                %<(SLibCGCallSubFcn("bo1xlfsvz3", ["&obj->contents->SerialObj", "dataPlus"], 0, 120, 17))>;
+                if (dataPlus->size[1] - 1 < 1) {
+                    ns = 0;
+                } else {
+                    ns = dataPlus->size[1] - 1;
+                }
+                tmp_m = outval->size[0] * outval->size[1];
+                outval->size[0] = 1;
+                outval->size[1] = ns;
+                %<(SLibCGCallSubFcn("fptaaqsn5k", ["outval", "tmp_m"], 0, 120, 18))>;
+                if (ns - 1 >= 0) {
+                    memcpy(&outval->data[0], &dataPlus->data[0], (uint32_T)ns * sizeof(uint8_T));
+                }
+                if (ns == 0) {
+                    text_len = 0;
+                } else {
+                    text_len = ns >> 2;
+                }
+                tmp_m = data->size[0] * data->size[1];
+                data->size[0] = 1;
+                data->size[1] = text_len;
+                %<(SLibCGCallSubFcn("kr15fhvgo4", ["data", "tmp_m"], 0, 120, 20))>;
+                memcpy((void *)&data->data[0], (void *)&outval->data[0], (uint32_T)((size_t)text_len * sizeof(real32_T)));
+                tmp = data->data[0];
+                tmp_p = data->data[1];
+                tmp_e = data->data[2];
+                tmp_i = data->data[3];
+            }
+        }
+        if (guard1) {
+            dataAvailable_p->contents = false;
+            tmp = obj->contents->SaveOutput[0];
+            tmp_p = obj->contents->SaveOutput[1];
+            tmp_e = obj->contents->SaveOutput[2];
+            tmp_i = obj->contents->SaveOutput[3];
+        }
+        %<(SLibCGCallSubFcn("atxdmk14rg", ["&data"], 0, 120, 37))>;
+        %<(SLibCGCallSubFcn("lv0yfzd1c2", ["&dataPlus"], 0, 120, 36))>;
+        %<(SLibCGCallSubFcn("of42omp0rq", ["&indices"], 0, 120, 35))>;
+        %<(SLibCGCallSubFcn("lv0yfzd1c2", ["&outval"], 0, 120, 34))>;
+    }
+    if (dataAvailable.contents) {
+        b_obj.contents->SaveOutput[0] = tmp;
+        b_obj.contents->SaveOutput[1] = tmp_p;
+        b_obj.contents->SaveOutput[2] = tmp_e;
+        b_obj.contents->SaveOutput[3] = tmp_i;
+    }
+    if (!b_obj.matlabCodegenIsDeleted) {
+        b_obj.matlabCodegenIsDeleted = true;
+    }
+    rtB.dxcp5ew2or[0] = tmp;
+    rtB.dxcp5ew2or[1] = tmp_p;
+    rtB.dxcp5ew2or[2] = tmp_e;
+    rtB.dxcp5ew2or[3] = tmp_i;
+%<tlcOutputsFcnOfS2B2>\
+%<tlcOutputsFcnOfS2B3>\
+%<tlcOutputsFcnOfS2B4>\
+%<tlcOutputsFcnOfS2B5>\
+}
+%<SLibInsertSolverResetCode()>\
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedOutputLocalVars", localVarDecl)>
+%endfunction
+%function OutputsFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Outputs0(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 120, fcnProtoType)>
+%endfunction

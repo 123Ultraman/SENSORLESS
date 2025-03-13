@@ -1,0 +1,2 @@
+chcp 65001
+cmd /D /c start "RapidAccelerator" /B "F:\work\MOTOR_Control\SENSORLESS\CodeGenerate\CodeGenerated\slprj\raccel\HOST\HOST.exe" --config "C:\Users\sa127\AppData\Local\Temp\raccel_inputpcffe8057_4167_462b_b5e9_41b94aad521c.cfg" -server_info_file "C:\Users\sa127\AppData\Local\Temp\tppcffe8057_4167_462b_b5e9_41b94aad521c.info" -tgtconn_server_info_file "C:\Users\sa127\AppData\Local\Temp\tgtconnpcffe8057_4167_462b_b5e9_41b94aad521c.info" -tgtconn_port 0 -port 0 -w >"F:\work\MOTOR_Control\SENSORLESS\CodeGenerate\CodeGenerated\slprj\raccel\HOST\cmdLog.txt"

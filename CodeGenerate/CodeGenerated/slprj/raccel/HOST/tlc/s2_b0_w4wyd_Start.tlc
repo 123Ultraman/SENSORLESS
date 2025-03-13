@@ -1,0 +1,51 @@
+%implements s2_b0_w4wyd_Start "C"
+
+%function Start(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%assign tlcSetupRuntimeResourcesFcnOfS2B2 = OpaqueTLCBlockFcn("SetupRuntimeResources", 2, 2, 0, 118, 0)
+%assign tlcSetupRuntimeResourcesFcnOfS2B3 = OpaqueTLCBlockFcn("SetupRuntimeResources", 2, 3, 0, 118, 1)
+%assign tlcSetupRuntimeResourcesFcnOfS2B4 = OpaqueTLCBlockFcn("SetupRuntimeResources", 2, 4, 0, 118, 2)
+%<tlcSetupRuntimeResourcesFcnOfS2B2>\
+%<tlcSetupRuntimeResourcesFcnOfS2B3>\
+%<tlcSetupRuntimeResourcesFcnOfS2B4>\
+%<(SLibCGCallSubFcn("k5hgq1ezni", ["&rtDW.cyzqz0cy2j"], 0, 118, 0))>;
+rtDW.cyzqz0cy2j.SerialObj._pobj1.InputStream.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.InputStream.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.SerialObj._pobj1.OutputStream.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.OutputStream.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.SerialObj._pobj1.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.SerialObj._pobj0.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.SerialObj.matlabCodegenIsDeleted = true;
+rtDW.cyzqz0cy2j.isInitialized = 0;
+rtDW.cyzqz0cy2j.matlabCodegenIsDeleted = false;
+rtDW.mafgvpoooy = true;
+%<(SLibCGCallSubFcn("pmpprwcsr4p", ["&rtDW.cyzqz0cy2j"], 0, 118, 1))>;
+%<(SLibCGCallSubFcn("hw3nft2agy", ["&rtDW.klxgxorkij"], 0, 118, 2))>;
+rtDW.klxgxorkij.SerialObj._pobj1.InputStream.matlabCodegenIsDeleted = true;
+rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.InputStream.matlabCodegenIsDeleted = true;
+rtDW.klxgxorkij.SerialObj._pobj1.OutputStream.matlabCodegenIsDeleted = true;
+rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.OutputStream.matlabCodegenIsDeleted = true;
+rtDW.klxgxorkij.SerialObj._pobj1.matlabCodegenIsDeleted = true;
+rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.matlabCodegenIsDeleted = true;
+rtDW.klxgxorkij.SerialObj._pobj0.matlabCodegenIsDeleted = true;
+rtDW.klxgxorkij.SerialObj.matlabCodegenIsDeleted = true;
+rtDW.n2kqmbk4sy = 0U;
+rtDW.pdnryy4oes = true;
+rtDW.klxgxorkij.isInitialized = 0;
+rtDW.klxgxorkij.matlabCodegenIsDeleted = false;
+rtDW.g1cth5xytb = true;
+%<(SLibCGCallSubFcn("pmpprwcsr4", ["&rtDW.klxgxorkij"], 0, 118, 3))>;
+%closefile cfgTxt
+%<cfgTxt>
+%endfunction
+%function StartFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Start(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 118, fcnProtoType)>
+%endfunction

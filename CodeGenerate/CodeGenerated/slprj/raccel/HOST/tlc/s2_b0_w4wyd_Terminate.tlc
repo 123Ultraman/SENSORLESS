@@ -1,0 +1,231 @@
+%implements s2_b0_w4wyd_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+CoderChannel chImpl;
+int32_T success;
+char_T errorID[1024];
+char_T errorText[1024];
+boolean_T hasSyncError;
+boolean_T result;
+%closefile localVarDecl
+if (!rtDW.cyzqz0cy2j.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.matlabCodegenIsDeleted = true;
+    if ((rtDW.cyzqz0cy2j.isInitialized == 1) && rtDW.cyzqz0cy2j.isSetupComplete) {
+        %<(SLibCGCallSubFcn("l0bscn2j24kn", ["rtDW.cyzqz0cy2j.SerialObj.AsyncIOChannel"], 0, 121, 1))>;
+    }
+}
+if (!rtDW.cyzqz0cy2j.SerialObj.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj.matlabCodegenIsDeleted = true;
+    %<(SLibCGCallSubFcn("l0bscn2j24kn", ["rtDW.cyzqz0cy2j.SerialObj.AsyncIOChannel"], 0, 121, 2))>;
+}
+if (!rtDW.cyzqz0cy2j.SerialObj._pobj0.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj._pobj0.matlabCodegenIsDeleted = true;
+    %<(SLibCGCallSubFcn("l0bscn2j24kn2", ["&rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer"], 0, 121, 3))>;
+}
+if (!rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.matlabCodegenIsDeleted = true;
+    chImpl = rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+    success = coderChannelIsOpen(chImpl, &result);
+    if (success == 0) {
+        coderChannelHasSyncError(chImpl, &hasSyncError);
+        if (!hasSyncError) {
+            coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+        } else {
+            coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+        }
+    }
+    if (result) {
+        %<(SLibCGCallSubFcn("l0bscn2j24kn2", ["&rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer"], 0, 121, 4))>;
+    }
+    if (!(rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl == 0)) {
+        chImpl = rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+        success = coderChannelIsOpen(chImpl, &result);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        if (result) {
+            %<(SLibCGCallSubFcn("l0bscn2j24kn2", ["&rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer"], 0, 121, 5))>;
+        }
+        chImpl = rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+        success = coderChannelTerm(chImpl);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        chImpl = rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+        coderChannelDestroy(chImpl);
+        rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl = 0;
+    }
+}
+if (!rtDW.cyzqz0cy2j.SerialObj._pobj1.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj._pobj1.matlabCodegenIsDeleted = true;
+    if (!(rtDW.cyzqz0cy2j.SerialObj._pobj1.ChannelImpl == 0)) {
+        chImpl = rtDW.cyzqz0cy2j.SerialObj._pobj1.ChannelImpl;
+        success = coderChannelIsOpen(chImpl, &result);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        if (result) {
+            %<(SLibCGCallSubFcn("l0bscn2j24kn", ["&rtDW.cyzqz0cy2j.SerialObj._pobj1"], 0, 121, 6))>;
+        }
+        chImpl = rtDW.cyzqz0cy2j.SerialObj._pobj1.ChannelImpl;
+        success = coderChannelTerm(chImpl);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        chImpl = rtDW.cyzqz0cy2j.SerialObj._pobj1.ChannelImpl;
+        coderChannelDestroy(chImpl);
+        rtDW.cyzqz0cy2j.SerialObj._pobj1.ChannelImpl = 0;
+    }
+}
+if (!rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.OutputStream.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.OutputStream.matlabCodegenIsDeleted = true;
+}
+if (!rtDW.cyzqz0cy2j.SerialObj._pobj1.OutputStream.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj._pobj1.OutputStream.matlabCodegenIsDeleted = true;
+}
+if (!rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.InputStream.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj._pobj0.UnreadDataBuffer.InputStream.matlabCodegenIsDeleted = true;
+}
+if (!rtDW.cyzqz0cy2j.SerialObj._pobj1.InputStream.matlabCodegenIsDeleted) {
+    rtDW.cyzqz0cy2j.SerialObj._pobj1.InputStream.matlabCodegenIsDeleted = true;
+}
+%<(SLibCGCallSubFcn("hbgyxopagp", ["&rtDW.cyzqz0cy2j"], 0, 121, 0))>;
+if (!rtDW.klxgxorkij.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.matlabCodegenIsDeleted = true;
+    if ((rtDW.klxgxorkij.isInitialized == 1) && rtDW.klxgxorkij.isSetupComplete) {
+        %<(SLibCGCallSubFcn("l0bscn2j24", ["rtDW.klxgxorkij.SerialObj.AsyncIOChannel"], 0, 121, 8))>;
+    }
+}
+if (!rtDW.klxgxorkij.SerialObj.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj.matlabCodegenIsDeleted = true;
+    %<(SLibCGCallSubFcn("l0bscn2j24", ["rtDW.klxgxorkij.SerialObj.AsyncIOChannel"], 0, 121, 9))>;
+}
+if (!rtDW.klxgxorkij.SerialObj._pobj0.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj._pobj0.matlabCodegenIsDeleted = true;
+    %<(SLibCGCallSubFcn("l0bscn2j24k", ["&rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer"], 0, 121, 10))>;
+}
+if (!rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.matlabCodegenIsDeleted = true;
+    chImpl = rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+    success = coderChannelIsOpen(chImpl, &result);
+    if (success == 0) {
+        coderChannelHasSyncError(chImpl, &hasSyncError);
+        if (!hasSyncError) {
+            coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+        } else {
+            coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+        }
+    }
+    if (result) {
+        %<(SLibCGCallSubFcn("l0bscn2j24k", ["&rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer"], 0, 121, 11))>;
+    }
+    if (!(rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl == 0)) {
+        chImpl = rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+        success = coderChannelIsOpen(chImpl, &result);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        if (result) {
+            %<(SLibCGCallSubFcn("l0bscn2j24k", ["&rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer"], 0, 121, 12))>;
+        }
+        chImpl = rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+        success = coderChannelTerm(chImpl);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        chImpl = rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl;
+        coderChannelDestroy(chImpl);
+        rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.ChannelImpl = 0;
+    }
+}
+if (!rtDW.klxgxorkij.SerialObj._pobj1.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj._pobj1.matlabCodegenIsDeleted = true;
+    if (!(rtDW.klxgxorkij.SerialObj._pobj1.ChannelImpl == 0)) {
+        chImpl = rtDW.klxgxorkij.SerialObj._pobj1.ChannelImpl;
+        success = coderChannelIsOpen(chImpl, &result);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        if (result) {
+            %<(SLibCGCallSubFcn("l0bscn2j24", ["&rtDW.klxgxorkij.SerialObj._pobj1"], 0, 121, 13))>;
+        }
+        chImpl = rtDW.klxgxorkij.SerialObj._pobj1.ChannelImpl;
+        success = coderChannelTerm(chImpl);
+        if (success == 0) {
+            coderChannelHasSyncError(chImpl, &hasSyncError);
+            if (!hasSyncError) {
+                coderChannelGetLastError(chImpl, &errorID[0], &errorText[0]);
+            } else {
+                coderChannelGetLastSyncError(chImpl, &errorID[0], &errorText[0]);
+            }
+        }
+        chImpl = rtDW.klxgxorkij.SerialObj._pobj1.ChannelImpl;
+        coderChannelDestroy(chImpl);
+        rtDW.klxgxorkij.SerialObj._pobj1.ChannelImpl = 0;
+    }
+}
+if (!rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.OutputStream.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.OutputStream.matlabCodegenIsDeleted = true;
+}
+if (!rtDW.klxgxorkij.SerialObj._pobj1.OutputStream.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj._pobj1.OutputStream.matlabCodegenIsDeleted = true;
+}
+if (!rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.InputStream.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj._pobj0.UnreadDataBuffer.InputStream.matlabCodegenIsDeleted = true;
+}
+if (!rtDW.klxgxorkij.SerialObj._pobj1.InputStream.matlabCodegenIsDeleted) {
+    rtDW.klxgxorkij.SerialObj._pobj1.InputStream.matlabCodegenIsDeleted = true;
+}
+%<(SLibCGCallSubFcn("gncli2jhsl", ["&rtDW.klxgxorkij"], 0, 121, 7))>;
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedTerminateLocalVars", localVarDecl)>
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Terminate(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 121, fcnProtoType)>
+%endfunction

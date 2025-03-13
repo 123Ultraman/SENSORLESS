@@ -1,0 +1,1 @@
+var reportPages = [["摘要","Flux_Observer_survey.html"],["子系统报告","Flux_Observer_subsystems.html"],["代码接口报告","Flux_Observer_interface.html"],["可追溯性报告","Flux_Observer_trace.html"],["静态代码度量报告","Flux_Observer_metrics.html"],["代码替换报告","Flux_Observer_replacements.html"],["代码生成器假设","Flux_Observer_coderassumptions.html"]];

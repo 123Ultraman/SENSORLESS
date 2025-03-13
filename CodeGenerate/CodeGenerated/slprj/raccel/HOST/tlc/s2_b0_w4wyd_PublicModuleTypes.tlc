@@ -1,0 +1,458 @@
+%implements s2_b0_w4wyd_PublicModuleTypes "C"
+
+%function PublicModuleTypes(block) Output
+
+#ifndef struct_tag_s65X2nCuD6sOCZLFTY7jBxG
+#define struct_tag_s65X2nCuD6sOCZLFTY7jBxG
+struct tag_s65X2nCuD6sOCZLFTY7jBxG
+{
+    boolean_T CTS;
+    boolean_T DSR;
+    boolean_T CD;
+    boolean_T RING;
+    boolean_T InitAccess;
+    real_T SharedTimeout;
+    uint64_T LatestNumBytesWrittenToDevice;
+    uint64_T TotalBytesWritten;
+};
+#endif /* struct_tag_s65X2nCuD6sOCZLFTY7jBxG */
+#ifndef typedef_b02s4rhbea
+#define typedef_b02s4rhbea
+typedef struct tag_s65X2nCuD6sOCZLFTY7jBxG b02s4rhbea;
+#endif /* typedef_b02s4rhbea */
+
+/* Custom Type definition for MATLABSystem: '<Root>/Host Serial Setup' */
+#include "asynciocoder_api.hpp"
+#include "asynciocoder_api.hpp"
+#include "asynciocoder_api.hpp"
+
+/* Custom Type definition for MATLABSystem: '<Root>/Host Serial Receive' */
+#include "coder_posix_time.h"
+
+#ifndef struct_tag_sdAmwXbnJnEmimT0NaJRtAD
+#define struct_tag_sdAmwXbnJnEmimT0NaJRtAD
+struct tag_sdAmwXbnJnEmimT0NaJRtAD
+{
+    real_T tv_sec;
+    real_T tv_nsec;
+};
+#endif /* struct_tag_sdAmwXbnJnEmimT0NaJRtAD */
+#ifndef typedef_e5hw4m3din
+#define typedef_e5hw4m3din
+typedef struct tag_sdAmwXbnJnEmimT0NaJRtAD e5hw4m3din;
+#endif /* typedef_e5hw4m3din */
+#ifndef struct_tag_gsM4NaT1bkqNwuJjeAzL9C
+#define struct_tag_gsM4NaT1bkqNwuJjeAzL9C
+struct tag_gsM4NaT1bkqNwuJjeAzL9C
+{
+    boolean_T matlabCodegenIsDeleted;
+    real_T Timeout;
+    CoderOutputStream StreamImpl;
+};
+#endif /* struct_tag_gsM4NaT1bkqNwuJjeAzL9C */
+#ifndef typedef_clvl5hd3q0
+#define typedef_clvl5hd3q0
+typedef struct tag_gsM4NaT1bkqNwuJjeAzL9C clvl5hd3q0;
+#endif /* typedef_clvl5hd3q0 */
+#ifndef struct_tag_hJLXW5eeiiQClOA7PEOtYB
+#define struct_tag_hJLXW5eeiiQClOA7PEOtYB
+struct tag_hJLXW5eeiiQClOA7PEOtYB
+{
+    boolean_T contents;
+};
+#endif /* struct_tag_hJLXW5eeiiQClOA7PEOtYB */
+#ifndef typedef_k5qu3japck
+#define typedef_k5qu3japck
+typedef struct tag_hJLXW5eeiiQClOA7PEOtYB k5qu3japck;
+#endif /* typedef_k5qu3japck */
+#ifndef struct_tag_wRQaA1gdH3bCJfwz7hsPiD
+#define struct_tag_wRQaA1gdH3bCJfwz7hsPiD
+struct tag_wRQaA1gdH3bCJfwz7hsPiD
+{
+    boolean_T matlabCodegenIsDeleted;
+    CoderOutputStream StreamImpl;
+};
+#endif /* struct_tag_wRQaA1gdH3bCJfwz7hsPiD */
+#ifndef typedef_clvl5hd3q0z
+#define typedef_clvl5hd3q0z
+typedef struct tag_wRQaA1gdH3bCJfwz7hsPiD clvl5hd3q0z;
+#endif /* typedef_clvl5hd3q0z */
+#ifndef struct_emxArray_char_T
+#define struct_emxArray_char_T
+struct emxArray_char_T
+{
+    char_T *data;
+    int32_T *size;
+    int32_T allocatedSize;
+    int32_T numDimensions;
+    boolean_T canFreeData;
+};
+#endif /* struct_emxArray_char_T */
+#ifndef typedef_hgyzgm1py1
+#define typedef_hgyzgm1py1
+typedef struct emxArray_char_T hgyzgm1py1;
+#endif /* typedef_hgyzgm1py1 */
+#ifndef struct_emxArray_uint8_T
+#define struct_emxArray_uint8_T
+struct emxArray_uint8_T
+{
+    uint8_T *data;
+    int32_T *size;
+    int32_T allocatedSize;
+    int32_T numDimensions;
+    boolean_T canFreeData;
+};
+#endif /* struct_emxArray_uint8_T */
+#ifndef typedef_ftbvbe5nvy
+#define typedef_ftbvbe5nvy
+typedef struct emxArray_uint8_T ftbvbe5nvy;
+#endif /* typedef_ftbvbe5nvy */
+#ifndef struct_tag_judyzK9RbooJt0iyxnaAXC
+#define struct_tag_judyzK9RbooJt0iyxnaAXC
+struct tag_judyzK9RbooJt0iyxnaAXC
+{
+    boolean_T matlabCodegenIsDeleted;
+    real_T Timeout;
+    CoderInputStream StreamImpl;
+    ftbvbe5nvy *PartialPacket;
+    real_T PartialPacketStart;
+    real_T PartialPacketCount;
+    ftbvbe5nvy *ExampleData;
+};
+#endif /* struct_tag_judyzK9RbooJt0iyxnaAXC */
+#ifndef typedef_i0lstc3zfv
+#define typedef_i0lstc3zfv
+typedef struct tag_judyzK9RbooJt0iyxnaAXC i0lstc3zfv;
+#endif /* typedef_i0lstc3zfv */
+#ifndef struct_tag_nShB1c047UJJQ80vAxsvJC
+#define struct_tag_nShB1c047UJJQ80vAxsvJC
+struct tag_nShB1c047UJJQ80vAxsvJC
+{
+    boolean_T matlabCodegenIsDeleted;
+    i0lstc3zfv InputStream;
+    clvl5hd3q0 OutputStream;
+    CoderChannel ChannelImpl;
+    b02s4rhbea CustomProps;
+};
+#endif /* struct_tag_nShB1c047UJJQ80vAxsvJC */
+#ifndef typedef_afxtk4erg3
+#define typedef_afxtk4erg3
+typedef struct tag_nShB1c047UJJQ80vAxsvJC afxtk4erg3;
+#endif /* typedef_afxtk4erg3 */
+#ifndef struct_tag_3PknbWJpN5zoqnBcIThgFB
+#define struct_tag_3PknbWJpN5zoqnBcIThgFB
+struct tag_3PknbWJpN5zoqnBcIThgFB
+{
+    boolean_T matlabCodegenIsDeleted;
+    i0lstc3zfv InputStream;
+    clvl5hd3q0 OutputStream;
+    CoderChannel ChannelImpl;
+    real_T TotalElementsWritten;
+    ftbvbe5nvy *PartialPacket;
+    real_T PartialPacketStart;
+    real_T PartialPacketCount;
+    real_T BytesPerElement;
+};
+#endif /* struct_tag_3PknbWJpN5zoqnBcIThgFB */
+#ifndef typedef_kw1nls53yo
+#define typedef_kw1nls53yo
+typedef struct tag_3PknbWJpN5zoqnBcIThgFB kw1nls53yo;
+#endif /* typedef_kw1nls53yo */
+#ifndef struct_tag_JYxiDoLWB8F56cLfIyDEXC
+#define struct_tag_JYxiDoLWB8F56cLfIyDEXC
+struct tag_JYxiDoLWB8F56cLfIyDEXC
+{
+    boolean_T matlabCodegenIsDeleted;
+    char_T MachineByteOrder[13];
+    afxtk4erg3 *AsyncIOChannel;
+    kw1nls53yo UnreadDataBuffer;
+    hgyzgm1py1 *ByteOrder;
+    hgyzgm1py1 *NativeDataType;
+    hgyzgm1py1 *DataFieldName;
+    boolean_T AllowPartialReads;
+};
+#endif /* struct_tag_JYxiDoLWB8F56cLfIyDEXC */
+#ifndef typedef_habembxjyg
+#define typedef_habembxjyg
+typedef struct tag_JYxiDoLWB8F56cLfIyDEXC habembxjyg;
+#endif /* typedef_habembxjyg */
+#ifndef struct_tag_3DxAEYntHNyOLEONKzDmR
+#define struct_tag_3DxAEYntHNyOLEONKzDmR
+struct tag_3DxAEYntHNyOLEONKzDmR
+{
+    boolean_T matlabCodegenIsDeleted;
+    hgyzgm1py1 *ByteOrder;
+    hgyzgm1py1 *NativeDataType;
+    hgyzgm1py1 *DataFieldName;
+    afxtk4erg3 *AsyncIOChannel;
+    habembxjyg *TransportChannel;
+    char_T Port[5];
+    boolean_T IsWriteOnly;
+    boolean_T IsSharingPort;
+    boolean_T IsSharingExistingTimeout;
+    real_T BaudRate;
+    hgyzgm1py1 *FlowControl;
+    hgyzgm1py1 *Parity;
+    real_T StopBits;
+    real_T DataBits;
+    real_T Timeout;
+    real_T InputBufferSize;
+    real_T OutputBufferSize;
+    habembxjyg _pobj0;
+    afxtk4erg3 _pobj1;
+};
+#endif /* struct_tag_3DxAEYntHNyOLEONKzDmR */
+#ifndef typedef_fops2f5bc4
+#define typedef_fops2f5bc4
+typedef struct tag_3DxAEYntHNyOLEONKzDmR fops2f5bc4;
+#endif /* typedef_fops2f5bc4 */
+#ifndef struct_tag_kq7iR58bxoHDZYiEdE9CBH
+#define struct_tag_kq7iR58bxoHDZYiEdE9CBH
+struct tag_kq7iR58bxoHDZYiEdE9CBH
+{
+    boolean_T matlabCodegenIsDeleted;
+    int32_T isInitialized;
+    boolean_T isSetupComplete;
+    boolean_T TunablePropsChanged;
+    fops2f5bc4 SerialObj;
+    real32_T SaveOutput[4];
+};
+#endif /* struct_tag_kq7iR58bxoHDZYiEdE9CBH */
+#ifndef typedef_pry1oxlo21
+#define typedef_pry1oxlo21
+typedef struct tag_kq7iR58bxoHDZYiEdE9CBH pry1oxlo21;
+#endif /* typedef_pry1oxlo21 */
+#ifndef struct_tag_O39UfvhXoFXckCFLXhDyDH
+#define struct_tag_O39UfvhXoFXckCFLXhDyDH
+struct tag_O39UfvhXoFXckCFLXhDyDH
+{
+    boolean_T matlabCodegenIsDeleted;
+    CoderInputStream StreamImpl;
+    ftbvbe5nvy *ExampleData;
+};
+#endif /* struct_tag_O39UfvhXoFXckCFLXhDyDH */
+#ifndef typedef_i0lstc3zfvr
+#define typedef_i0lstc3zfvr
+typedef struct tag_O39UfvhXoFXckCFLXhDyDH i0lstc3zfvr;
+#endif /* typedef_i0lstc3zfvr */
+#ifndef struct_tag_sw23ZSrJYDryJQhBE95IcB
+#define struct_tag_sw23ZSrJYDryJQhBE95IcB
+struct tag_sw23ZSrJYDryJQhBE95IcB
+{
+    boolean_T matlabCodegenIsDeleted;
+    i0lstc3zfvr InputStream;
+    clvl5hd3q0z OutputStream;
+    CoderChannel ChannelImpl;
+    b02s4rhbea CustomProps;
+};
+#endif /* struct_tag_sw23ZSrJYDryJQhBE95IcB */
+#ifndef typedef_afxtk4erg3r
+#define typedef_afxtk4erg3r
+typedef struct tag_sw23ZSrJYDryJQhBE95IcB afxtk4erg3r;
+#endif /* typedef_afxtk4erg3r */
+#ifndef struct_tag_7VgKilLPGp8TS4MnvQ7r2E
+#define struct_tag_7VgKilLPGp8TS4MnvQ7r2E
+struct tag_7VgKilLPGp8TS4MnvQ7r2E
+{
+    boolean_T matlabCodegenIsDeleted;
+    i0lstc3zfvr InputStream;
+    clvl5hd3q0z OutputStream;
+    CoderChannel ChannelImpl;
+};
+#endif /* struct_tag_7VgKilLPGp8TS4MnvQ7r2E */
+#ifndef typedef_kw1nls53yow
+#define typedef_kw1nls53yow
+typedef struct tag_7VgKilLPGp8TS4MnvQ7r2E kw1nls53yow;
+#endif /* typedef_kw1nls53yow */
+#ifndef struct_tag_Aax0Q5OjwwSr3JlaQ8mCMG
+#define struct_tag_Aax0Q5OjwwSr3JlaQ8mCMG
+struct tag_Aax0Q5OjwwSr3JlaQ8mCMG
+{
+    boolean_T matlabCodegenIsDeleted;
+    afxtk4erg3r *AsyncIOChannel;
+    kw1nls53yow UnreadDataBuffer;
+    hgyzgm1py1 *ByteOrder;
+};
+#endif /* struct_tag_Aax0Q5OjwwSr3JlaQ8mCMG */
+#ifndef typedef_habembxjygt
+#define typedef_habembxjygt
+typedef struct tag_Aax0Q5OjwwSr3JlaQ8mCMG habembxjygt;
+#endif /* typedef_habembxjygt */
+#ifndef struct_tag_vvQoUaqJdDSo8QIWV9YyjH
+#define struct_tag_vvQoUaqJdDSo8QIWV9YyjH
+struct tag_vvQoUaqJdDSo8QIWV9YyjH
+{
+    boolean_T matlabCodegenIsDeleted;
+    hgyzgm1py1 *ByteOrder;
+    hgyzgm1py1 *NativeDataType;
+    hgyzgm1py1 *DataFieldName;
+    afxtk4erg3r *AsyncIOChannel;
+    habembxjygt *TransportChannel;
+    char_T Port[5];
+    boolean_T IsWriteOnly;
+    boolean_T IsSharingPort;
+    boolean_T IsSharingExistingTimeout;
+    real_T BaudRate;
+    hgyzgm1py1 *FlowControl;
+    hgyzgm1py1 *Parity;
+    real_T StopBits;
+    real_T DataBits;
+    real_T Timeout;
+    real_T InputBufferSize;
+    real_T OutputBufferSize;
+    habembxjygt _pobj0;
+    afxtk4erg3r _pobj1;
+};
+#endif /* struct_tag_vvQoUaqJdDSo8QIWV9YyjH */
+#ifndef typedef_fops2f5bc43
+#define typedef_fops2f5bc43
+typedef struct tag_vvQoUaqJdDSo8QIWV9YyjH fops2f5bc43;
+#endif /* typedef_fops2f5bc43 */
+#ifndef struct_tag_ZW3W546v0HVNNBedYbbaNE
+#define struct_tag_ZW3W546v0HVNNBedYbbaNE
+struct tag_ZW3W546v0HVNNBedYbbaNE
+{
+    boolean_T matlabCodegenIsDeleted;
+    int32_T isInitialized;
+    boolean_T isSetupComplete;
+    fops2f5bc43 SerialObj;
+};
+#endif /* struct_tag_ZW3W546v0HVNNBedYbbaNE */
+#ifndef typedef_evr2nhlpli
+#define typedef_evr2nhlpli
+typedef struct tag_ZW3W546v0HVNNBedYbbaNE evr2nhlpli;
+#endif /* typedef_evr2nhlpli */
+#ifndef struct_tag_eksmjSYpnmkE52wtJXUEvG
+#define struct_tag_eksmjSYpnmkE52wtJXUEvG
+struct tag_eksmjSYpnmkE52wtJXUEvG
+{
+    boolean_T matlabCodegenIsDeleted;
+    pry1oxlo21 *contents;
+};
+#endif /* struct_tag_eksmjSYpnmkE52wtJXUEvG */
+#ifndef typedef_a1mumdhxai
+#define typedef_a1mumdhxai
+typedef struct tag_eksmjSYpnmkE52wtJXUEvG a1mumdhxai;
+#endif /* typedef_a1mumdhxai */
+#ifndef struct_emxArray_real_T
+#define struct_emxArray_real_T
+struct emxArray_real_T
+{
+    real_T *data;
+    int32_T *size;
+    int32_T allocatedSize;
+    int32_T numDimensions;
+    boolean_T canFreeData;
+};
+#endif /* struct_emxArray_real_T */
+#ifndef typedef_i3054vb1je
+#define typedef_i3054vb1je
+typedef struct emxArray_real_T i3054vb1je;
+#endif /* typedef_i3054vb1je */
+#ifndef struct_emxArray_real32_T
+#define struct_emxArray_real32_T
+struct emxArray_real32_T
+{
+    real32_T *data;
+    int32_T *size;
+    int32_T allocatedSize;
+    int32_T numDimensions;
+    boolean_T canFreeData;
+};
+#endif /* struct_emxArray_real32_T */
+#ifndef typedef_dyih3sogw2
+#define typedef_dyih3sogw2
+typedef struct emxArray_real32_T dyih3sogw2;
+#endif /* typedef_dyih3sogw2 */
+#ifndef struct_emxArray_int32_T
+#define struct_emxArray_int32_T
+struct emxArray_int32_T
+{
+    int32_T *data;
+    int32_T *size;
+    int32_T allocatedSize;
+    int32_T numDimensions;
+    boolean_T canFreeData;
+};
+#endif /* struct_emxArray_int32_T */
+#ifndef typedef_he1ich2doy
+#define typedef_he1ich2doy
+typedef struct emxArray_int32_T he1ich2doy;
+#endif /* typedef_he1ich2doy */
+#ifndef struct_tag_tVNDDbBfXx0nORXjehL0f
+#define struct_tag_tVNDDbBfXx0nORXjehL0f
+struct tag_tVNDDbBfXx0nORXjehL0f
+{
+    ftbvbe5nvy *f1;
+};
+#endif /* struct_tag_tVNDDbBfXx0nORXjehL0f */
+#ifndef typedef_fdfwht03ld
+#define typedef_fdfwht03ld
+typedef struct tag_tVNDDbBfXx0nORXjehL0f fdfwht03ld;
+#endif /* typedef_fdfwht03ld */
+#ifndef struct_emxArray_tag_tVNDDbBfXx0nORXjeh
+#define struct_emxArray_tag_tVNDDbBfXx0nORXjeh
+struct emxArray_tag_tVNDDbBfXx0nORXjeh
+{
+    fdfwht03ld *data;
+    int32_T *size;
+    int32_T allocatedSize;
+    int32_T numDimensions;
+    boolean_T canFreeData;
+};
+#endif /* struct_emxArray_tag_tVNDDbBfXx0nORXjeh */
+#ifndef typedef_mwbcmoqwkf
+#define typedef_mwbcmoqwkf
+typedef struct emxArray_tag_tVNDDbBfXx0nORXjeh mwbcmoqwkf;
+#endif /* typedef_mwbcmoqwkf */
+#ifndef struct_tag_nwNlNAh44luWuWarnUt9lF
+#define struct_tag_nwNlNAh44luWuWarnUt9lF
+struct tag_nwNlNAh44luWuWarnUt9lF
+{
+    ftbvbe5nvy *f1;
+};
+#endif /* struct_tag_nwNlNAh44luWuWarnUt9lF */
+#ifndef typedef_kyfiexkdtl
+#define typedef_kyfiexkdtl
+typedef struct tag_nwNlNAh44luWuWarnUt9lF kyfiexkdtl;
+#endif /* typedef_kyfiexkdtl */
+#ifndef struct_emxArray_uint32_T
+#define struct_emxArray_uint32_T
+struct emxArray_uint32_T
+{
+    uint32_T *data;
+    int32_T *size;
+    int32_T allocatedSize;
+    int32_T numDimensions;
+    boolean_T canFreeData;
+};
+#endif /* struct_emxArray_uint32_T */
+#ifndef typedef_csy5egbntl
+#define typedef_csy5egbntl
+typedef struct emxArray_uint32_T csy5egbntl;
+#endif /* typedef_csy5egbntl */
+#ifndef struct_emxArray_tag_nwNlNAh44luWuWarnU
+#define struct_emxArray_tag_nwNlNAh44luWuWarnU
+struct emxArray_tag_nwNlNAh44luWuWarnU
+{
+    kyfiexkdtl data;
+    int32_T size;
+};
+#endif /* struct_emxArray_tag_nwNlNAh44luWuWarnU */
+#ifndef typedef_aa555fgs2y
+#define typedef_aa555fgs2y
+typedef struct emxArray_tag_nwNlNAh44luWuWarnU aa555fgs2y;
+#endif /* typedef_aa555fgs2y */
+#ifndef struct_emxArray_b_tag_tVNDDbBfXx0nORXj
+#define struct_emxArray_b_tag_tVNDDbBfXx0nORXj
+struct emxArray_b_tag_tVNDDbBfXx0nORXj
+{
+    fdfwht03ld data;
+    int32_T size;
+};
+#endif /* struct_emxArray_b_tag_tVNDDbBfXx0nORXj */
+#ifndef typedef_l3jp1aacav
+#define typedef_l3jp1aacav
+typedef struct emxArray_b_tag_tVNDDbBfXx0nORXj l3jp1aacav;
+#endif /* typedef_l3jp1aacav */
+%endfunction

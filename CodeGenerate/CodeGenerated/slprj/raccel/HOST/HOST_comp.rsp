@@ -1,0 +1,13 @@
+-IF:/work/MOTOR_Control/SENSORLESS/CodeGenerate/CodeGenerated
+-I"D:/Program Files/MATLAB2024B/toolbox/eml/externalDependency/timefun"
+-I"D:/Program Files/MATLAB2024B/extern/include/AsyncIO"
+-IF:/work/MOTOR_Control/SENSORLESS/CodeGenerate/CodeGenerated/slprj/raccel/HOST
+-I"D:/Program Files/MATLAB2024B/rtw/c/src/rapid"
+-I"D:/Program Files/MATLAB2024B/rtw/c/raccel"
+-I"D:/Program Files/MATLAB2024B/rtw/c/src/ext_mode/common"
+-I"D:/Program Files/MATLAB2024B/toolbox/coder/rtiostream/src"
+-I"D:/Program Files/MATLAB2024B/extern/include"
+-I"D:/Program Files/MATLAB2024B/simulink/include"
+-I"D:/Program Files/MATLAB2024B/rtw/c/src"
+-I"D:/Program Files/MATLAB2024B/toolbox/coder/rtiostream/src/rtiostreamtcpip"
+-I"D:/Program Files/MATLAB2024B/toolbox/coder/rtiostream/src/utils"

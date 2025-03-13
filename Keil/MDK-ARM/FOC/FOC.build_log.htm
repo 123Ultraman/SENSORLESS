@@ -1,0 +1,79 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: AOSHEN sa12761564831@outlook.com, UESTC, LIC=ZB4EI-TB36I-RALDM-XPG75-QC6LZ-TPJWE
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
+Toolchain Path:  D:\Program Files\KEIL\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.53.0.0
+ 
+<h2>Project:</h2>
+F:\work\MOTOR_Control\SENSORLESS\Keil\MDK-ARM\FOC.uvprojx
+Project File Date:  03/13/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Program Files\KEIL\ARM\ARMCC\Bin'
+Build target 'FOC'
+compiling main.c...
+../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+../FOC/VESC_control.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+../Core/Src/main.c: 3 warnings, 0 errors
+compiling FOC.c...
+../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
+  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
+../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
+        #define __FPU_USED       1U
+..\FOC\VESC_control.h(52): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\FOC\FOC.c(720): warning:  #223-D: function "memcpy" declared implicitly
+  			memcpy(&tx_buffer[1], temp, sizeof(temp));
+..\FOC\FOC.c(742): warning:  #550-D: variable "LastSpeedElecReal"  was set but never used
+  		static float LastSpeedElecReal = 0;
+..\FOC\FOC.c: 5 warnings, 0 errors
+linking...
+Program Size: Code=29724 RO-data=4396 RW-data=360 ZI-data=2048  
+FromELF: creating hex file...
+"FOC\FOC.axf" - 0 Error(s), 8 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.5.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32G4xx_DFP.1.6.0.pack
+                Keil.STM32G4xx_DFP.1.6.0
+                STMicroelectronics STM32G4 Series Device Support, Drivers and Examples
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_FOC
+  D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.5.0
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

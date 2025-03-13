@@ -1,0 +1,10 @@
+%implements s2_b0_w4wyd_BlockInstanceSetup "C"
+
+%function BlockInstanceSetup(block, system) Output
+%% Subsystems with iterators in IR:
+%% TLC Block Registration buffer:
+%<LibAddToCommonIncludes("asynciocoder_api.hpp")>
+%<LibAddToCommonIncludes("coder_posix_time.h")>
+%<LibAddToCommonIncludes("asynciocoder_api.hpp")>
+%% END  Block Registration buffer
+%endfunction

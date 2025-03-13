@@ -1,0 +1,172 @@
+%implements s2_b0_w4wyd_TLCInterface "C"
+
+%function getInputAddr_2_2_0_118_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_2_0_118_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_2_2_0_118_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_2_0_118_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_2_2_0_118_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtDW.pcuwkrblpf" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_2_2_0_118_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtDW.pcuwkrblpf" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_2_3_0_118_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_3_0_118_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_2_3_0_118_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtDW.m24rbhsp4n"
+%endfunction
+
+%function getDWork_2_3_0_118_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtDW.m24rbhsp4n"
+%endfunction
+
+%function getInputAddr_2_4_0_118_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_4_0_118_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_2_4_0_118_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtDW.pi1lwxkgah"
+%endfunction
+
+%function getDWork_2_4_0_118_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtDW.pi1lwxkgah"
+%endfunction
+
+%function getInputAddr_2_2_0_120_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_2_0_120_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_2_2_0_120_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_2_0_120_0_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_2_2_0_120_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtDW.pcuwkrblpf" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWork_2_2_0_120_0_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtDW.pcuwkrblpf" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInputAddr_2_3_0_120_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_3_0_120_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_2_3_0_120_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtDW.m24rbhsp4n"
+%endfunction
+
+%function getDWork_2_3_0_120_1_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtDW.m24rbhsp4n"
+%endfunction
+
+%function getInputAddr_2_4_0_120_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getInput_2_4_0_120_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtB.dxcp5ew2or" + SLibCG_ArrayIndexer(ucv, lcv, sigIdx)
+%endfunction
+
+%function getDWorkAddr_2_4_0_120_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtDW.pi1lwxkgah"
+%endfunction
+
+%function getDWork_2_4_0_120_2_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtDW.pi1lwxkgah"
+%endfunction
+
+%function getDWorkAddr_2_5_0_120_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtDW.icnugf5rxi"
+%endfunction
+
+%function getDWork_2_5_0_120_3_0_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtDW.icnugf5rxi"
+%endfunction
+
+%function getParamAddr_2_5_0_120_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtP.RealTimeSynchronization_MaxMissedTicks"
+%endfunction
+
+%function getParam_2_5_0_120_3_1_0(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtP.RealTimeSynchronization_MaxMissedTicks"
+%endfunction
+
+%function getParamAddr_2_5_0_120_3_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "&rtP.RealTimeSynchronization_YieldWhenWaiting"
+%endfunction
+
+%function getParam_2_5_0_120_3_1_1(opaqueBlock, block, lcv, ucv, sigIdx, reim) void
+
+%return "rtP.RealTimeSynchronization_YieldWhenWaiting"
+%endfunction
+
