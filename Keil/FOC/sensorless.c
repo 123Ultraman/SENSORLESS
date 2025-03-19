@@ -1,9 +1,5 @@
-#include "VESC_control.h"
+#include "sensorless.h"
 #include "foc.h"
-//#include "coreDef.h"
-//#include "main.h"
-////#include "BSP_DWT.h"
-//#include "mc.h"
 #include "arm_common_tables.h"
 #include "arm_math.h"
 

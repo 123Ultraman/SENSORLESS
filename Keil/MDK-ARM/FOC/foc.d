@@ -40,4 +40,4 @@ foc\foc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
 foc\foc.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\math.h
 foc\foc.o: ..\FOC\offline_pi.h
 foc\foc.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-foc\foc.o: ..\FOC\VESC_control.h
+foc\foc.o: ..\FOC\sensorless.h

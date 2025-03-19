@@ -44,6 +44,6 @@ foc\main.o: ../Core/Inc/usart.h
 foc\main.o: ../Core/Inc/gpio.h
 foc\main.o: ../FOC/foc.h
 foc\main.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
-foc\main.o: ../FOC/VESC_control.h
+foc\main.o: ../FOC/sensorless.h
 foc\main.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdarg.h
 foc\main.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\string.h

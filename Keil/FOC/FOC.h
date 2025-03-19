@@ -28,8 +28,8 @@ typedef struct FOC_P
 {
 	float AngleE;
 	float AngleBase;
-	float SpeedElecReal;
-	float SpeedElecRef;
+	float SpeedMachReal;
+	float SpeedMachRef;
 }FOC_P;
 
 typedef struct Motor_P

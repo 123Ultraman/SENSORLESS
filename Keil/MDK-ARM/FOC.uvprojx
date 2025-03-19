@@ -839,49 +839,14 @@
               <FilePath>..\FOC\offline_pi.h</FilePath>
             </File>
             <File>
-              <FileName>Flux_observer.c</FileName>
+              <FileName>sensorless.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\FOC\Flux_observer.c</FilePath>
+              <FilePath>..\FOC\sensorless.c</FilePath>
             </File>
             <File>
-              <FileName>Flux_observer.h</FileName>
+              <FileName>sensorless.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\FOC\Flux_observer.h</FilePath>
-            </File>
-            <File>
-              <FileName>rtwtypes.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FOC\rtwtypes.h</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_DWT.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FOC\BSP_DWT.c</FilePath>
-            </File>
-            <File>
-              <FileName>BSP_DWT.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FOC\BSP_DWT.h</FilePath>
-            </File>
-            <File>
-              <FileName>control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FOC\control.c</FilePath>
-            </File>
-            <File>
-              <FileName>control.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FOC\control.h</FilePath>
-            </File>
-            <File>
-              <FileName>VESC_control.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FOC\VESC_control.c</FilePath>
-            </File>
-            <File>
-              <FileName>VESC_control.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FOC\VESC_control.h</FilePath>
+              <FilePath>..\FOC\sensorless.h</FilePath>
             </File>
           </Files>
         </Group>

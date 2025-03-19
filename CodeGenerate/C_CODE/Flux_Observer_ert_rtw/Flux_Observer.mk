@@ -1,9 +1,9 @@
 ###########################################################################
-## Makefile generated for component 'Flux_observer'. 
+## Makefile generated for component 'Flux_Observer'. 
 ## 
-## Makefile     : Flux_observer.mk
-## Generated on : Mon Mar 10 15:02:28 2025
-## Final product: $(RELATIVE_PATH_TO_ANCHOR)/Flux_observer.exe
+## Makefile     : Flux_Observer.mk
+## Generated on : Thu Mar 13 15:22:00 2025
+## Final product: $(RELATIVE_PATH_TO_ANCHOR)/Flux_Observer.exe
 ## Product type : executable
 ## 
 ###########################################################################
@@ -18,8 +18,8 @@
 # COMPILER_COMMAND_FILE   Compiler command listing model reference header paths
 # CMD_FILE                Command file
 
-PRODUCT_NAME              = Flux_observer
-MAKEFILE                  = Flux_observer.mk
+PRODUCT_NAME              = Flux_Observer
+MAKEFILE                  = Flux_Observer.mk
 MATLAB_ROOT               = D:/Program Files/MATLAB2024B
 MATLAB_BIN                = D:/Program Files/MATLAB2024B/bin
 MATLAB_ARCH_BIN           = $(MATLAB_BIN)/win64
@@ -30,8 +30,8 @@ CLASSIC_INTERFACE         = 0
 TGT_FCN_LIB               = ISO_C
 MODEL_HAS_DYNAMICALLY_LOADED_SFCNS = 0
 RELATIVE_PATH_TO_ANCHOR   = ..
-COMPILER_COMMAND_FILE     = Flux_observer_comp.rsp
-CMD_FILE                  = Flux_observer.rsp
+COMPILER_COMMAND_FILE     = Flux_Observer_comp.rsp
+CMD_FILE                  = Flux_Observer.rsp
 C_STANDARD_OPTS           = -fwrapv
 CPP_STANDARD_OPTS         = -fwrapv
 
@@ -156,7 +156,7 @@ SHAREDLIB_LDFLAGS    = -shared -Wl,--no-undefined \
 ## OUTPUT INFO
 ###########################################################################
 
-PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)/Flux_observer.exe
+PRODUCT = $(RELATIVE_PATH_TO_ANCHOR)/Flux_Observer.exe
 PRODUCT_TYPE = "executable"
 BUILD_TYPE = "Top-Level Standalone Executable"
 
@@ -175,7 +175,7 @@ INCLUDES = $(INCLUDES_BUILDINFO)
 DEFINES_BUILD_ARGS = -DCLASSIC_INTERFACE=0 -DALLOCATIONFCN=0 -DTERMFCN=0 -DONESTEPFCN=1 -DMAT_FILE=0 -DMULTI_INSTANCE_CODE=0 -DINTEGER_CODE=0 -DMT=0
 DEFINES_CUSTOM = 
 DEFINES_OPTS = -DTID01EQ=0
-DEFINES_STANDARD = -DMODEL=Flux_observer -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
+DEFINES_STANDARD = -DMODEL=Flux_Observer -DNUMST=1 -DNCSTATES=0 -DHAVESTDIO -DMODEL_HAS_DYNAMICALLY_LOADED_SFCNS=0
 
 DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(DEFINES_STANDARD)
 
@@ -183,9 +183,9 @@ DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(DEFINES_STAN
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)/Flux_observer_ert_rtw/Flux_observer.c
+SRCS = $(START_DIR)/Flux_Observer_ert_rtw/Flux_Observer.c
 
-MAIN_SRC = $(START_DIR)/Flux_observer_ert_rtw/ert_main.c
+MAIN_SRC = $(START_DIR)/Flux_Observer_ert_rtw/ert_main.c
 
 ALL_SRCS = $(SRCS) $(MAIN_SRC)
 
@@ -193,7 +193,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = Flux_observer.obj
+OBJS = Flux_Observer.obj
 
 MAIN_OBJ = ert_main.obj
 
@@ -313,6 +313,38 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(MAIN_OBJ)
 # SOURCE-TO-OBJECT
 #---------------------
 
+%.obj : %.c
+	$(CC) $(CFLAGS) -o "$@" "$<"
+
+
+%.obj : %.cpp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.obj : %.cc
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.obj : %.cp
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.obj : %.cxx
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.obj : %.CPP
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.obj : %.c++
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
+%.obj : %.C
+	$(CPP) $(CPPFLAGS) -o "$@" "$<"
+
+
 %.obj : $(RELATIVE_PATH_TO_ANCHOR)/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
@@ -377,35 +409,35 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.c
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.cpp
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.cpp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.cc
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.cc
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.cp
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.cp
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.cxx
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.cxx
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.CPP
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.CPP
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.c++
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.c++
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-%.obj : $(START_DIR)/Flux_observer_ert_rtw/%.C
+%.obj : $(START_DIR)/Flux_Observer_ert_rtw/%.C
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
@@ -505,11 +537,11 @@ $(PRODUCT) : $(OBJS) $(PREBUILT_OBJS) $(MAIN_OBJ)
 	$(CPP) $(CPPFLAGS) -o "$@" "$<"
 
 
-Flux_observer.obj : $(START_DIR)/Flux_observer_ert_rtw/Flux_observer.c
+Flux_Observer.obj : $(START_DIR)/Flux_Observer_ert_rtw/Flux_Observer.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 
-ert_main.obj : $(START_DIR)/Flux_observer_ert_rtw/ert_main.c
+ert_main.obj : $(START_DIR)/Flux_Observer_ert_rtw/ert_main.c
 	$(CC) $(CFLAGS) -o "$@" "$<"
 
 

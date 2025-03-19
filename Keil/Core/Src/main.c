@@ -29,7 +29,7 @@
 /* USER CODE BEGIN Includes */
 #include "foc.h"
 #include "stdio.h"
-#include "VESC_control.h"
+#include "sensorless.h"
 #include "usart.h"
 #include <stdarg.h>
 #include <string.h>
@@ -127,7 +127,9 @@ int main(void)
 //	HAL_UART_Transmit_DMA(&huart2, (uint8_t *)&rtY, sizeof(rtY));
   while (1)
   {
-//		printf("%f,%f,%f,%f,%f,%f\n",observer.Speed,observer.theta*57.295779513f,observer.cos_theta,observer.sin_theta,Motor.FOC_Parameter.SpeedElecReal,Motor.FOC_Parameter.AngleE);
+		//打印观测速度rpm、观测电角度、观测cos、观测sin、真实转速rpm、真实电角度
+		printf("%f,%f,%f,%f,%f,%f\n",observer.Speed,observer.theta*57.295779513f,observer.cos_theta,  \
+		observer.sin_theta,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.AngleE);
 //		HAL_Delay(1);
     /* USER CODE END WHILE */
 

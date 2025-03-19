@@ -27,30 +27,18 @@ Project File Date:  03/13/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Program Files\KEIL\ARM\ARMCC\Bin'
 Build target 'FOC'
-compiling main.c...
-../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
-  #define __FPU_PRESENT             1U       /*!< FPU present                                   */
-../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
-        #define __FPU_USED       1U
-../FOC/VESC_control.h(52): warning:  #1-D: last line of file ends without a newline
-  #endif
-../Core/Src/main.c: 3 warnings, 0 errors
 compiling FOC.c...
 ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h(51): warning:  #47-D: incompatible redefinition of macro "__FPU_PRESENT" 
   #define __FPU_PRESENT             1U       /*!< FPU present                                   */
 ../Drivers/CMSIS/Include/core_cm4.h(79): warning:  #47-D: incompatible redefinition of macro "__FPU_USED" 
         #define __FPU_USED       1U
-..\FOC\VESC_control.h(52): warning:  #1-D: last line of file ends without a newline
+..\FOC\sensorless.h(52): warning:  #1-D: last line of file ends without a newline
   #endif
-..\FOC\FOC.c(720): warning:  #223-D: function "memcpy" declared implicitly
-  			memcpy(&tx_buffer[1], temp, sizeof(temp));
-..\FOC\FOC.c(742): warning:  #550-D: variable "LastSpeedElecReal"  was set but never used
-  		static float LastSpeedElecReal = 0;
-..\FOC\FOC.c: 5 warnings, 0 errors
+..\FOC\FOC.c: 3 warnings, 0 errors
 linking...
-Program Size: Code=29724 RO-data=4396 RW-data=360 ZI-data=2048  
+Program Size: Code=31904 RO-data=4400 RW-data=364 ZI-data=2044  
 FromELF: creating hex file...
-"FOC\FOC.axf" - 0 Error(s), 8 Warning(s).
+"FOC\FOC.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 

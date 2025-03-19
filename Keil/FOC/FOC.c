@@ -2,7 +2,7 @@
 #include "math.h"
 #include "offline_pi.h"
 #include "stdio.h"
-#include "VESC_control.h"
+#include "sensorless.h"
 uint8_t Flag = 0;
 int ZeroSpeedCnt = 0;
 float AngleSum = 0;
@@ -346,9 +346,9 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 	if(ZeroSpeedCnt>ZeroSpeedCntMax)
 	{
 		ZeroSpeedCnt = 0;
-		Motor.FOC_Parameter.SpeedElecReal = 0;
+		Motor.FOC_Parameter.SpeedMachReal = 0;
 	}
-	AngleSum = (float)(TIM2->CNT) / (float)TIM2_CLK * 6.0f * Motor.FOC_Parameter.SpeedElecReal;
+	AngleSum = (float)(TIM2->CNT) / (float)TIM2_CLK * 6.0f * Motor.FOC_Parameter.SpeedMachReal;
 	Motor.FOC_Parameter.AngleE = fmod((Motor.FOC_Parameter.AngleBase + AngleSum),360.0f);
 	
 	//保护
@@ -536,8 +536,8 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 					Motor.U_2r.D = 0;
 					AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
 					SVPWM(&Motor.U_2s);
-					//We = SpeedElecReal/60*2pi*Pn = SpeedElecReal*0.104719755f
-					temp2 = Motor.FOC_Parameter.SpeedElecReal * 0.209439510f;
+					//We = SpeedMachReal/60*2pi*Pn = SpeedMachReal*0.104719755f
+					temp2 = Motor.FOC_Parameter.SpeedMachReal * 0.209439510f;
 					temp1 = (Motor.U_2r.Q - Motor.Motor_Parameter.Rs*Motor.I_2r.Q  \
 					- temp2 * Motor.Motor_Parameter.Ld * Motor.I_2r.D)/ temp2;
 					if (Count >= 90000 && Count < 100000)
@@ -549,7 +549,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 			else if(Count >= 100000)
 			{
 					PWM_Stop();
-					if(Motor.FOC_Parameter.SpeedElecReal == 0)
+					if(Motor.FOC_Parameter.SpeedMachReal == 0)
 					{
 							Count = 0;  // 复位计数
 							State = PARAMETER_IDENTIFY_J;  // 切换到下一个状态
@@ -580,8 +580,8 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 		
 		case PARAMETER_IDENTIFY_J:
 		{
-			Motor.FOC_Parameter.SpeedElecRef = 3000;
-			PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedElecReal,Motor.FOC_Parameter.SpeedElecRef);
+			Motor.FOC_Parameter.SpeedMachRef = 3000;
+			PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
 			PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
 			PIControler(&Motor.IdPI,Motor.I_2r.D,0);
 			
@@ -596,7 +596,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 			static float sum = 0 ,temp2 = 1;
 			temp1 = Motor.I_2r.Q*Motor.Motor_Parameter.flux*3*Ts;
 			sum = sum + temp1;
-			Wm = Motor.FOC_Parameter.SpeedElecReal * 0.104719755f;//Wm = SpeedElecReal/60*2pi = SpeedElecReal*0.104719755f
+			Wm = Motor.FOC_Parameter.SpeedMachReal * 0.104719755f;//Wm = SpeedMachReal/60*2pi = SpeedMachReal*0.104719755f
 			Motor.Motor_Parameter.Pj = Motor.Motor_Parameter.Pj / Motor.Motor_Parameter.u;
 			Motor.Motor_Parameter.Pj = Motor.Motor_Parameter.Pj - (Motor.Motor_Parameter.Pj \
 			*Motor.Motor_Parameter.Pj)*(sum*sum)/(1+sum*sum*Motor.Motor_Parameter.Pj);
@@ -658,8 +658,8 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 							{
 									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
 							}
-							Motor.FOC_Parameter.SpeedElecRef = (float)(2*(int)ADC1_value[3]-4095);
-							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedElecReal,Motor.FOC_Parameter.SpeedElecRef);
+							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
+							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
 							Motor.U_2r.Q = Motor.SpeedPI.output;
 							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
 							SVPWM(&Motor.U_2s);
@@ -667,31 +667,28 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 					}
 					case 3:
 					{		
-							if(LED_Count%2500 == 0)
-							{
-									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-							}
-							Motor.FOC_Parameter.SpeedElecRef = (float)(2*(int)ADC1_value[3]-4095);
-							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedElecReal,Motor.FOC_Parameter.SpeedElecRef);
-						
-							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
-							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
-							
-							Motor.U_2r.Q = Motor.IqPI.output;
-							Motor.U_2r.D = Motor.IdPI.output;
-							
-							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
-							SVPWM(&Motor.U_2s);
-							break;
-					}
-					case 4:
-					{
+//							if(LED_Count%2500 == 0)
+//							{
+//									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
+//							}
+//							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
+//							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
+//						
+//							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
+//							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
+//							
+//							Motor.U_2r.Q = Motor.IqPI.output;
+//							Motor.U_2r.D = Motor.IdPI.output;
+//							
+//							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
+//							SVPWM(&Motor.U_2s);
+//							break;
 							if(LED_Count%1250 == 0)
 							{
 									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
 							}
-							Motor.FOC_Parameter.SpeedElecRef = (float)(2*(int)ADC1_value[3]-4095);
-							PIControler(&Motor.SpeedPI,observer.Speed,Motor.FOC_Parameter.SpeedElecRef);
+							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
+							PIControler(&Motor.SpeedPI,observer.Speed,Motor.FOC_Parameter.SpeedMachRef);
 						
 							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
 							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
@@ -707,21 +704,21 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 					default:break;
 			}
 			flux_observer(Motor.U_2s.Alpha,Motor.U_2s.Beta,Motor.I_2s.Alpha,Motor.I_2s.Beta,&observer);
-			
-			float temp[4];
-			uint8_t tx_buffer[1 + sizeof(temp) + 1];
-			temp[0] = observer.cos_theta;
-			temp[1] = observer.sin_theta;
-			temp[2] = observer.Speed;
-			temp[3] = observer.theta;
-			tx_buffer[0] = 'S';
 
-			// 复制 float 数组到 tx_buffer
-			memcpy(&tx_buffer[1], temp, sizeof(temp));
+//			float temp[4];
+//			uint8_t tx_buffer[1 + sizeof(temp) + 1];
+//			temp[0] = observer.cos_theta;
+//			temp[1] = observer.sin_theta;
+//			temp[2] = observer.Speed;
+//			temp[3] = observer.theta;
+//			tx_buffer[0] = 'S';
 
-			// 帧尾 'E'
-			tx_buffer[1 + sizeof(temp)] = 'E';
-			HAL_UART_Transmit_DMA(&huart2,(uint8_t*)tx_buffer,sizeof(tx_buffer));
+//			// 复制 float 数组到 tx_buffer
+//			memcpy(&tx_buffer[1], temp, sizeof(temp));
+
+//			// 帧尾 'E'
+//			tx_buffer[1 + sizeof(temp)] = 'E';
+//			HAL_UART_Transmit_DMA(&huart2,(uint8_t*)tx_buffer,sizeof(tx_buffer));
 			break;
 			
 		default:PWM_Stop();break;
@@ -746,24 +743,24 @@ void HAL_TIM_IC_CaptureCallback( TIM_HandleTypeDef *  htim )
 		ZeroSpeedCnt = 0;
 		HALL = (HAL_GPIO_ReadPin(HALL_A_GPIO_Port,HALL_A_Pin)<<2 |  HAL_GPIO_ReadPin(HALL_B_GPIO_Port,HALL_B_Pin)<<1
 		| HAL_GPIO_ReadPin(HALL_C_GPIO_Port,HALL_C_Pin));
-		LastSpeedElecReal = Motor.FOC_Parameter.SpeedElecReal;
-		Motor.FOC_Parameter.SpeedElecReal = K_SPEED/TIM2->CCR1;
+		LastSpeedElecReal = Motor.FOC_Parameter.SpeedMachReal;
+		Motor.FOC_Parameter.SpeedMachReal = K_SPEED/TIM2->CCR1;
 		//滤波
-//		Motor.FOC_Parameter.SpeedElecReal = 0.5f * Motor.FOC_Parameter.SpeedElecReal + 0.5f * LastSpeedElecReal;
+		Motor.FOC_Parameter.SpeedMachReal = 0.5f * Motor.FOC_Parameter.SpeedMachReal + 0.5f * LastSpeedElecReal;
 		switch(HALL)
 		{
 			case 1:Motor.FOC_Parameter.AngleBase = 210;
-			if(LastHall == 5){Motor.FOC_Parameter.SpeedElecReal = -Motor.FOC_Parameter.SpeedElecReal;}break;
+			if(LastHall == 5){Motor.FOC_Parameter.SpeedMachReal = -Motor.FOC_Parameter.SpeedMachReal;}break;
 			case 2:Motor.FOC_Parameter.AngleBase = 90;
-			if(LastHall == 3){Motor.FOC_Parameter.SpeedElecReal = -Motor.FOC_Parameter.SpeedElecReal;}break;
+			if(LastHall == 3){Motor.FOC_Parameter.SpeedMachReal = -Motor.FOC_Parameter.SpeedMachReal;}break;
 			case 3:Motor.FOC_Parameter.AngleBase = 150;
-			if(LastHall == 1){Motor.FOC_Parameter.SpeedElecReal = -Motor.FOC_Parameter.SpeedElecReal;}break;
+			if(LastHall == 1){Motor.FOC_Parameter.SpeedMachReal = -Motor.FOC_Parameter.SpeedMachReal;}break;
 			case 4:Motor.FOC_Parameter.AngleBase = 330;
-			if(LastHall == 6){Motor.FOC_Parameter.SpeedElecReal = -Motor.FOC_Parameter.SpeedElecReal;}break;
+			if(LastHall == 6){Motor.FOC_Parameter.SpeedMachReal = -Motor.FOC_Parameter.SpeedMachReal;}break;
 			case 5:Motor.FOC_Parameter.AngleBase = 270;
-			if(LastHall == 4){Motor.FOC_Parameter.SpeedElecReal = -Motor.FOC_Parameter.SpeedElecReal;}break;
+			if(LastHall == 4){Motor.FOC_Parameter.SpeedMachReal = -Motor.FOC_Parameter.SpeedMachReal;}break;
 			case 6:Motor.FOC_Parameter.AngleBase = 30;
-			if(LastHall == 2){Motor.FOC_Parameter.SpeedElecReal = -Motor.FOC_Parameter.SpeedElecReal;}break;
+			if(LastHall == 2){Motor.FOC_Parameter.SpeedMachReal = -Motor.FOC_Parameter.SpeedMachReal;}break;
 			default: break;
 		}
 	}
@@ -791,7 +788,7 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 				{
 					Flag++;
 					PWM_Start();
-					if(Flag > 4 )
+					if(Flag > 3 )
 					{
 						Flag = 0;
 					}
