@@ -1,0 +1,25 @@
+	---> Registering atexit function
+	---> i18n_init
+	---> Parse Arguments
+	---> sdiInitializeForHostBasedTarget
+	---> Initialize the model
+	---> rsimLoadOptionsFromMATFile
+	---> rt_RapidInitDiagLoggerDB home: C:\Users\sa127\AppData\Local\Temp\, id: 554539
+	---> rt_RapidInitDiagLoggerDB done
+*** Using a default buffer of size 1024 for logging variable tout
+警告: 模型停止时间设置为无穷。仿真可能永远运行。
+	---> slsaFreeOPModelData
+	---> rt_FreeParamStructs
+	---> TgtConnTerm
+	---> rtwISigstreamManagerDestroyInstance
+	---> rtwLoggingIntervalDestroyInstance
+	---> rt_RapidReleaseDiagLoggerDB
+	---> rt_RapidReleaseDiagLoggerDB
+	---> rt_RapidReleaseDiagLoggerDB Done
+	---> rt_RapidFreeGbls
+	---> rtDestroyRevalMgr
+	---> done raccel main
+The argument '-tgtconn_server_info_file' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument 'C:\Users\sa127\AppData\Local\Temp\tgtconnpc4bfbb65_9254_4941_9da4_93cedcf5182b.info' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '-tgtconn_port' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument '0' passed to rtiostream_tcpip is not valid and will be ignored.

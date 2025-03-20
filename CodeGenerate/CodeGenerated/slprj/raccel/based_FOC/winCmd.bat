@@ -1,0 +1,2 @@
+chcp 65001
+cmd /D /c start "RapidAccelerator" /B "F:\work\MOTOR_Control\SENSORLESS\CodeGenerate\CodeGenerated\slprj\raccel\based_FOC\based_FOC.exe" --config "C:\Users\sa127\AppData\Local\Temp\raccel_inputpc4bfbb65_9254_4941_9da4_93cedcf5182b.cfg" -server_info_file "C:\Users\sa127\AppData\Local\Temp\tppc4bfbb65_9254_4941_9da4_93cedcf5182b.info" -tgtconn_server_info_file "C:\Users\sa127\AppData\Local\Temp\tgtconnpc4bfbb65_9254_4941_9da4_93cedcf5182b.info" -tgtconn_port 0 -port 0 -w >"F:\work\MOTOR_Control\SENSORLESS\CodeGenerate\CodeGenerated\slprj\raccel\based_FOC\cmdLog.txt"
