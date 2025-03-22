@@ -27,8 +27,10 @@ typedef struct UI_2r
 typedef struct FOC_P
 {
 	float AngleE;
+	float AngleE_rad;
 	float AngleBase;
 	float SpeedMachReal;
+	float SpeedElecReal_rad;
 	float SpeedMachRef;
 }FOC_P;
 
@@ -128,10 +130,10 @@ void PIControler(PI_Structure* PI,float real_value,float set_value);
 void FocInit(void);
 float temperature_lookup(int ADC_value);
 void Protection(void);
+void atan2_cordic(float x,float y, float* RES);
 #define RS						0.60f
 #define LS            0.00045f
-#define PHI           0.0058
-
+#define PHI           0.0058f
 #define VALUE_1_3						0.333333333333333f              //1/3
 #define VALUE_2_3           0.666666666666667f              //2/3
 #define VALUE_1_2           0.5f                            //1/2
@@ -142,7 +144,7 @@ void Protection(void);
 #define VALUE_1_SQRT3       0.577350269189626f              //  1/sqrt(3)
 #define Ts                  0.0001f                          //控制周期0.0001s
 #define Period              17000                            //计数值 
-#define Period_4            2125                            //8500/4
+#define Period_2            8500                            //8500
 #define Pn                  2                               //极对数
 #define TIM2_CLK            170000000                       //定时器二频率
 #define TIM1_CLK            170000000                       //定时器一频率
@@ -155,7 +157,9 @@ void Protection(void);
 #define temperature_MAX     80                              //过温保护阈值
 #define current_MAX         10                               //过流保护阈值
 #define FLASH_PAGE_ADDR  		0x0801F800  										// 最后一页 Flash 起始地址
-#define CURRENT_BASE        1.0                               //电机电流额定值                             
+#define CURRENT_BASE        1.0                               //电机电流额定值  
+#define pi                  3.1415927f
+#define U_dc                12	
 #define T1_Table {                                                               \
         0.0000000e+00, 5.0000000e-01, 1.0000000e+00, 1.5000000e+00, 2.0000000e+00, \
         2.5000000e+00, 3.0000000e+00, 3.5000000e+00, 4.0000000e+00, 4.5000000e+00, \

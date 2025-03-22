@@ -1,8 +1,11 @@
 #include "foc.h"
 #include "math.h"
+#include "cordic.h"
+#include "dma.h"
 #include "offline_pi.h"
 #include "stdio.h"
 #include "sensorless.h"
+#include "arm_math.h"
 uint8_t Flag = 0;
 int ZeroSpeedCnt = 0;
 float AngleSum = 0;
@@ -11,10 +14,10 @@ extern UART_HandleTypeDef huart2;
 MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
 SystStatusEnum State = ADC_CALIBRATION;
 FaultStateStruct FaultState = {OK};
-
 //温度表
 const float T1[] = T1_Table;
 const int Rt_ADCvalue[] = Rt_ADCvalue_Table;
+volatile uint8_t cordic_done = 0; // CORDIC 计算完成标志
 	/**
   * @brief  初始化函数
   * @param 	none
@@ -40,6 +43,12 @@ void FocInit(void)
 	//flash电机参数读取
 	Flash_Read_PartialStruct(&Motor.Motor_Parameter);
 	Non_flux_Init(&observer);
+	SysTick->LOAD = 17000000-1;
+	observer.theta = 0.7853982f;
+	Motor.U_2r.Q = 3;
+	Motor.U_2r.D = 3;
+	AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,observer.theta);
+ 	SVPWM_120(&Motor.U_2s); 
 }
 
 /**
@@ -50,11 +59,11 @@ void FocInit(void)
 HAL_StatusTypeDef CordicInit(void)
 {
 	CORDIC_ConfigTypeDef sConfig;
-	sConfig.Function = CORDIC_FUNCTION_SINE;
+	sConfig.Function = CORDIC_FUNCTION_PHASE;
 	sConfig.InSize = CORDIC_INSIZE_32BITS;
-	sConfig.NbRead = CORDIC_NBREAD_2;
-	sConfig.NbWrite =CORDIC_NBWRITE_1;
 	sConfig.OutSize = CORDIC_OUTSIZE_32BITS;
+	sConfig.NbRead = CORDIC_NBREAD_2;
+	sConfig.NbWrite =CORDIC_NBWRITE_2;
 	sConfig.Precision = CORDIC_PRECISION_6CYCLES;
 	sConfig.Scale = CORDIC_SCALE_0;
 	
@@ -76,6 +85,31 @@ void Theta2SinCos(float Theta, float* pSinCos)
 	pSinCos[0] = (int32_t)(hcordic.Instance->RDATA) / VALUE_Q31_FLOAT;
 	pSinCos[1] = (int32_t)(hcordic.Instance->RDATA) / VALUE_Q31_FLOAT;
 }
+
+void atan2_cordic(float x, float y, float* RES)
+{
+    // 归一化 x, y，防止 Q31 溢出
+    float max_val = fmaxf(fabsf(x), fabsf(y)); 
+		float scale = 0;
+    if (max_val > 0.7f) 
+		{
+        x /= (max_val*2);
+        y /= (max_val*2);
+				scale = max_val*2;
+    }
+		else
+		{
+				scale = 1;
+		}
+		int32_t cordic_input[2] = { x*VALUE_Q31_FLOAT, y*VALUE_Q31_FLOAT };
+    int32_t cordic_output[2] = {0};  // 存放 CORDIC 计算结果
+    // 启动 CORDIC 计算
+    HAL_CORDIC_Calculate_DMA(&hcordic, cordic_input, cordic_output, 1, CORDIC_DMA_DIR_IN_OUT);
+		
+		RES[0] = (float)(cordic_output[0])*1.4629181e-9f;  // 角度转换
+    RES[1] = (float)(cordic_output[1])/ VALUE_Q31_FLOAT * scale; // 反归一化，得到正确模长
+}
+
 
 /**
   * @brief  等幅值克拉克变换，三相静止坐标系电流到两相精致静止坐标系电流
@@ -110,10 +144,9 @@ void AntiClark(UI_3s* UI_3s,UI_2s* UI_2s)
   */
 void Park(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E)
 {
-	float pSinCos[2];
-	Theta2SinCos(Theta_E,pSinCos);
-	UI_2r->D = pSinCos[1] * UI_2s->Alpha + pSinCos[0] * UI_2s->Beta;
-	UI_2r->Q = -pSinCos[0] * UI_2s->Alpha + pSinCos[1] * UI_2s->Beta;
+//	float theta = Theta_E*0.017453292519943f;//  1/180*pi
+	UI_2r->D = arm_cos_f32(Theta_E) * UI_2s->Alpha + arm_sin_f32(Theta_E) * UI_2s->Beta;
+	UI_2r->Q = -arm_sin_f32(Theta_E) * UI_2s->Alpha + arm_cos_f32(Theta_E)* UI_2s->Beta;
 }
 
 /**
@@ -124,10 +157,9 @@ void Park(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E)
   */
 void AntiPark(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E)
 {
-	float pSinCos[2];
-	Theta2SinCos(Theta_E,pSinCos);
-	UI_2s->Alpha = pSinCos[1] * UI_2r->D - pSinCos[0] * UI_2r->Q;
-	UI_2s->Beta = pSinCos[0] * UI_2r->D + pSinCos[1] * UI_2r->Q;
+//	float theta = Theta_E*0.017453292519943f;//  1/180*pi
+	UI_2s->Alpha = arm_cos_f32(Theta_E) * UI_2r->D - arm_sin_f32(Theta_E) * UI_2r->Q;
+	UI_2s->Beta = arm_sin_f32(Theta_E) * UI_2r->D + arm_cos_f32(Theta_E) * UI_2r->Q;
 }
 
 /**
@@ -190,39 +222,39 @@ void SVPWM(UI_2s* UI_2s)
   * @retval none
   */
 
-void PIControler(PI_Structure* PI,float real_value,float set_value)
+void PIControler(PI_Structure* PIStruct,float real_value,float set_value)
 {
-	PI->last_error = PI->error;
-	PI->error = set_value - real_value;
-	PI->integral = PI->integral + PI->Ki * PI->error;
-	PI->gain = PI->Kp * PI->error;
+	PIStruct->last_error = PIStruct->error;
+	PIStruct->error = set_value - real_value;
+	PIStruct->integral = PIStruct->integral + PIStruct->Ki * PIStruct->error;
+	PIStruct->gain = PIStruct->Kp * PIStruct->error;
 	
-	if (PI->integral>6)
+	if (PIStruct->integral>6)
 	{
-		PI->integral = 6;
+		PIStruct->integral = 6;
 	}
-	else if (PI->integral< (-6))
+	else if (PIStruct->integral< (-6))
 	{
-		PI->integral = -6;
-	}
-	
-	if (PI->gain>6)
-	{
-		PI->gain = 6;
-	}
-	else if (PI->gain< (-6))
-	{
-		PI->gain = -6;
+		PIStruct->integral = -6;
 	}
 	
-	PI->output = PI->gain + PI->integral;
-	if (PI->output>6)
+	if (PIStruct->gain>6)
 	{
-		PI->output = 6;
+		PIStruct->gain = 6;
 	}
-	else if (PI->output< (-6))
+	else if (PIStruct->gain< (-6))
 	{
-		PI->output = -6;
+		PIStruct->gain = -6;
+	}
+	
+	PIStruct->output = PIStruct->gain + PIStruct->integral;
+	if (PIStruct->output>6)
+	{
+		PIStruct->output = 6;
+	}
+	else if (PIStruct->output< (-6))
+	{
+		PIStruct->output = -6;
 	}
 }
 /**
@@ -326,6 +358,9 @@ void Protection(void)
   */
 void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc ) 
 {
+	static int time_count1 = 0;
+	time_count1 = 0;
+	SysTick->VAL = SysTick->LOAD;
 	if(hadc == &hadc1)
 	{
 	static int LED_Count = 0;
@@ -339,7 +374,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 	Motor.I_3s.B = ( -(int)ADC1_value[1] + offset[1] ) / K_adc;
 	Motor.I_3s.C = ( -(int)ADC1_value[2] + offset[2] ) / K_adc;
 	Clark(&Motor.I_3s,&Motor.I_2s);
-	Park(&Motor.I_2s,&Motor.I_2r,Motor.FOC_Parameter.AngleE);
+	Park(&Motor.I_2s,&Motor.I_2r,Motor.FOC_Parameter.AngleE_rad);
 	
 	//电机角度计算
 	ZeroSpeedCnt ++;
@@ -350,7 +385,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 	}
 	AngleSum = (float)(TIM2->CNT) / (float)TIM2_CLK * 6.0f * Motor.FOC_Parameter.SpeedMachReal;
 	Motor.FOC_Parameter.AngleE = fmod((Motor.FOC_Parameter.AngleBase + AngleSum),360.0f);
-	
+	Motor.FOC_Parameter.AngleE_rad = Motor.FOC_Parameter.AngleE*0.017453292519943f;///1/180*pi;
 	//保护
 	Protection();
 
@@ -479,7 +514,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 			else if (stage >= 2 && stage <= 6)  // 第三到第七阶段: Alpha 取数组值
 			{
 					
-					angle = 36.0f * (Count % 10);
+					angle = 0.6283185f * (Count % 10);
 					Motor.U_2r.Q = 2;
 					Motor.U_2r.D = 0;
 					AntiPark(&Motor.U_2s,&Motor.U_2r,angle);
@@ -534,7 +569,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 					Count++;  // 计数递增
 					Motor.U_2r.Q = 6;
 					Motor.U_2r.D = 0;
-					AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
+					AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
 					SVPWM(&Motor.U_2s);
 					//We = SpeedMachReal/60*2pi*Pn = SpeedMachReal*0.104719755f
 					temp2 = Motor.FOC_Parameter.SpeedMachReal * 0.209439510f;
@@ -588,7 +623,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 			Motor.U_2r.Q = Motor.IqPI.output;
 			Motor.U_2r.D = Motor.IdPI.output;
 			
-			AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
+			AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
 			SVPWM(&Motor.U_2s);
 			
 			
@@ -643,13 +678,18 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 					
 					case 1:
 					{
+							
 							if(LED_Count%10000 == 0)
 							{
 									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
 							}
 							Motor.U_2r.Q = (float)(2*(int)ADC1_value[3]-4095)/4095.0f*6.0f;
-							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
-							SVPWM(&Motor.U_2s);  
+//							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
+//							SVPWM(&Motor.U_2s); 
+							
+							AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
+ 							SVPWM_120(&Motor.U_2s);
+
 							break;
 					}
 					case 2:
@@ -661,34 +701,18 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
 							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
 							Motor.U_2r.Q = Motor.SpeedPI.output;
-							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
+							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
 							SVPWM(&Motor.U_2s);
 							break;
 					}
 					case 3:
 					{		
-//							if(LED_Count%2500 == 0)
-//							{
-//									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-//							}
-//							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
-//							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
-//						
-//							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
-//							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
-//							
-//							Motor.U_2r.Q = Motor.IqPI.output;
-//							Motor.U_2r.D = Motor.IdPI.output;
-//							
-//							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE);
-//							SVPWM(&Motor.U_2s);
-//							break;
-							if(LED_Count%1250 == 0)
+							if(LED_Count%2500 == 0)
 							{
 									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
 							}
 							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
-							PIControler(&Motor.SpeedPI,observer.Speed,Motor.FOC_Parameter.SpeedMachRef);
+							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
 						
 							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
 							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
@@ -696,10 +720,26 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 							Motor.U_2r.Q = Motor.IqPI.output;
 							Motor.U_2r.D = Motor.IdPI.output;
 							
-							AntiPark(&Motor.U_2s,&Motor.U_2r,observer.theta*57.295779513f);
+							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
 							SVPWM(&Motor.U_2s);
-							
 							break;
+//							if(LED_Count%1250 == 0)
+//							{
+//									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
+//							}
+//							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095)*2;
+//							PIControler(&Motor.SpeedPI,observer.Speed,Motor.FOC_Parameter.SpeedMachRef);
+//						
+//							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
+//							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
+//							
+//							Motor.U_2r.Q = Motor.IqPI.output;
+//							Motor.U_2r.D = Motor.IdPI.output;
+
+//							AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,observer.theta);
+// 							SVPWM_120(&Motor.U_2s);
+//							
+//							break;
 					}
 					default:break;
 			}
@@ -724,6 +764,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 		default:PWM_Stop();break;
 	}
 	}
+time_count1 = SysTick->LOAD - SysTick->VAL;
 } 
 
 /**
@@ -746,7 +787,6 @@ void HAL_TIM_IC_CaptureCallback( TIM_HandleTypeDef *  htim )
 		LastSpeedElecReal = Motor.FOC_Parameter.SpeedMachReal;
 		Motor.FOC_Parameter.SpeedMachReal = K_SPEED/TIM2->CCR1;
 		//滤波
-		Motor.FOC_Parameter.SpeedMachReal = 0.5f * Motor.FOC_Parameter.SpeedMachReal + 0.5f * LastSpeedElecReal;
 		switch(HALL)
 		{
 			case 1:Motor.FOC_Parameter.AngleBase = 210;
@@ -763,6 +803,7 @@ void HAL_TIM_IC_CaptureCallback( TIM_HandleTypeDef *  htim )
 			if(LastHall == 2){Motor.FOC_Parameter.SpeedMachReal = -Motor.FOC_Parameter.SpeedMachReal;}break;
 			default: break;
 		}
+		Motor.FOC_Parameter.SpeedMachReal = 0.5f * Motor.FOC_Parameter.SpeedMachReal + 0.5f * LastSpeedElecReal;
 	}
 }
 

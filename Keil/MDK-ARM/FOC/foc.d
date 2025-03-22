@@ -38,6 +38,11 @@ foc\foc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 foc\foc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
 foc\foc.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
 foc\foc.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\math.h
+foc\foc.o: ../Core/Inc/cordic.h
+foc\foc.o: ../Core/Inc/dma.h
 foc\foc.o: ..\FOC\offline_pi.h
 foc\foc.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
 foc\foc.o: ..\FOC\sensorless.h
+foc\foc.o: ../DSP/arm_math.h
+foc\foc.o: ../Drivers/CMSIS/Include/core_cm4.h
+foc\foc.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\string.h

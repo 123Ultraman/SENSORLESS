@@ -1,6 +1,5 @@
 foc\sensorless.o: ..\FOC\sensorless.c
 foc\sensorless.o: ..\FOC\sensorless.h
-foc\sensorless.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 foc\sensorless.o: ..\FOC\foc.h
 foc\sensorless.o: ../Core/Inc/main.h
 foc\sensorless.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
@@ -10,6 +9,7 @@ foc\sensorless.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_def.h
 foc\sensorless.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g4xx.h
 foc\sensorless.o: ../Drivers/CMSIS/Device/ST/STM32G4xx/Include/stm32g431xx.h
 foc\sensorless.o: ../Drivers/CMSIS/Include/core_cm4.h
+foc\sensorless.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdint.h
 foc\sensorless.o: ../Drivers/CMSIS/Include/cmsis_version.h
 foc\sensorless.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
 foc\sensorless.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
@@ -43,3 +43,4 @@ foc\sensorless.o: ../DSP/arm_math.h
 foc\sensorless.o: ../Drivers/CMSIS/Include/core_cm4.h
 foc\sensorless.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\string.h
 foc\sensorless.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\math.h
+foc\sensorless.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\stdio.h
