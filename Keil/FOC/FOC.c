@@ -44,11 +44,14 @@ void FocInit(void)
 	Flash_Read_PartialStruct(&Motor.Motor_Parameter);
 	Non_flux_Init(&observer);
 	SysTick->LOAD = 17000000-1;
-	observer.theta = 0.7853982f;
-	Motor.U_2r.Q = 3;
-	Motor.U_2r.D = 3;
-	AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,observer.theta);
- 	SVPWM_120(&Motor.U_2s); 
+	for(int i = 0; i < 100; i++)
+	{
+			observer.theta += 0.1f;
+			Motor.U_2r.Q += -0.1f;
+			Motor.U_2r.D = 3;
+			AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,observer.theta);
+			SVPWM_120(&Motor.U_2s);
+	}
 }
 
 /**
@@ -229,32 +232,32 @@ void PIControler(PI_Structure* PIStruct,float real_value,float set_value)
 	PIStruct->integral = PIStruct->integral + PIStruct->Ki * PIStruct->error;
 	PIStruct->gain = PIStruct->Kp * PIStruct->error;
 	
-	if (PIStruct->integral>6)
+	if (PIStruct->integral>8)
 	{
-		PIStruct->integral = 6;
+		PIStruct->integral = 8;
 	}
-	else if (PIStruct->integral< (-6))
+	else if (PIStruct->integral< (-8))
 	{
-		PIStruct->integral = -6;
+		PIStruct->integral = -8;
 	}
 	
-	if (PIStruct->gain>6)
+	if (PIStruct->gain>8)
 	{
-		PIStruct->gain = 6;
+		PIStruct->gain = 8;
 	}
-	else if (PIStruct->gain< (-6))
+	else if (PIStruct->gain< (-8))
 	{
-		PIStruct->gain = -6;
+		PIStruct->gain = -8;
 	}
 	
 	PIStruct->output = PIStruct->gain + PIStruct->integral;
-	if (PIStruct->output>6)
+	if (PIStruct->output>8)
 	{
-		PIStruct->output = 6;
+		PIStruct->output = 8;
 	}
-	else if (PIStruct->output< (-6))
+	else if (PIStruct->output< (-8))
 	{
-		PIStruct->output = -6;
+		PIStruct->output = -8;
 	}
 }
 /**
@@ -383,7 +386,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 		ZeroSpeedCnt = 0;
 		Motor.FOC_Parameter.SpeedMachReal = 0;
 	}
-	AngleSum = (float)(TIM2->CNT) / (float)TIM2_CLK * 6.0f * Motor.FOC_Parameter.SpeedMachReal;
+	AngleSum = (float)(TIM2->CNT) / (float)TIM2_CLK * 6.0f * Motor.FOC_Parameter.SpeedMachReal*Pn;
 	Motor.FOC_Parameter.AngleE = fmod((Motor.FOC_Parameter.AngleBase + AngleSum),360.0f);
 	Motor.FOC_Parameter.AngleE_rad = Motor.FOC_Parameter.AngleE*0.017453292519943f;///1/180*pi;
 	//保护
@@ -683,10 +686,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 							{
 									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
 							}
-							Motor.U_2r.Q = (float)(2*(int)ADC1_value[3]-4095)/4095.0f*6.0f;
-//							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
-//							SVPWM(&Motor.U_2s); 
-							
+							Motor.U_2r.Q = (float)(2*(int)ADC1_value[3]-4095)/4095.0f*6.0f*2;		
 							AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
  							SVPWM_120(&Motor.U_2s);
 
@@ -698,7 +698,7 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 							{
 									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
 							}
-							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
+							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095)*2;
 							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
 							Motor.U_2r.Q = Motor.SpeedPI.output;
 							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
@@ -711,8 +711,8 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 							{
 									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
 							}
-							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095);
-							PIControler(&Motor.SpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
+							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095)*2;
+							PIControler(&Motor.SpeedPI,observer.Speed,Motor.FOC_Parameter.SpeedMachRef);
 						
 							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
 							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
@@ -720,45 +720,13 @@ void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc )
 							Motor.U_2r.Q = Motor.IqPI.output;
 							Motor.U_2r.D = Motor.IdPI.output;
 							
-							AntiPark(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
-							SVPWM(&Motor.U_2s);
+							AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,observer.theta);
+ 							SVPWM_120(&Motor.U_2s);
 							break;
-//							if(LED_Count%1250 == 0)
-//							{
-//									HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
-//							}
-//							Motor.FOC_Parameter.SpeedMachRef = (float)(2*(int)ADC1_value[3]-4095)*2;
-//							PIControler(&Motor.SpeedPI,observer.Speed,Motor.FOC_Parameter.SpeedMachRef);
-//						
-//							PIControler(&Motor.IqPI,Motor.I_2r.Q,Motor.SpeedPI.output);
-//							PIControler(&Motor.IdPI,Motor.I_2r.D,0);
-//							
-//							Motor.U_2r.Q = Motor.IqPI.output;
-//							Motor.U_2r.D = Motor.IdPI.output;
-
-//							AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,observer.theta);
-// 							SVPWM_120(&Motor.U_2s);
-//							
-//							break;
 					}
 					default:break;
 			}
 			flux_observer(Motor.U_2s.Alpha,Motor.U_2s.Beta,Motor.I_2s.Alpha,Motor.I_2s.Beta,&observer);
-
-//			float temp[4];
-//			uint8_t tx_buffer[1 + sizeof(temp) + 1];
-//			temp[0] = observer.cos_theta;
-//			temp[1] = observer.sin_theta;
-//			temp[2] = observer.Speed;
-//			temp[3] = observer.theta;
-//			tx_buffer[0] = 'S';
-
-//			// 复制 float 数组到 tx_buffer
-//			memcpy(&tx_buffer[1], temp, sizeof(temp));
-
-//			// 帧尾 'E'
-//			tx_buffer[1 + sizeof(temp)] = 'E';
-//			HAL_UART_Transmit_DMA(&huart2,(uint8_t*)tx_buffer,sizeof(tx_buffer));
 			break;
 			
 		default:PWM_Stop();break;

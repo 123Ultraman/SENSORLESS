@@ -889,11 +889,6 @@
               <FilePath>..\DSP\arm_cortexM4lf_math.lib</FilePath>
             </File>
             <File>
-              <FileName>arm_atan2_f32.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DSP\arm_atan2_f32.c</FilePath>
-            </File>
-            <File>
               <FileName>fast_math_functions.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\DSP\fast_math_functions.h</FilePath>

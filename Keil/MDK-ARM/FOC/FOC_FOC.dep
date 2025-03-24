@@ -1,7 +1,7 @@
 Dependencies for Project 'FOC', Target 'FOC': (DO NOT MODIFY !)
 CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
 F (startup_stm32g431xx.s)(0x67DD66D2)(--cpu Cortex-M4.fp.sp -g --apcs=interwork --pd "__MICROLIB SETA 1"-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"--pd "__UVISION_VERSION SETA 536" --pd "_RTE_ SETA 1" --pd "STM32G431xx SETA 1" --pd "_RTE_ SETA 1"--list startup_stm32g431xx.lst --xref -o foc\startup_stm32g431xx.o --depend foc\startup_stm32g431xx.d)
-F (../Core/Src/main.c)(0x67DCCE53)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\main.o --omf_browse foc\main.crf --depend foc\main.d)
+F (../Core/Src/main.c)(0x67E0DAC9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\main.o --omf_browse foc\main.crf --depend foc\main.d)
 I (../Core/Inc/main.h)(0x67C2AF9E)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6730CBF1)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x67B7172B)
@@ -44,9 +44,9 @@ I (../Core/Inc/dma.h)(0x67420740)
 I (../Core/Inc/tim.h)(0x67B7172B)
 I (../Core/Inc/usart.h)(0x67B7172B)
 I (../Core/Inc/gpio.h)(0x67420740)
-I (../FOC/foc.h)(0x67DD6ED4)
+I (../FOC/foc.h)(0x67E0DAC9)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (../FOC/sensorless.h)(0x67DE440F)
+I (../FOC/sensorless.h)(0x67E0E55C)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdarg.h)(0x60252376)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\string.h)(0x6025237E)
 F (../Core/Src/gpio.c)(0x67C45C2A)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\gpio.o --omf_browse foc\gpio.crf --depend foc\gpio.d)
@@ -1109,8 +1109,8 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x6730CBF1)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x6730CBF1)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x6730CBF1)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6730CBF1)
-F (..\FOC\FOC.c)(0x67DE6EF8)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\foc.o --omf_browse foc\foc.crf --depend foc\foc.d)
-I (..\FOC\foc.h)(0x67DD6ED4)
+F (..\FOC\FOC.c)(0x67E0FB85)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\foc.o --omf_browse foc\foc.crf --depend foc\foc.d)
+I (..\FOC\foc.h)(0x67E0DAC9)
 I (../Core/Inc/main.h)(0x67C2AF9E)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6730CBF1)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x67B7172B)
@@ -1152,13 +1152,13 @@ I (../Core/Inc/cordic.h)(0x67430FB8)
 I (../Core/Inc/dma.h)(0x67420740)
 I (..\FOC\offline_pi.h)(0x67C51324)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdio.h)(0x60252374)
-I (..\FOC\sensorless.h)(0x67DE440F)
-I (../DSP/arm_math.h)(0x6464B7E7)
+I (..\FOC\sensorless.h)(0x67E0E55C)
+I (../DSP/arm_math.h)(0x67E0DAC9)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\string.h)(0x6025237E)
-F (..\FOC\FOC.h)(0x67DD6ED4)()
+F (..\FOC\FOC.h)(0x67E0DAC9)()
 F (..\FOC\offline_pi.c)(0x67C51471)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\offline_pi.o --omf_browse foc\offline_pi.crf --depend foc\offline_pi.d)
 I (..\FOC\offline_pi.h)(0x67C51324)
-I (..\FOC\foc.h)(0x67DD6ED4)
+I (..\FOC\foc.h)(0x67E0DAC9)
 I (../Core/Inc/main.h)(0x67C2AF9E)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6730CBF1)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x67B7172B)
@@ -1198,9 +1198,9 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6730CBF1)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\math.h)(0x60252378)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\string.h)(0x6025237E)
 F (..\FOC\offline_pi.h)(0x67C51324)()
-F (..\FOC\sensorless.c)(0x67DE722C)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\sensorless.o --omf_browse foc\sensorless.crf --depend foc\sensorless.d)
-I (..\FOC\sensorless.h)(0x67DE440F)
-I (..\FOC\foc.h)(0x67DD6ED4)
+F (..\FOC\sensorless.c)(0x67E0FD27)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\sensorless.o --omf_browse foc\sensorless.crf --depend foc\sensorless.d)
+I (..\FOC\sensorless.h)(0x67E0E55C)
+I (..\FOC\foc.h)(0x67E0DAC9)
 I (../Core/Inc/main.h)(0x67C2AF9E)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h)(0x6730CBF1)
 I (../Core/Inc/stm32g4xx_hal_conf.h)(0x67B7172B)
@@ -1237,14 +1237,14 @@ I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h)(0x6730CBF1)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h)(0x6730CBF1)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h)(0x6730CBF1)
 I (../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h)(0x6730CBF1)
-I (../DSP/arm_common_tables.h)(0x6464B7E7)
-I (../DSP/arm_math.h)(0x6464B7E7)
+I (../DSP/arm_common_tables.h)(0x67E0DAC9)
+I (../DSP/arm_math.h)(0x67E0DAC9)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\math.h)(0x60252378)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdio.h)(0x60252374)
-F (..\FOC\sensorless.h)(0x67DE440F)()
-F (..\DSP\arm_common_tables.c)(0x671A2B88)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\arm_common_tables.o --omf_browse foc\arm_common_tables.crf --depend foc\arm_common_tables.d)
-I (..\DSP\arm_math.h)(0x6464B7E7)
+F (..\FOC\sensorless.h)(0x67E0E55C)()
+F (..\DSP\arm_common_tables.c)(0x67E0DAC9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\arm_common_tables.o --omf_browse foc\arm_common_tables.crf --depend foc\arm_common_tables.d)
+I (..\DSP\arm_math.h)(0x67E0DAC9)
 I (../Drivers/CMSIS/Include/core_cm4.h)(0x6730CBB5)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (../Drivers/CMSIS/Include/cmsis_version.h)(0x6730CBB5)
@@ -1252,11 +1252,11 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6730CBB5)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6730CBB5)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\DSP\arm_common_tables.h)(0x6464B7E7)
-F (..\DSP\arm_common_tables.h)(0x6464B7E7)()
-F (..\DSP\arm_const_structs.h)(0x6464B7E7)()
-F (..\DSP\arm_cos_f32.c)(0x6464B7E7)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\arm_cos_f32.o --omf_browse foc\arm_cos_f32.crf --depend foc\arm_cos_f32.d)
-I (..\DSP\arm_math.h)(0x6464B7E7)
+I (..\DSP\arm_common_tables.h)(0x67E0DAC9)
+F (..\DSP\arm_common_tables.h)(0x67E0DAC9)()
+F (..\DSP\arm_const_structs.h)(0x67E0DAC9)()
+F (..\DSP\arm_cos_f32.c)(0x67E0DAC9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\arm_cos_f32.o --omf_browse foc\arm_cos_f32.crf --depend foc\arm_cos_f32.d)
+I (..\DSP\arm_math.h)(0x67E0DAC9)
 I (../Drivers/CMSIS/Include/core_cm4.h)(0x6730CBB5)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (../Drivers/CMSIS/Include/cmsis_version.h)(0x6730CBB5)
@@ -1264,10 +1264,10 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6730CBB5)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6730CBB5)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\DSP\arm_common_tables.h)(0x6464B7E7)
-F (..\DSP\arm_math.h)(0x6464B7E7)()
-F (..\DSP\arm_sin_f32.c)(0x6464B7E7)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\arm_sin_f32.o --omf_browse foc\arm_sin_f32.crf --depend foc\arm_sin_f32.d)
-I (..\DSP\arm_math.h)(0x6464B7E7)
+I (..\DSP\arm_common_tables.h)(0x67E0DAC9)
+F (..\DSP\arm_math.h)(0x67E0DAC9)()
+F (..\DSP\arm_sin_f32.c)(0x67E0DAC9)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\arm_sin_f32.o --omf_browse foc\arm_sin_f32.crf --depend foc\arm_sin_f32.d)
+I (..\DSP\arm_math.h)(0x67E0DAC9)
 I (../Drivers/CMSIS/Include/core_cm4.h)(0x6730CBB5)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\stdint.h)(0x6025237E)
 I (../Drivers/CMSIS/Include/cmsis_version.h)(0x6730CBB5)
@@ -1275,13 +1275,11 @@ I (../Drivers/CMSIS/Include/cmsis_compiler.h)(0x6730CBB5)
 I (../Drivers/CMSIS/Include/cmsis_armcc.h)(0x6730CBB5)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\string.h)(0x6025237E)
 I (D:\Program Files\KEIL\ARM\ARMCC\include\math.h)(0x60252378)
-I (..\DSP\arm_common_tables.h)(0x6464B7E7)
-F (..\DSP\arm_cortexM4lf_math.lib)(0x663887D5)()
-F (..\DSP\arm_atan2_f32.c)(0x67DE62F8)(--c99 -c --cpu Cortex-M4.fp.sp -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc -I ../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32G4xx/Include -I ../Drivers/CMSIS/Include -I ../FOC -I ../DSP-I.\RTE\_FOC-I"D:\Program Files\KEIL\ARM\CMSIS\5.8.0\CMSIS\Core\Include"-I"D:\Program Files\KEIL\Keil\STM32G4xx_DFP\1.6.0\Drivers\CMSIS\Device\ST\STM32G4xx\Include"-D__UVISION_VERSION="536" -D_RTE_ -DSTM32G431xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32G431xx -D__TARGET_FPU_VFP -DARM_MATH_CM4 -D__FPU_USED="1U" -D__FPU_PRESENT="1U"-o foc\arm_atan2_f32.o --omf_browse foc\arm_atan2_f32.crf --depend foc\arm_atan2_f32.d)
-I (..\DSP\fast_math_functions.h)(0x67DE7315)
-F (..\DSP\fast_math_functions.h)(0x67DE7315)()
-F (..\DSP\arm_math_types.h)(0x67DE6AA0)()
-F (..\DSP\arm_math_memory.h)(0x67DE6B80)()
-F (..\DSP\none.h)(0x67DE6BF5)()
-F (..\DSP\utils.h)(0x67DE6C86)()
-F (..\DSP\basic_math_functions.h)(0x67DE6CFF)()
+I (..\DSP\arm_common_tables.h)(0x67E0DAC9)
+F (..\DSP\arm_cortexM4lf_math.lib)(0x67E0DAC9)()
+F (..\DSP\fast_math_functions.h)(0x67E0DAC9)()
+F (..\DSP\arm_math_types.h)(0x67E0DAC9)()
+F (..\DSP\arm_math_memory.h)(0x67E0DAC9)()
+F (..\DSP\none.h)(0x67E0DAC9)()
+F (..\DSP\utils.h)(0x67E0DAC9)()
+F (..\DSP\basic_math_functions.h)(0x67E0DAC9)()

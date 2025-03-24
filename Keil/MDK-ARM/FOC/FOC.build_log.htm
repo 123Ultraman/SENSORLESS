@@ -5,7 +5,7 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ¦ÌVision V5.36.0.0
 Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: AOSHEN sa12761564831@outlook.com, UESTC, LIC=ZB4EI-TB36I-RALDM-XPG75-QC6LZ-TPJWE
+License Information: AOSHEN sa12761564831@outlook.com, UESTC, LIC=EXJT4-FMFC7-RALDM-XPG75-YQS62-BK0LQ
  
 Tool Versions:
 Toolchain:       MDK-ARM Plus  Version: 5.36.0.0
@@ -22,43 +22,23 @@ Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
 F:\work\MOTOR_Control\SENSORLESS\Keil\MDK-ARM\FOC.uvprojx
-Project File Date:  03/22/2025
+Project File Date:  03/24/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Program Files\KEIL\ARM\ARMCC\Bin'
 Build target 'FOC'
-compiling arm_atan2_f32.c...
-..\DSP\fast_math_functions.h(71): error:  #20: identifier "arm_status" is undefined
-    arm_status arm_atan2_f32(float32_t y,float32_t x,float32_t *result);
-..\DSP\fast_math_functions.h(71): error:  #20: identifier "float32_t" is undefined
-    arm_status arm_atan2_f32(float32_t y,float32_t x,float32_t *result);
-..\DSP\fast_math_functions.h(71): error:  #20: identifier "float32_t" is undefined
-    arm_status arm_atan2_f32(float32_t y,float32_t x,float32_t *result);
-..\DSP\fast_math_functions.h(71): error:  #20: identifier "float32_t" is undefined
-    arm_status arm_atan2_f32(float32_t y,float32_t x,float32_t *result);
-..\DSP\arm_atan2_f32.c(44): error:  #20: identifier "float32_t" is undefined
-  static const float32_t atan2_coefs_f32[ATAN2_NB_COEFS_F32]={0.0f
-..\DSP\arm_atan2_f32.c(56): error:  #20: identifier "__STATIC_FORCEINLINE" is undefined
-  __STATIC_FORCEINLINE float32_t arm_atan_limited_f32(float32_t x)
-..\DSP\arm_atan2_f32.c(56): error:  #65: expected a ";"
-  __STATIC_FORCEINLINE float32_t arm_atan_limited_f32(float32_t x)
-..\DSP\arm_atan2_f32.c(96): warning:  #12-D: parsing restarts here after previous syntax error
-     return(res);
-..\DSP\arm_atan2_f32.c(97): error:  #169: expected a declaration
-  }
-..\DSP\arm_atan2_f32.c(161): warning:  #12-D: parsing restarts here after previous syntax error
-          return(ARM_MATH_SUCCESS);
-..\DSP\arm_atan2_f32.c(162): error:  #169: expected a declaration
-      }
-..\DSP\arm_atan2_f32.c(178): warning:  #12-D: parsing restarts here after previous syntax error
-      return(ARM_MATH_NANINF);
-..\DSP\arm_atan2_f32.c(180): error:  #169: expected a declaration
-  }
-..\DSP\arm_atan2_f32.c(184): warning: At end of source:  #12-D: parsing restarts here after previous syntax error
-..\DSP\arm_atan2_f32.c(44): warning:  #177-D: variable "atan2_coefs_f32"  was declared but never referenced
-  static const float32_t atan2_coefs_f32[ATAN2_NB_COEFS_F32]={0.0f
-..\DSP\arm_atan2_f32.c: 5 warnings, 10 errors
-"FOC\FOC.axf" - 10 Error(s), 5 Warning(s).
+compiling sensorless.c...
+..\FOC\sensorless.c(104): warning:  #177-D: variable "TEMP"  was declared but never referenced
+  		float TEMP[2] = {0};  //TEMP[0] ½Ç¶È  TEMP[1] Ä£³¤
+..\FOC\sensorless.c(105): warning:  #177-D: variable "atan_theta1"  was declared but never referenced
+  		float atan_theta1 = 0,atan_theta2 = 0;
+..\FOC\sensorless.c(106): warning:  #177-D: variable "modulu1"  was declared but never referenced
+  		float modulu1 = 0,modulu2 = 0;
+..\FOC\sensorless.c: 3 warnings, 0 errors
+linking...
+Program Size: Code=31880 RO-data=6408 RW-data=416 ZI-data=2240  
+FromELF: creating hex file...
+"FOC\FOC.axf" - 0 Error(s), 3 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -81,8 +61,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.5.0
-Target not created.
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:04
 </pre>
 </body>
 </html>

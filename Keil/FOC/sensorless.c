@@ -102,13 +102,23 @@ void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,VESC
 void AntiPark_Overmodulation(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E)
 {
 		float TEMP[2] = {0};  //TEMP[0] 角度  TEMP[1] 模长
+		float atan_theta1 = 0,atan_theta2 = 0;
+		float modulu1 = 0,modulu2 = 0;
 		float Uref = 0;
 		float theta = 0;
-//		atan2_cordic(UI_2r->D,UI_2r->Q,TEMP);
-//		arm_atan2_f32(UI_2r->Q,UI_2r->D,TEMP);
 		
-		Uref = U_ref_lookup(TEMP[1]);
-		theta = TEMP[0] + Theta_E;
+//		atan2_cordic(UI_2r->D,UI_2r->Q,TEMP);
+//		atan_theta1 = TEMP[0];
+//		modulu1 = TEMP[1];
+//		Uref = U_ref_lookup(modulu1);
+//		theta = atan_theta1 + Theta_E;
+
+		atan_theta2 = atan2f(UI_2r->Q,UI_2r->D);
+		arm_sqrt_f32((UI_2r->D*UI_2r->D+UI_2r->Q*UI_2r->Q),&modulu2);
+		Uref = U_ref_lookup(modulu2);
+		theta = atan_theta2 + Theta_E;
+		
+//		printf("%f,%f,%f,%f/r/n",atan_theta1,atan_theta2,modulu1,modulu2);
 		UI_2s->Alpha = arm_cos_f32(theta)*Uref;
 		UI_2s->Beta  = arm_sin_f32(theta)*Uref;
 }
@@ -117,8 +127,8 @@ void SVPWM_120(UI_2s* UI_2s)
 {
 
 		// -sqrt(3) * Period / 2.0f / U_dc * (sqrt(3) * 0.5f * UI_2s->Alpha + 0.5f * UI_2s->Beta)
-    Tx = 1.0625000e+03f * UI_2s->Alpha + 6.1343463e+02f * UI_2s->Beta; 
-    Ty = 1.2268693e+03f * UI_2s->Beta;		//-sqrt(3) * Period / 2.0f / U_dc * UI_2s->Beta
+    Tx = -1.0625000e+03f * UI_2s->Alpha - 6.1343463e+02f * UI_2s->Beta; 
+    Ty = -1.2268693e+03f * UI_2s->Beta;		//-sqrt(3) * Period / 2.0f / U_dc * UI_2s->Beta
 
     if (Tx >= 0 && Ty >= 0) 
 		{
@@ -219,51 +229,29 @@ float Hysteresis(float modulus)
 
 float U_ref_lookup(float F1_vaule)
 {
-//	static int length = sizeof(F1) / sizeof(F1[0]);
+	static int length = sizeof(F1) / sizeof(F1[0]);
 	//线性调制区，直接输出
 	if (F1_vaule<=U1)
 	{
 			return F1_vaule;
 	}
-	else 
-	{
-			return U1;
-	}
-//	else if(F1_vaule>=F1[length-1])
-//	{
-//			return U_ref[length-1];
-//	}
-//	else
-//	{
-//			for (int i = 0; i < length; i++)
-//			{
-//				if(F1_vaule>=F1[i]&&F1_vaule<F1[i+1])
-//				{
-//					return U_ref[i];
-//				}
-//			}
-//	}
-	// 返回 NaN，表示逻辑错误
-//  return NAN;
-//	static int length = sizeof(F1) / sizeof(F1[0]);
-//	if(F1_vaule<=F1[0])
-//	{
-//		return F1[0];
-//	}
-//	else if(F1_vaule>=F1[length-1])
-//	{
-//		return F1[length-1];
-//	}
 //	else 
 //	{
-//		for (int i = 0; i < length; i++)
-//		{
-//			if(F1_vaule>=F1[i]&&F1_vaule<F1[i+1])
-//			{
-//				return U_ref[i];
-//			}
-//		}
+//			return U1;
 //	}
-//	// 返回 NaN，表示逻辑错误
-//  return NAN;
+	else if(F1_vaule>=F1[length-1])
+	{
+			return U_ref[length-1];
+	}
+	else
+	{
+			for (int i = 0; i < length; i++)
+			{
+				if(F1_vaule>=F1[i]&&F1_vaule<F1[i+1])
+				{
+					return U_ref[i];
+				}
+			}
+	}
+	return NAN;
 }
