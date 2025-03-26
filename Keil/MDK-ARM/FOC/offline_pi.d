@@ -1,6 +1,6 @@
-foc\offline_pi.o: ..\FOC\offline_pi.c
-foc\offline_pi.o: ..\FOC\offline_pi.h
-foc\offline_pi.o: ..\FOC\foc.h
+foc\offline_pi.o: FOC\offline_pi.c
+foc\offline_pi.o: FOC\offline_pi.h
+foc\offline_pi.o: FOC\foc.h
 foc\offline_pi.o: ../Core/Inc/main.h
 foc\offline_pi.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
 foc\offline_pi.o: ../Core/Inc/stm32g4xx_hal_conf.h

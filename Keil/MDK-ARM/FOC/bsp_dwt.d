@@ -1,5 +1,5 @@
-foc\bsp_dwt.o: ..\FOC\BSP_DWT.c
-foc\bsp_dwt.o: ..\FOC\bsp_dwt.h
+foc\bsp_dwt.o: FOC\BSP_DWT.c
+foc\bsp_dwt.o: FOC\bsp_dwt.h
 foc\bsp_dwt.o: ../Core/Inc/main.h
 foc\bsp_dwt.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
 foc\bsp_dwt.o: ../Core/Inc/stm32g4xx_hal_conf.h

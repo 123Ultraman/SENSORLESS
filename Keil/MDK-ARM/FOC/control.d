@@ -1,5 +1,5 @@
-foc\control.o: ..\FOC\control.c
-foc\control.o: ..\FOC\control.h
+foc\control.o: FOC\control.c
+foc\control.o: FOC\control.h
 foc\control.o: ../Core/Inc/main.h
 foc\control.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal.h
 foc\control.o: ../Core/Inc/stm32g4xx_hal_conf.h
@@ -37,4 +37,5 @@ foc\control.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim.h
 foc\control.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_tim_ex.h
 foc\control.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart.h
 foc\control.o: ../Drivers/STM32G4xx_HAL_Driver/Inc/stm32g4xx_hal_uart_ex.h
-foc\control.o: ..\FOC\BSP_DWT.h
+foc\control.o: FOC\BSP_DWT.h
+foc\control.o: D:\Program Files\KEIL\ARM\ARMCC\Bin\..\include\string.h

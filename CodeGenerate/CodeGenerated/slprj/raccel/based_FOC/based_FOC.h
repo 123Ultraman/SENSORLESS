@@ -32,7 +32,7 @@
 #define NSAMPLE_TIMES (3) 
 #define NINPUTS (0)       
 #define NOUTPUTS (0)     
-#define NBLOCKIO (71) 
+#define NBLOCKIO (68) 
 #define NUM_ZC_EVENTS (1) 
 #ifndef NCSTATES
 #define NCSTATES (0)   
@@ -62,17 +62,16 @@ nq0riy0nl0 ; real_T h5dgx5wmy1 ; real_T dvdx0svzcc ; real_T g1qadio5dk [ 6 ]
 ojdhbpltph ; real_T klllytdpmn ; real_T o3rovp4hg1 ; real_T eaaz53xwpc ;
 real_T k4rsarzudt ; real_T brto0brqox ; real_T awrzvcwo5i ; real_T pyzaziws5o
 ; real_T kq5jwacnoy ; real_T i31yhmvgpf ; real_T dllaknumwo ; real_T
-oh3csxrczc ; real_T ncz3ei0xyl ; real_T b14biaffc0 ; real_T camjj5nzrm ;
-real_T nmmp5sdw4y ; real_T lezl4badfl ; real_T mmpoyjb255 ; real_T et115tvd5c
-; real_T icsedlrfmo ; real_T keu13zucmw ; real_T hlen4hvuex ; real_T
-maef41dty2 ; real_T dvhqwvadlh [ 2 ] ; real_T fauyn5g1jz ; real_T edm5gwau3m
-; real_T d5igmkwwvg ; boolean_T g4x1kcgl20 ; mvoupavy5p kg410grc4m ;
-mvoupavy5p jty1wsfjlj ; mvoupavy5p emmdqoheic ; } B ; typedef struct { real_T
-g2db00oyvj ; real_T lc2ze5kdtm ; real_T ki15zaj1gp ; real_T gymfqxh2cd ;
-real_T dt2ijnggmb ; real_T byvsnyv5zr ; real_T cz435ihcu3 ; real_T ceat33yomo
-; real_T np4v4eaezh ; real_T nhi0bwiqwe ; real_T jpmcmrdt3a ; real_T
-ocgieankjr ; real_T j4bzixxmjs ; real_T ma3yw4utkh ; real_T mfjr5e14xs ;
-real_T jnortiucxw ; real_T ocj52bygmn ; real_T pjxx0pj5ct ; struct { void *
+oh3csxrczc ; real_T ncz3ei0xyl ; real_T lezl4badfl ; real_T mmpoyjb255 ;
+real_T et115tvd5c ; real_T icsedlrfmo ; real_T keu13zucmw ; real_T hlen4hvuex
+; real_T maef41dty2 ; real_T dvhqwvadlh [ 2 ] ; real_T fauyn5g1jz ; real_T
+edm5gwau3m ; real_T d5igmkwwvg ; boolean_T g4x1kcgl20 ; mvoupavy5p kg410grc4m
+; mvoupavy5p jty1wsfjlj ; mvoupavy5p emmdqoheic ; } B ; typedef struct {
+real_T g2db00oyvj ; real_T lc2ze5kdtm ; real_T ki15zaj1gp ; real_T gymfqxh2cd
+; real_T dt2ijnggmb ; real_T byvsnyv5zr ; real_T cz435ihcu3 ; real_T
+ceat33yomo ; real_T np4v4eaezh ; real_T nhi0bwiqwe ; real_T jpmcmrdt3a ;
+real_T ocgieankjr ; real_T j4bzixxmjs ; real_T ma3yw4utkh ; real_T mfjr5e14xs
+; real_T jnortiucxw ; real_T ocj52bygmn ; real_T pjxx0pj5ct ; struct { void *
 AS ; void * BS ; void * CS ; void * DS ; void * DX_COL ; void * BD_COL ; void
 * TMP1 ; void * TMP2 ; void * XTMP ; void * SWITCH_STATUS ; void *
 SWITCH_STATUS_INIT ; void * SW_CHG ; void * G_STATE ; void * USWLAST ; void *
@@ -104,34 +103,33 @@ AQHandles ; } ipoiwfl4sg ; struct { void * AQHandles ; } kanxmkuey4 ; struct
 { void * AQHandles ; } myvpov2452 ; struct { void * LoggedData [ 2 ] ; }
 ezwmkd5spv ; struct { void * LoggedData [ 2 ] ; } g31trfxw3l ; int32_T
 bwi4ak5yob ; int32_T bl3wth4gb4 ; int32_T d4deydkd2e ; int32_T dy3zgavjvw ;
-int32_T hxmang4whi ; int32_T decbawqrdh ; int32_T gmsb5tf0og ; int32_T
-d0lzng0qrp ; uint32_T cv41it4amb [ 2 ] ; uint32_T pwmwjft1gn [ 2 ] ; int_T
-fy0bl2dcyx [ 11 ] ; int8_T nnw34mmyux ; int8_T fih3gfro2h ; uint8_T
-psfjb0nsls ; uint8_T pvevgoy3y3 ; uint8_T lni3dmfvjj ; uint8_T ifed2xuv2w ;
-uint8_T nr4jtirdwo ; uint8_T ocwaun5q5s ; uint8_T mkoxzdqwi2 ; uint8_T
-akjewdlwej ; boolean_T cuak05qrvl ; boolean_T ocbrfohdqu ; boolean_T
-g5jwl0rrph ; boolean_T ftys1qypo0 ; boolean_T jl5a3sor32 ; boolean_T
-k4luewptuo ; boolean_T obc0rz1ip3 ; boolean_T nghwbebn4m ; boolean_T
-cflpbnskfq ; boolean_T h3rmilnlg1 ; boolean_T odrhsmmvel ; boolean_T
-dntfct2nvq ; boolean_T gkeivfk3do ; boolean_T dbxi1k3jk4 ; dqa3f0aosy
-kg410grc4m ; dqa3f0aosy jty1wsfjlj ; dqa3f0aosy emmdqoheic ; } DW ; typedef
-struct { ZCSigState orqtvo2unp ; } PrevZCX ; typedef struct {
-rtwCAPI_ModelMappingInfo mmi ; } DataMapInfo ; struct P_ { real_T F1 [ 500 ]
-; real_T U_ref [ 500 ] ; real_T _Ld2f2Based_FOC_Data_sldd_ ; real_T
-_Lq2f2Based_FOC_Data_sldd_ ; real_T _PLL_P2f2Based_FOC_Data_sldd_ ; real_T
-_Period2f2Based_FOC_Data_sldd_ ; real_T _Pn2f2Based_FOC_Data_sldd_ ; real_T
-_Rs2f2Based_FOC_Data_sldd_ ; real_T _Ts2f2Based_FOC_Data_sldd_ ; real_T
-_Udc2f2Based_FOC_Data_sldd_ ; real_T _flux2f2Based_FOC_Data_sldd_ ; real32_T
-_gamma2f2Based_FOC_Data_sldd_ ; real_T DCVoltageSource1_Amplitude ; real_T
-LowPassFilterDiscreteorContinuous_K ; real_T Subsystem3_Kd ; real_T
+int32_T hxmang4whi ; int32_T gmsb5tf0og ; int32_T d0lzng0qrp ; uint32_T
+cv41it4amb [ 2 ] ; uint32_T pwmwjft1gn [ 2 ] ; int_T fy0bl2dcyx [ 11 ] ;
+int8_T nnw34mmyux ; int8_T fih3gfro2h ; uint8_T psfjb0nsls ; uint8_T
+pvevgoy3y3 ; uint8_T lni3dmfvjj ; uint8_T ifed2xuv2w ; uint8_T nr4jtirdwo ;
+uint8_T ocwaun5q5s ; uint8_T mkoxzdqwi2 ; uint8_T akjewdlwej ; boolean_T
+cuak05qrvl ; boolean_T ocbrfohdqu ; boolean_T g5jwl0rrph ; boolean_T
+ftys1qypo0 ; boolean_T jl5a3sor32 ; boolean_T k4luewptuo ; boolean_T
+obc0rz1ip3 ; boolean_T nghwbebn4m ; boolean_T cflpbnskfq ; boolean_T
+h3rmilnlg1 ; boolean_T dntfct2nvq ; boolean_T gkeivfk3do ; boolean_T
+dbxi1k3jk4 ; dqa3f0aosy kg410grc4m ; dqa3f0aosy jty1wsfjlj ; dqa3f0aosy
+emmdqoheic ; } DW ; typedef struct { ZCSigState orqtvo2unp ; } PrevZCX ;
+typedef struct { rtwCAPI_ModelMappingInfo mmi ; } DataMapInfo ; struct P_ {
+real_T F1 [ 500 ] ; real_T U_ref [ 500 ] ; real_T _L2f2Based_FOC_Data_sldd_ ;
+real_T _PLL_I2f2Based_FOC_Data_sldd_ ; real_T _PLL_P2f2Based_FOC_Data_sldd_ ;
+real_T _Period2f2Based_FOC_Data_sldd_ ; real_T _Pn2f2Based_FOC_Data_sldd_ ;
+real_T _Rs2f2Based_FOC_Data_sldd_ ; real_T _Ts2f2Based_FOC_Data_sldd_ ;
+real_T _Udc2f2Based_FOC_Data_sldd_ ; real_T _flux2f2Based_FOC_Data_sldd_ ;
+real32_T _gamma2f2Based_FOC_Data_sldd_ ; real_T DCVoltageSource1_Amplitude ;
+real_T LowPassFilterDiscreteorContinuous_K ; real_T Subsystem3_Kd ; real_T
 Subsystem_Kd ; real_T Subsystem2_Kd ; real_T Subsystem3_Kd_nwkkd3n4ya ;
-real_T Subsystem3_Ki ; real_T Subsystem_Ki ; real_T Subsystem2_Ki ; real_T
-Subsystem3_Ki_kehsee5auu ; real_T Subsystem_Kp ; real_T Subsystem2_Kp ;
-real_T Subsystem3_Kp ; real_T LowPassFilterDiscreteorContinuous_T ; real_T
-Subsystem3_Ts ; real_T Subsystem_Ts ; real_T Subsystem2_Ts ; real_T
-Subsystem3_Ts_gafktesne5 ; real_T CompareToConstant_const ; real_T
-CompareToConstant_const_fh44bbmvpu ; real_T CoulombViscousFriction_gain ;
-real_T LowPassFilterDiscreteorContinuous_init_option ; real_T
+real_T Subsystem_Ki ; real_T Subsystem2_Ki ; real_T Subsystem3_Ki ; real_T
+Subsystem_Kp ; real_T Subsystem2_Kp ; real_T Subsystem3_Kp ; real_T
+LowPassFilterDiscreteorContinuous_T ; real_T Subsystem3_Ts ; real_T
+Subsystem_Ts ; real_T Subsystem2_Ts ; real_T Subsystem3_Ts_gafktesne5 ;
+real_T CompareToConstant_const ; real_T CompareToConstant_const_fh44bbmvpu ;
+real_T CoulombViscousFriction_gain ; real_T
+LowPassFilterDiscreteorContinuous_init_option ; real_T
 Subsystem3_max_Integral ; real_T Subsystem_max_Integral ; real_T
 Subsystem2_max_Integral ; real_T Subsystem3_max_Integral_pc1i5p255z ; real_T
 Subsystem3_max_output ; real_T Subsystem_max_output ; real_T
@@ -149,10 +147,8 @@ Integrator_UpperSat ; real_T Integrator_LowerSat ; real_T Saturation_UpperSat
 real_T Tcm2_Y0 ; real_T Tcm3_Y0 ; real_T Delay1_InitialCondition_d0okqqbyaz ;
 real_T Delay_InitialCondition_b1lbjxwxpj ; real_T Gain1_Gain ; real_T
 Constant_Value_eugrpqijcm ; real_T Constant1_Value ; real_T Id_ref_Value ;
-real_T Constant3_Value_hk0uyhdbxo ; real_T Constant4_Value ; real_T
-Constant5_Value ; real_T Constant6_Value ; real_T Gain_Gain ; real_T
-Gain_Gain_mk3bjbwrde ; real_T Gain_Gain_oivnklv25u ; real_T
-Gain_Gain_cnjrb05lj0 ; real_T Gain_Gain_g1t15nmsmn ; real_T
+real_T Gain_Gain ; real_T Gain_Gain_mk3bjbwrde ; real_T Gain_Gain_oivnklv25u
+; real_T Gain_Gain_cnjrb05lj0 ; real_T Gain_Gain_g1t15nmsmn ; real_T
 Gain_Gain_bzsgmuimqy ; real_T DiscreteTimeIntegrator1_gainval ; real_T
 DiscreteTimeIntegrator1_IC ; real_T DiscreteTimeIntegrator_gainval_paiswrmeqy
 ; real_T DiscreteTimeIntegrator_IC_mu4lei3aeq ; real_T

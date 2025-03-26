@@ -339,7 +339,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32G431xx,__TARGET_FPU_VFP,ARM_MATH_CM4,__FPU_USED=1U,__FPU_PRESENT=1U</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32G4xx/Include;../Drivers/CMSIS/Include;../FOC;../DSP</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc;../Drivers/STM32G4xx_HAL_Driver/Inc/Legacy;../Drivers/CMSIS/Device/ST/STM32G4xx/Include;../Drivers/CMSIS/Include;.\DSP;.\FOC</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -819,34 +819,69 @@
           <GroupName>FOC</GroupName>
           <Files>
             <File>
-              <FileName>FOC.c</FileName>
+              <FileName>BSP_DWT.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\FOC\FOC.c</FilePath>
+              <FilePath>.\FOC\BSP_DWT.c</FilePath>
             </File>
             <File>
-              <FileName>FOC.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FOC\FOC.h</FilePath>
+              <FileName>control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FOC\control.c</FilePath>
+            </File>
+            <File>
+              <FileName>Flux_observer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FOC\Flux_observer.c</FilePath>
+            </File>
+            <File>
+              <FileName>FOC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\FOC\FOC.c</FilePath>
             </File>
             <File>
               <FileName>offline_pi.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\FOC\offline_pi.c</FilePath>
-            </File>
-            <File>
-              <FileName>offline_pi.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\FOC\offline_pi.h</FilePath>
+              <FilePath>.\FOC\offline_pi.c</FilePath>
             </File>
             <File>
               <FileName>sensorless.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\FOC\sensorless.c</FilePath>
+              <FilePath>.\FOC\sensorless.c</FilePath>
+            </File>
+            <File>
+              <FileName>BSP_DWT.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FOC\BSP_DWT.h</FilePath>
+            </File>
+            <File>
+              <FileName>control.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FOC\control.h</FilePath>
+            </File>
+            <File>
+              <FileName>Flux_observer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FOC\Flux_observer.h</FilePath>
+            </File>
+            <File>
+              <FileName>FOC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FOC\FOC.h</FilePath>
+            </File>
+            <File>
+              <FileName>offline_pi.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FOC\offline_pi.h</FilePath>
+            </File>
+            <File>
+              <FileName>rtwtypes.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\FOC\rtwtypes.h</FilePath>
             </File>
             <File>
               <FileName>sensorless.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\FOC\sensorless.h</FilePath>
+              <FilePath>.\FOC\sensorless.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -856,67 +891,67 @@
             <File>
               <FileName>arm_common_tables.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\DSP\arm_common_tables.c</FilePath>
+              <FilePath>.\DSP\arm_common_tables.c</FilePath>
             </File>
             <File>
               <FileName>arm_common_tables.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\DSP\arm_common_tables.h</FilePath>
+              <FilePath>.\DSP\arm_common_tables.h</FilePath>
             </File>
             <File>
               <FileName>arm_const_structs.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\DSP\arm_const_structs.h</FilePath>
-            </File>
-            <File>
-              <FileName>arm_cos_f32.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DSP\arm_cos_f32.c</FilePath>
-            </File>
-            <File>
-              <FileName>arm_math.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\DSP\arm_math.h</FilePath>
-            </File>
-            <File>
-              <FileName>arm_sin_f32.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\DSP\arm_sin_f32.c</FilePath>
+              <FilePath>.\DSP\arm_const_structs.h</FilePath>
             </File>
             <File>
               <FileName>arm_cortexM4lf_math.lib</FileName>
               <FileType>4</FileType>
-              <FilePath>..\DSP\arm_cortexM4lf_math.lib</FilePath>
+              <FilePath>.\DSP\arm_cortexM4lf_math.lib</FilePath>
             </File>
             <File>
-              <FileName>fast_math_functions.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\DSP\fast_math_functions.h</FilePath>
+              <FileName>arm_cos_f32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DSP\arm_cos_f32.c</FilePath>
             </File>
             <File>
-              <FileName>arm_math_types.h</FileName>
+              <FileName>arm_math.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\DSP\arm_math_types.h</FilePath>
+              <FilePath>.\DSP\arm_math.h</FilePath>
             </File>
             <File>
               <FileName>arm_math_memory.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\DSP\arm_math_memory.h</FilePath>
+              <FilePath>.\DSP\arm_math_memory.h</FilePath>
             </File>
             <File>
-              <FileName>none.h</FileName>
+              <FileName>arm_math_types.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\DSP\none.h</FilePath>
+              <FilePath>.\DSP\arm_math_types.h</FilePath>
             </File>
             <File>
-              <FileName>utils.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>..\DSP\utils.h</FilePath>
+              <FileName>arm_sin_f32.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\DSP\arm_sin_f32.c</FilePath>
             </File>
             <File>
               <FileName>basic_math_functions.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\DSP\basic_math_functions.h</FilePath>
+              <FilePath>.\DSP\basic_math_functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>fast_math_functions.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DSP\fast_math_functions.h</FilePath>
+            </File>
+            <File>
+              <FileName>none.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DSP\none.h</FilePath>
+            </File>
+            <File>
+              <FileName>utils.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\DSP\utils.h</FilePath>
             </File>
           </Files>
         </Group>

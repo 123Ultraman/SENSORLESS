@@ -47,6 +47,9 @@ extern UI_2s I_2s;
 uint32_t ADC1_value[4];
 uint32_t ADC2_value[2];
 extern MOTOR_HandleTypeDef Motor;
+extern int Field_State;
+extern float modulu;
+extern float Uref;
 //float temp[3] = {196.625f,196.625f,196.625f};
 
 /* USER CODE END PD */
@@ -128,8 +131,9 @@ int main(void)
   while (1)
   {
 		//打印观测速度rpm、观测电角度、观测cos、观测sin、真实转速rpm、真实电角度
-//		printf("%f,%f,%f,%f,%f,%f\n",observer.Speed,observer.theta*57.295779513f,observer.cos_theta,  \
-//		observer.sin_theta,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.AngleE);
+		printf("%f,%f,%f,%f,%f,%f\n",observer.Speed,observer.theta*57.295779513f,observer.cos_theta,  \
+		observer.sin_theta,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.AngleE);
+//	printf("%d,%f,%f,%f\n",Field_State,modulu,Motor.FOC_Parameter.SpeedMachRef,Uref);
 //		HAL_Delay(1);
     /* USER CODE END WHILE */
 
