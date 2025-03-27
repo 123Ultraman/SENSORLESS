@@ -1,16 +1,16 @@
 #include "sensorless.h"
 #include "foc.h"
 #include "arm_common_tables.h"
-#include "arm_math.h"
-//#include "fast_math_functions.h"    
+#include "arm_math.h"  
 #include "stdio.h"
+
 VESC_Observer observer;
+PI_Structure FWSpeedPI;
+PI_Structure FWCurrentPI;
+float D = 0,Q = 0;
 extern MOTOR_HandleTypeDef Motor;
 int Field_State = 0;
-float Uref = 0;
-float theta = 0;
-float atan_theta = 0,modulu = 0;
-static int State = 0,count = 0;
+
 int utils_truncate_number_abs(float *number, float max)
 {
     int did_trunc = 0;
@@ -30,9 +30,8 @@ int utils_truncate_number_abs(float *number, float max)
 }
 
 
-void LPF(VESC_Observer *observer)
+void LPF(VESC_Observer *observer,float LPFFilter)
 {
-	float LPFFilter=0.008f;
 	observer->Speed=((observer->PLL.Out/Pn)*30.0f/(PI*observer->dt)-observer->Speed_pre)*LPFFilter+observer->Speed_pre;
 	observer->Speed_pre=observer->Speed;
 
@@ -40,7 +39,7 @@ void LPF(VESC_Observer *observer)
 
 float VESC_sin,VESC_cos;
 
-//�����Դ����۲���
+//init flux observer
 
 void Non_flux_Init(VESC_Observer *observer)
 {
@@ -84,11 +83,11 @@ void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,VESC
     UTILS_NAN_ZERO(observer->cos_theta);
     UTILS_NAN_ZERO(observer->sin_theta);
     
-    //���໷
+    //PLL Phase-locked loop
     observer->PLL.err = observer->sin_theta * VESC_cos - observer->cos_theta *VESC_sin;
     observer->PLL.iterm += observer->PLL.Ki * observer->PLL.err*observer->dt;
     observer->PLL.Out = observer->PLL.err * observer->PLL.Kp + observer->PLL.iterm;
-    LPF(observer);
+    LPF(observer,0.008f);
     observer->theta = observer->theta + observer->PLL.Out;
 
     while(observer->theta>2*PI) {
@@ -104,15 +103,18 @@ void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,VESC
 
 void AntiPark_Overmodulation(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E)
 {
-	//����ǶȺ�ģ��
+	float Uref = 0;
+	float theta = 0;
+	float atan_theta = 0,modulu = 0;
+	//calculate theta and modulu
 	atan_theta = atan2f(UI_2r->Q,UI_2r->D);
 	arm_sqrt_f32((UI_2r->D*UI_2r->D+UI_2r->Q*UI_2r->Q),&modulu);
 	
-	Field_State = Get_Field_State(modulu,&Motor.I_2r,Motor.FOC_Parameter.SpeedMachRef);
+	Field_State = Get_Field_State(modulu,Motor.FOC_Parameter.SpeedMachRef);
 	
 	Uref = U_ref_lookup(modulu);
 	theta = atan_theta + Theta_E;
-	
+
 //	printf("%f,%f,%f,%f/r/n",atan_theta1,atan_theta2,modulu1,modulu2);
 	UI_2s->Alpha = arm_cos_f32(theta)*Uref;
 	UI_2s->Beta  = arm_sin_f32(theta)*Uref;
@@ -143,16 +145,16 @@ void SVPWM_120(UI_2s* UI_2s)
     } 
 		else 
 		{
-        // ��������Tx �� Ty �����ܶ�С��0
+        //Tx and Ty cannot both be 0
         printf("Error: Both Tx and Ty cannot be less than 0.\n");
         return;
     }
 		
-		// ���� T0
+		// calculate To
     float T_max = fmax(fmax(Ta, Tb), Tc);
     float T0 = Period_2 - T_max;
 		
-		// ���� Tcm1, Tcm2, Tcm3
+		// Tcm1, Tcm2, Tcm3
     Tcm1 = (int)(Ta + T0 / 2.0f);
     Tcm2 = (int)(Tb + T0 / 2.0f);
     Tcm3 = (int)(Tc + T0 / 2.0f);
@@ -165,10 +167,10 @@ void SVPWM_120(UI_2s* UI_2s)
 
 void myfun(float T3, float T4, float* T1, float* T2) 
 {
-		float T3_abs = 0;
+	float T3_abs = 0;
     float T4_abs = 0;
-		arm_abs_f32(&T3,&T3_abs,1);
-		arm_abs_f32(&T4,&T4_abs,1);
+	arm_abs_f32(&T3,&T3_abs,1);
+	arm_abs_f32(&T4,&T4_abs,1);
 
     if (T3_abs <= Period_2 && T4_abs <= Period_2) {
         *T1 = T3;
@@ -200,7 +202,7 @@ void myfun(float T3, float T4, float* T1, float* T2)
 float U_ref_lookup(float F1_vaule)
 {
 	static int length = sizeof(F1) / sizeof(F1[0]);
-	//���Ե�������ֱ�����
+	//look up table
 	if (F1_vaule<=U1)
 	{
 			return F1_vaule;
@@ -224,15 +226,15 @@ float U_ref_lookup(float F1_vaule)
 
 float Hysteresis(float modulus) 
 {
-    static int count = 0;  // ά�ִ���״̬�ļ�����
+    static int count = 0; 
 	
     if (count > 0) 
 	{
-		// ���Ѵ������������ 1000 ��
+		//hold 1000 times
 		count++;
 		if (count >= 1000) 
 		{
-			count = 0;  // ��λ����
+			count = 0;  //clear count
 		}
 		return threshold;
 	}
@@ -241,24 +243,24 @@ float Hysteresis(float modulus)
 	{
 		if (modulus >= threshold)
 		{
-			count = 1;  // ��������
+			count = 1;  //begin hold
 			return threshold;
 		}
 		else
 		{
-			return modulus;  // �����������1
+			return modulus;  //normally,return modulus itself
 		}
 	}
 }
 
-int Get_Field_State(float modulu,UI_2r* I_2r,float SpeedRef)
+int Get_Field_State(float modulu,float SpeedRef)
 {
-
+	static int State = 0,count = 0;
 	switch(State)
 	{
 		case 0:
 		{
-			if(modulu > threshold)
+			if(modulu >= threshold)
 			{
 				count ++;
 			}
@@ -267,17 +269,18 @@ int Get_Field_State(float modulu,UI_2r* I_2r,float SpeedRef)
 				count = 0;
 			}
 			
-			if(count >= 20 && SpeedRef >= 7000)
+			if(count >= 20 && SpeedRef >= 6500)
 			{
 				State = 1;
 				count = 0;
+				flux_weaken_init(-0.001,-0.000001,0.0002,0.00001);
 			}
 			break;
 		}
 
 		case 1:
 		{
-			if(modulu <= threshold)
+			if(modulu <= threshold*0.9f)
 			{
 				count ++;
 			}
@@ -286,7 +289,7 @@ int Get_Field_State(float modulu,UI_2r* I_2r,float SpeedRef)
 				count = 0;
 			}
 			
-			if(count >= 20 && SpeedRef <= 7000)
+			if(count >= 50 && SpeedRef <= 6500)
 			{
 				State = 0;
 				count = 0;
@@ -299,9 +302,28 @@ int Get_Field_State(float modulu,UI_2r* I_2r,float SpeedRef)
 	return State;
 }
 
-void flux_weaken(float SpeedRef,float SpeedReal)
+void flux_weaken_init(float SpeedKp,float SpeedKi,float CurrentKp,float CurrentKi)
 {
-	PIControler(&Motor.FWSpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
-	// Motor.U_2r.D = PIControler(&Motor.FWCurrentPI,Motor.I_2r.D,Motor.FWSpeedPI.output);
+	FWSpeedPI.Kp = SpeedKp;
+	FWSpeedPI.Ki = SpeedKp;
+	FWCurrentPI.Kp = CurrentKp;
+	FWCurrentPI.Ki = CurrentKi;
+	FWSpeedPI.error = 0;
+	FWSpeedPI.integral = 0;
+	FWSpeedPI.last_error = 0;
+	FWSpeedPI.output = 0;
+	FWSpeedPI.gain = 0;
+	FWCurrentPI.error = 0;
+	FWCurrentPI.integral = 0;
+	FWCurrentPI.last_error = 0;
+	FWCurrentPI.output = 0;
+	FWCurrentPI.gain = 0;
+}
+
+void flux_weaken(void)
+{
+	PIControler(&FWSpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef,10);
+	PIControler(&FWCurrentPI,Motor.I_2r.D,FWSpeedPI.output,4);
+	Motor.U_2r.D = FWCurrentPI.output;
 	arm_sqrt_f32(SQ(threshold) - SQ(Motor.U_2r.D),&Motor.U_2r.Q);
 }

@@ -114,27 +114,12 @@ int main(void)
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
 	FocInit();
-//	tx_buffer[0] = 'S';
-
-//	// 复制 float 数组到 tx_buffer
-//	memcpy(&tx_buffer[1], temp, sizeof(temp));
-
-//	// 帧尾 'E'
-//	tx_buffer[1 + sizeof(temp)] = 'E';
-//	HAL_UART_Transmit_DMA(&huart2,(uint8_t*)tx_buffer,sizeof(tx_buffer));
-//	printf("%d,%d,%d\r\n",temp[0],temp[1],temp[2]);
-  /* USER CODE END 2 */
-
-  /* Infinite loop */
-  /* USER CODE BEGIN WHILE */
-//	HAL_UART_Transmit_DMA(&huart2, (uint8_t *)&rtY, sizeof(rtY));
   while (1)
   {
-		//打印观测速度rpm、观测电角度、观测cos、观测sin、真实转速rpm、真实电角度
-		printf("%f,%f,%f,%f,%f,%f\n",observer.Speed,observer.theta*57.295779513f,observer.cos_theta,  \
-		observer.sin_theta,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.AngleE);
+		// printf("%f,%f,%f,%f,%f,%f\n",observer.Speed,observer.theta*57.295779513f,observer.cos_theta,  \
+		// observer.sin_theta,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.AngleE);
 //	printf("%d,%f,%f,%f\n",Field_State,modulu,Motor.FOC_Parameter.SpeedMachRef,Uref);
-//		HAL_Delay(1);
+//	HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -197,21 +182,6 @@ int fputc(int ch, FILE *f)
  
   return ch;
 }
-
-//#define TX_BUFFER_SIZE 256  // 发送缓冲区大小
-//uint8_t tx_buffer[TX_BUFFER_SIZE];
-
-//void uart_printf(const char *fmt, ...)
-//{
-//    while (huart2.gState != HAL_OK);  // 等待 DMA 空闲
-
-//    va_list args;
-//    va_start(args, fmt);
-//    vsnprintf((char *)tx_buffer, TX_BUFFER_SIZE, fmt, args);  // 格式化字符串
-//    va_end(args);
-
-//    HAL_UART_Transmit_DMA(&huart2, tx_buffer, strlen((char *)tx_buffer));  // DMA 发送
-//}
 
 /* USER CODE END 4 */
 

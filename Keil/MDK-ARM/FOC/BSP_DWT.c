@@ -7,19 +7,19 @@ static uint32_t CYCCNT_LAST;
 uint64_t CYCCNT64;
 static void DWT_CNT_Update(void);
 /**
- * @brief          DWT³õÊ¼»¯
- * @param[in]      CPU_Freq_mHz£ºcpuÖ÷Æµ£¬±ÈÈçÏÖÔÚÉèÖÃµÄÊÇ160MHZ
+ * @brief          DWTï¿½ï¿½Ê¼ï¿½ï¿½
+ * @param[in]      CPU_Freq_mHzï¿½ï¿½cpuï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½160MHZ
  * @retval         none
  */
 void DWT_Init(uint32_t CPU_Freq_mHz)
 {
-    /* Ê¹ÄÜDWTÍâÉè */
+    /* Ê¹ï¿½ï¿½DWTï¿½ï¿½ï¿½ï¿½ */
     CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 
-    /* DWT CYCCNT¼Ä´æÆ÷¼ÆÊýÇå0 */
+    /* DWT CYCCNTï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½0 */
     DWT->CYCCNT = (uint32_t)0u;
 
-    /* Ê¹ÄÜCortex-M DWT CYCCNT¼Ä´æÆ÷ */
+    /* Ê¹ï¿½ï¿½Cortex-M DWT CYCCNTï¿½Ä´ï¿½ï¿½ï¿½ */
     DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
     CPU_FREQ_Hz = CPU_Freq_mHz * 1000000;
@@ -28,9 +28,9 @@ void DWT_Init(uint32_t CPU_Freq_mHz)
     CYCCNT_RountCount = 0;
 }
 /**
- * @brief          DWT¼ÆËãÊ±¼ä¼ä¸ô
- * @param[in]      cnt_last £º Ê±¼äÊý¾Ý»º´æ£¬¿ÉÒÔºê¶¨Òå£ºuint32_t INS_DWT_Count = 0;
- * @retval         float£º£¨±¾´Î-ÉÏ´Î£©µÄÊ±¼äÖÜÆÚ-µ¥Î»Îªs
+ * @brief          DWTï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½
+ * @param[in]      cnt_last ï¿½ï¿½ Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½Ôºê¶¨ï¿½å£ºuint32_t INS_DWT_Count = 0;
+ * @retval         floatï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½Ï´Î£ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½Î»Îªs
  */
 float DWT_GetDeltaT(uint32_t *cnt_last)
 {

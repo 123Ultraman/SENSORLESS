@@ -13,7 +13,8 @@
                 "f:\\work\\MOTOR_Control\\SENSORLESS\\Keil\\MDK-ARM",
                 "f:\\work\\MOTOR_Control\\SENSORLESS\\Keil\\Core\\Src",
                 "f:\\work\\MOTOR_Control\\SENSORLESS\\Keil\\Drivers\\STM32G4xx_HAL_Driver\\Src",
-                "${workspaceFolder}/DSP"
+                "${workspaceFolder}/DSP",
+                "${workspaceFolder}/FOC"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

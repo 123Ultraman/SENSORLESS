@@ -1,4 +1,4 @@
-U_dc = 12;
+U_dc = 300;
 U1 = U_dc/sqrt(3);
 U2 = 2/3*U_dc;
 U3 = U_dc*2*sqrt(3)/3;

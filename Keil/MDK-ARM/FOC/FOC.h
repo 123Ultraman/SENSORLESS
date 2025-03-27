@@ -126,40 +126,40 @@ void AntiPark(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E);
 void SVPWM(UI_2s* UI_2s);
 void PWM_Start(void);
 void PWM_Stop(void);
-void PIControler(PI_Structure* PI,float real_value,float set_value);
+void PIControler(PI_Structure* PIStruct,float real_value,float set_value,float limti_value);
 void FocInit(void);
 float temperature_lookup(int ADC_value);
 void Protection(void);
 void atan2_cordic(float x,float y, float* RES);
-#define RS						0.60f
-#define LS            0.00045f
-#define PHI           0.0058f
-#define VALUE_1_3						0.333333333333333f              //1/3
+#define RS					0.60f
+#define LS                  0.00045f
+#define PHI                 0.0058f                         
+#define VALUE_1_3			0.333333333333333f              //1/3
 #define VALUE_2_3           0.666666666666667f              //2/3
 #define VALUE_1_2           0.5f                            //1/2
 #define VALUE_SQRT3_2       0.866025403784438f              //SQRT(3)/2
 #define THETA_360_Q31       11930464                        //1/180*2^31
-#define VALUE_Q31_FLOAT     2147483648.0f                   //������ת������   2^31
-#define VALUE_SQRT3         1.732050807568878f							//sqrt(3
+#define VALUE_Q31_FLOAT     2147483648.0f                   //2^31 float to Q31
+#define VALUE_SQRT3         1.732050807568878f			    //sqrt(3
 #define VALUE_1_SQRT3       0.577350269189626f              //  1/sqrt(3)
-#define Ts                  0.0001f                          //��������0.0001s
-#define Period              17000                            //����ֵ 
+#define Ts                  0.0001f                         //Ts 0.0001s
+#define Period              17000                           //count per cycle
 #define Period_2            8500                            //8500
-#define Pn                  2                               //������
-#define TIM2_CLK            170000000                       //��ʱ����Ƶ��
-#define TIM1_CLK            170000000                       //��ʱ��һƵ��
+#define Pn                  2                               //number of poles
+#define TIM2_CLK            170000000                       //frequency of TIM2
+#define TIM1_CLK            170000000                       //frequency of TIM2
 #define K_SPEED             TIM2_CLK/(6*Pn)*60              //Speed_rel = K_SPEED/TIM2->CCR1,RPM
-#define ZeroSpeedCntMax     2000                            //������HALL�ź�δ�ı��ж�Ϊ����
-#define K_adc               712.092F                        //��������ϵ��    0.33*(2.2/(0.68+2.2))*((2.2+2.2)/2.2)/2.9*4096
-#define VBUS_MAX            24                              //��ѹ������ֵ
-#define VBUS_MIN            6                               //Ƿѹ������ֵ
+#define ZeroSpeedCntMax     2000                            //maxmum count of zero speed,if ZeroSpeedCnt>ZeroSpeedCntMax,write 0 to motor speed
+#define K_adc               712.092F                        //ADC Convert factor,  0.33*(2.2/(0.68+2.2))*((2.2+2.2)/2.2)/2.9*4096
+#define VBUS_MAX            24                              //maxmum voltage
+#define VBUS_MIN            6                               //minmum voltage
 #define MOTOR_DEFAULT       {{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0,0,0,0,1,0,1,1,0.99,1e5,1e5,1e5,12,12}}
-#define temperature_MAX     50                              //���±�����ֵ
-#define current_MAX         10                               //����������ֵ
-#define FLASH_PAGE_ADDR  		0x0801F800  										// ���һҳ Flash ��ʼ��ַ
-#define CURRENT_BASE        1.0                               //��������ֵ  
+#define temperature_MAX     50                              //maxmum temperature
+#define current_MAX         10                              //maxmum current
+#define FLASH_PAGE_ADDR     0x0801F800  				    //flash address to write motor parameters
+#define CURRENT_BASE        1.0                             //rated current
 #define pi                  3.1415927f
-#define U_dc                12	
+#define U_dc                12	                            //rated VBUS
 #define T1_Table {                                                               \
         0.0000000e+00, 5.0000000e-01, 1.0000000e+00, 1.5000000e+00, 2.0000000e+00, \
         2.5000000e+00, 3.0000000e+00, 3.5000000e+00, 4.0000000e+00, 4.5000000e+00, \

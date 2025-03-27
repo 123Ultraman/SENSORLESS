@@ -4,7 +4,7 @@
 	---> sdiInitializeForHostBasedTarget
 	---> Initialize the model
 	---> rsimLoadOptionsFromMATFile
-	---> rt_RapidInitDiagLoggerDB home: C:\Users\sa127\AppData\Local\Temp\, id: 298539
+	---> rt_RapidInitDiagLoggerDB home: C:\Users\sa127\AppData\Local\Temp\, id: 869498
 	---> rt_RapidInitDiagLoggerDB done
 *** Using a default buffer of size 1024 for logging variable tout
 警告: 模型停止时间设置为无穷。仿真可能永远运行。
@@ -20,6 +20,6 @@
 	---> rtDestroyRevalMgr
 	---> done raccel main
 The argument '-tgtconn_server_info_file' passed to rtiostream_tcpip is not valid and will be ignored.
-The argument 'C:\Users\sa127\AppData\Local\Temp\tgtconnpd6b285a9_83a6_4315_8687_badeca90065e.info' passed to rtiostream_tcpip is not valid and will be ignored.
+The argument 'C:\Users\sa127\AppData\Local\Temp\tgtconnpc6dc9282_1b28_4dc4_a58a_d6966bd32539.info' passed to rtiostream_tcpip is not valid and will be ignored.
 The argument '-tgtconn_port' passed to rtiostream_tcpip is not valid and will be ignored.
 The argument '0' passed to rtiostream_tcpip is not valid and will be ignored.

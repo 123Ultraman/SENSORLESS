@@ -54,9 +54,9 @@ float Rs_calculate(float *I, float *U) {
 
 void Flash_Write_PartialStruct(Motor_P *data)
 {
-    HAL_FLASH_Unlock();  // 解锁 Flash
+    HAL_FLASH_Unlock();  // Unlock Flash
 
-    // 擦除 Flash
+    // Write  Flash
     FLASH_EraseInitTypeDef EraseInitStruct;
     uint32_t PageError;
     EraseInitStruct.TypeErase = FLASH_TYPEERASE_PAGES;
@@ -69,16 +69,15 @@ void Flash_Write_PartialStruct(Motor_P *data)
         return;
     }
 
-    // 写入前 6 个 float（6 × 4 = 24 字节，确保 64-bit 对齐）
-    uint64_t *data64 = (uint64_t*)data;  // 64-bit 对齐
-    for (uint32_t i = 0; i < (24 / 8); i++)  // 24 字节 / 8 = 3 次 64-bit 写入
+    uint64_t *data64 = (uint64_t*)data;
+    for (uint32_t i = 0; i < (24 / 8); i++) 
     {
         HAL_FLASH_Program(FLASH_TYPEPROGRAM_DOUBLEWORD, FLASH_PAGE_ADDR + (i * 8), data64[i]);
     }
 
-    HAL_FLASH_Lock();  // 重新锁定 Flash
+    HAL_FLASH_Lock();  // lock Flash
 }
 void Flash_Read_PartialStruct(Motor_P *data)
 {
-    memcpy(data, (void*)FLASH_PAGE_ADDR, 24);  // 读取 24 字节，保证对齐
+    memcpy(data, (void*)FLASH_PAGE_ADDR, 24);
 }

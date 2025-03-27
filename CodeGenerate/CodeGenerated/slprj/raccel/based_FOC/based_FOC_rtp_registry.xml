@@ -1,701 +1,701 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/slsa_mm_param_rtp/R2023a">
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="e18b71f1-929a-436e-af88-5d192f7d6661">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="318fec4c-a28c-4a80-8da3-a2dde1a17c9b"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e034b92e-aeb2-4039-858a-79ffc7871903"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="44f2e9a2-5402-4e56-af85-f1d47b777666">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="6531eec8-1e13-4d68-865e-bd6109bff0d8"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="9b8110e5-b67c-488b-ad63-8b79a62b7371"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="619e8eda-e35c-4487-87cf-c181b5f6514c">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="379c015a-640d-4edf-a51e-210d6e9eac04"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="44869e1c-0ab5-4f7b-9c83-900a43a78a22">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="77d8f50c-63fa-48f7-ac0e-351f5a74be88"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e9082862-5b0c-42cf-aa4f-eeab14d77fef"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.ModelMetadata type="slsa.mm.param.rtp.ModelMetadata" uuid="c46b9aa9-30f5-4621-9099-cfe18605d74b">
+    <modelName>based_FOC</modelName>
+  </slsa.mm.param.rtp.ModelMetadata>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="625c1fef-56de-442a-8102-9863106c7ac3">
+    <workspaceName>global-workspace</workspaceName>
+    <name>U_ref</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="0a9d4308-f0d6-492b-a17e-198e7fc1f0f7"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="8afe6632-cefd-46da-a4b1-d4c75c175ad4">
+    <blockPath>based_FOC/Subsystem2/Subsystem1/Repeating Sequence1</blockPath>
+    <name>rep_seq_y</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7826e806-ebc6-4147-bb8c-934f1cc8b6b6"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="0a9d4308-f0d6-492b-a17e-198e7fc1f0f7">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="625c1fef-56de-442a-8102-9863106c7ac3"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e3fa5212-72b0-4410-bbb9-b85a6bddb9b6"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="faffb65a-3d0b-430a-80eb-112b85dbabc5">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3499f5ca-338e-4644-a7ad-f0c8603be892"/>
+    <valueIndices>1007</valueIndices>
+    <valueIndices>1007</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="7a4745cf-28eb-41a9-9b20-9f0a8786415d">
+    <workspaceName>global-workspace</workspaceName>
+    <name>F1</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7a2155d6-e1dd-49aa-bbc5-8cd28c7fae53"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="7a2155d6-e1dd-49aa-bbc5-8cd28c7fae53">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="7a4745cf-28eb-41a9-9b20-9f0a8786415d"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f97e12e0-a310-4f93-8609-907780b64fc9"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f97e12e0-a310-4f93-8609-907780b64fc9">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7a2155d6-e1dd-49aa-bbc5-8cd28c7fae53"/>
     <valueIndices>0</valueIndices>
     <valueIndices>499</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="c1cc5697-b85c-4017-819b-5edbb3d37206">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="28086b0e-26ef-4030-8aa6-9908fdc842a2"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>47</valueIndices>
-    <valueIndices>47</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.ModelMetadata type="slsa.mm.param.rtp.ModelMetadata" uuid="0159a2f9-f112-4b7c-8912-7a18d089207e">
-    <modelName>based_FOC</modelName>
-  </slsa.mm.param.rtp.ModelMetadata>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="6f347288-941b-4ca4-9057-8b4ae09f0fe0">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6d8d8583-2cda-4b43-a2d0-dacd571298ec"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>37</valueIndices>
-    <valueIndices>37</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="6fe7a683-6808-4bc4-9941-c2171c8f8ee2">
-    <workspaceName>global-workspace</workspaceName>
-    <name>F1</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="379c015a-640d-4edf-a51e-210d6e9eac04"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="379c015a-640d-4edf-a51e-210d6e9eac04">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="6fe7a683-6808-4bc4-9941-c2171c8f8ee2"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="619e8eda-e35c-4487-87cf-c181b5f6514c"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5c88100f-0b88-4ac5-b9d4-01d2bbabaeb7">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="65ef80b1-e1e8-4ce1-a457-4e54a2fdbfa3"/>
-    <valueIndices>1006</valueIndices>
-    <valueIndices>1006</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="dcc66734-e8bc-4b1f-aec9-80b3ba57594c">
-    <blockPath>based_FOC/Subsystem2/Subsystem1/Repeating Sequence1/Look-Up Table1</blockPath>
-    <name>BreakpointsForDimension1</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3242edee-3d3e-4523-a922-be1b94ce83bf"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="dc362b65-a380-4935-ac19-32fa2e4c3fbb">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="890c6d9a-89a7-4964-9073-cc8ff24bece0"/>
-    <valueIndices>1004</valueIndices>
-    <valueIndices>1004</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="5c994281-c694-4b7c-9897-be0cff0d1280">
-    <workspaceName>global-workspace</workspaceName>
-    <name>U_ref</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="2c0e22ce-0ee7-4e22-b109-0e9c2be71d37"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="2c0f243f-8a32-465f-80c3-feea3eb6f084">
-    <blockPath>based_FOC/Subsystem/Sensorless/Flux_observer/PLL/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete/Saturation</blockPath>
-    <name>LowerLimit</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="aae121f0-ff7e-44a8-9655-1e4c5135e353"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="2cce4aa1-0d74-4343-9298-41aa3dbe48f6">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm1/Model/eee</blockPath>
-    <name>Value</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a1345297-3599-483b-b243-60f3406db6ba"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="2c0e22ce-0ee7-4e22-b109-0e9c2be71d37">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="5c994281-c694-4b7c-9897-be0cff0d1280"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="557dd31d-74fc-4991-bda8-015f368b3dec"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="55c35a54-75d6-4901-ad4d-9c46c382f0cb">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="694d4bb8-9180-4a00-bde4-5941225fff2f"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="716b47e8-776d-485a-84c7-d42a0b63cf9e"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="557dd31d-74fc-4991-bda8-015f368b3dec">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="2c0e22ce-0ee7-4e22-b109-0e9c2be71d37"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e3fa5212-72b0-4410-bbb9-b85a6bddb9b6">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="0a9d4308-f0d6-492b-a17e-198e7fc1f0f7"/>
     <valueIndices>500</valueIndices>
     <valueIndices>999</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="827dae29-fa7c-4c1b-a21f-dbbe3e4f6ebc">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="caf7ac5d-fa0e-465d-8369-361967aa335e"/>
-    <valueIndices>1002</valueIndices>
-    <valueIndices>1002</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="02dde019-aa52-41c0-b8fd-fb6fd66e5fac">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="72e1c99f-ab22-410d-8175-7c774b5ceb39"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="510c9ad1-618e-474b-b782-abdea26ec749"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="ff3cfef4-feff-40ae-9c04-1b361bff014e">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="6a9a76ce-4879-4061-a38e-f76d3fe5310c"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="ae56ff6d-d8fd-4c27-9a8a-c6d8bc4bc1cf"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="72e1c99f-ab22-410d-8175-7c774b5ceb39">
-    <workspaceName>global-workspace</workspaceName>
-    <name>L</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="02dde019-aa52-41c0-b8fd-fb6fd66e5fac"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="510c9ad1-618e-474b-b782-abdea26ec749">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="02dde019-aa52-41c0-b8fd-fb6fd66e5fac"/>
-    <valueIndices>1000</valueIndices>
-    <valueIndices>1000</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="51b01410-329e-4dcc-80be-6b0b29791fc2">
-    <blockPath>based_FOC/Subsystem/Sensorless/Flux_observer/PLL/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete/Saturation</blockPath>
-    <name>UpperLimit</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="d7a66443-b21b-4ef7-906f-9005ddc108d0"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="51db3610-1846-408b-83e2-bc082bbd5f58">
-    <workspaceName>global-workspace</workspaceName>
-    <name>Ts</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="65ef80b1-e1e8-4ce1-a457-4e54a2fdbfa3"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="a717f702-5fbf-41a1-8a4c-5fde746a7f95">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="98ab9f92-c72f-471a-aafb-6cd762969e16"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f49ea80c-68da-499f-932b-05a21a7fce26"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="98ab9f92-c72f-471a-aafb-6cd762969e16">
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="ff3861d9-2200-4f85-b39d-a0b67a6bda0b">
     <workspaceName>global-workspace</workspaceName>
     <name>PLL_I</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a717f702-5fbf-41a1-8a4c-5fde746a7f95"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ac423b33-7a34-4921-81d5-2fc6150a00fc"/>
   </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="749f14d6-d5cf-4d17-992a-d923fa77f2ab">
-    <blockPath>based_FOC/Subsystem2/Subsystem1/Repeating Sequence1</blockPath>
-    <name>rep_seq_y</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="17669f11-6a22-4327-ad03-d19a3663cba1"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f49ea80c-68da-499f-932b-05a21a7fce26">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a717f702-5fbf-41a1-8a4c-5fde746a7f95"/>
-    <valueIndices>1001</valueIndices>
-    <valueIndices>1001</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="4a4f805a-959e-470d-93e5-d79dd703008f">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="ab343c89-e0cd-4697-a056-5744979004e7"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2bd9822c-bacb-4e8c-b009-44e155bfc9f2"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="3f6001fa-59df-4dd7-b1fc-3e41bf7b0301">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="aac725e5-d8fb-423a-ab82-9b4b0ae015c0"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="8cdde1dc-eb0f-4e4a-973a-25db0ea0fa91"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="4ab1fc79-2233-4b98-9d83-2b33b691ecc5">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="b1830995-8480-406b-9864-01d7a761454b"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>48</valueIndices>
-    <valueIndices>48</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="caf7ac5d-fa0e-465d-8369-361967aa335e">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="6bdf9474-0826-4298-ab2f-6b128fe6311c"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="827dae29-fa7c-4c1b-a21f-dbbe3e4f6ebc"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="aa0e5889-b03e-4ff2-b556-1d1fa5b1ec15">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="57ec1270-fbb7-4b1a-a6e3-eb57f9cd06da"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="46b146cb-acdb-4a66-91b5-1bd97d8a424f"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="6bdf9474-0826-4298-ab2f-6b128fe6311c">
-    <workspaceName>global-workspace</workspaceName>
-    <name>PLL_P</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="caf7ac5d-fa0e-465d-8369-361967aa335e"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="65ef80b1-e1e8-4ce1-a457-4e54a2fdbfa3">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="51db3610-1846-408b-83e2-bc082bbd5f58"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5c88100f-0b88-4ac5-b9d4-01d2bbabaeb7"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="658f4ea4-64ad-49c7-b655-efec8ac603e7">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="08f29183-7ec1-40ec-a4a8-acfbff445a2b"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="36f53f1e-ad6a-4d20-846b-2cff3efb14a8"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="659e5752-da95-449c-bdde-3452307396d6">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="1f29a56a-c4b4-46c7-867d-a93f903eded4"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>74</valueIndices>
-    <valueIndices>74</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="65a02f3d-1988-434b-a4bb-f2c9efaadc0f">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="096acf7e-172d-4410-9343-1d4f1368d3af"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d221811e-12f8-4ca0-a02e-4fb685a6ed48"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="890c6d9a-89a7-4964-9073-cc8ff24bece0">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="dd449bf5-8ea8-4628-94e9-cfe451ffb2a0"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="dc362b65-a380-4935-ac19-32fa2e4c3fbb"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="096acf7e-172d-4410-9343-1d4f1368d3af">
-    <workspaceName>global-workspace</workspaceName>
-    <name>Period</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="65a02f3d-1988-434b-a4bb-f2c9efaadc0f"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d221811e-12f8-4ca0-a02e-4fb685a6ed48">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="65a02f3d-1988-434b-a4bb-f2c9efaadc0f"/>
-    <valueIndices>1003</valueIndices>
-    <valueIndices>1003</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="1d72f1eb-7ced-4b7c-a16a-f8672ab18ce7">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e4a635e6-aee7-461b-b586-5ee7376dfddd"/>
-    <valueIndices>1005</valueIndices>
-    <valueIndices>1005</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="dd449bf5-8ea8-4628-94e9-cfe451ffb2a0">
-    <workspaceName>global-workspace</workspaceName>
-    <name>Pn</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="890c6d9a-89a7-4964-9073-cc8ff24bece0"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="e4a635e6-aee7-461b-b586-5ee7376dfddd">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="9341e4c0-f616-4a9e-b9e3-d2149f745934"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="1d72f1eb-7ced-4b7c-a16a-f8672ab18ce7"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="d349c8e7-7c40-47e6-aac8-13c8b698193e">
-    <blockPath>based_FOC/Subsystem/Sensorless/Flux_observer/PLL/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete/Integrator</blockPath>
-    <name>LowerSaturationLimit</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="b1830995-8480-406b-9864-01d7a761454b"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="9341e4c0-f616-4a9e-b9e3-d2149f745934">
-    <workspaceName>global-workspace</workspaceName>
-    <name>Rs</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e4a635e6-aee7-461b-b586-5ee7376dfddd"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f66c07be-171e-42c9-8250-6a38f00348da">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="aae121f0-ff7e-44a8-9655-1e4c5135e353"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>50</valueIndices>
-    <valueIndices>50</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f605fb01-7287-4e2f-9fa2-d61b7d993d0c">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="79de4d3d-7e97-41a9-88da-c76e2d45024f"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>19</valueIndices>
-    <valueIndices>19</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="36f53f1e-ad6a-4d20-846b-2cff3efb14a8">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="658f4ea4-64ad-49c7-b655-efec8ac603e7"/>
-    <valueIndices>1008</valueIndices>
-    <valueIndices>1008</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="76c0464d-add6-410a-897c-a6c10f1a7a5b">
-    <id type="slsa.mm.param.rtp.VariableId" uuid="5b32d66f-3616-4122-a05a-d41c898c99cc"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5947a0fd-cb4d-4075-8768-3dc8881557af"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="9bd56536-f20e-4c1a-a12f-c3252b9d0c41">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="145cd2e5-dbd9-4734-ac3d-28d705a30ed9"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>62</valueIndices>
-    <valueIndices>62</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="5b32d66f-3616-4122-a05a-d41c898c99cc">
-    <workspaceName>global-workspace</workspaceName>
-    <name>Udc</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="76c0464d-add6-410a-897c-a6c10f1a7a5b"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5947a0fd-cb4d-4075-8768-3dc8881557af">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="76c0464d-add6-410a-897c-a6c10f1a7a5b"/>
-    <valueIndices>1007</valueIndices>
-    <valueIndices>1007</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="08f29183-7ec1-40ec-a4a8-acfbff445a2b">
-    <workspaceName>global-workspace</workspaceName>
-    <name>flux</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="658f4ea4-64ad-49c7-b655-efec8ac603e7"/>
-  </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="b1830995-8480-406b-9864-01d7a761454b">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="d349c8e7-7c40-47e6-aac8-13c8b698193e"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="4ab1fc79-2233-4b98-9d83-2b33b691ecc5"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="318fec4c-a28c-4a80-8da3-a2dde1a17c9b">
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="aa6eb8b5-b179-45da-b4bd-3cddc078db22">
     <workspaceName>global-workspace</workspaceName>
     <name>gamma</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e18b71f1-929a-436e-af88-5d192f7d6661"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="65d8ac24-5c2d-4c20-9159-54e940c6c59c"/>
   </slsa.mm.param.rtp.VariableId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e034b92e-aeb2-4039-858a-79ffc7871903">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e18b71f1-929a-436e-af88-5d192f7d6661"/>
-    <segmentIndex>1</segmentIndex>
-    <valueIndices>0</valueIndices>
-    <valueIndices>0</valueIndices>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="aac725e5-d8fb-423a-ab82-9b4b0ae015c0">
+    <workspaceName>global-workspace</workspaceName>
+    <name>L</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3f6001fa-59df-4dd7-b1fc-3e41bf7b0301"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="8cdde1dc-eb0f-4e4a-973a-25db0ea0fa91">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3f6001fa-59df-4dd7-b1fc-3e41bf7b0301"/>
+    <valueIndices>1000</valueIndices>
+    <valueIndices>1000</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="39c9f5d9-69d6-45bb-a55b-30f0b9636250">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7fd8cd0c-5baf-4584-bc96-4f08142cd2ef"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="2c046553-351c-46c7-b89c-a49e54359b53">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="89eb48e0-3df9-448f-a046-507133d28315"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="be87c2b9-f9a7-4e3f-8267-5fc1abda52f3"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="ac423b33-7a34-4921-81d5-2fc6150a00fc">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="ff3861d9-2200-4f85-b39d-a0b67a6bda0b"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5d49550b-2ba2-4035-af59-85653dfc309c"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5d49550b-2ba2-4035-af59-85653dfc309c">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ac423b33-7a34-4921-81d5-2fc6150a00fc"/>
+    <valueIndices>1001</valueIndices>
+    <valueIndices>1001</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="88e9c10a-1f99-47f0-96d5-2659973a6524">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="512ec2f6-5146-4f82-ab90-0cfab8defc14"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>63</valueIndices>
-    <valueIndices>63</valueIndices>
+    <valueIndices>19</valueIndices>
+    <valueIndices>19</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="3917d743-eb72-4ba0-b497-3ecd8192747b">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm2/Model/Gain</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="145cd2e5-dbd9-4734-ac3d-28d705a30ed9"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="79de4d3d-7e97-41a9-88da-c76e2d45024f">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="b33b4044-d9d6-43a1-8f57-e4b0cc687cee"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f605fb01-7287-4e2f-9fa2-d61b7d993d0c"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="8874efc0-b3ee-4836-ae8e-1f867267f415">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="504268c1-1474-44f8-bb3d-2ec9fa3a7c9e"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e7a15a1e-cf2e-4786-b94d-5a89526943f2"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="b33b4044-d9d6-43a1-8f57-e4b0cc687cee">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Coulomb &amp; Viscous Friction</blockPath>
-    <name>gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="79de4d3d-7e97-41a9-88da-c76e2d45024f"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="6d8d8583-2cda-4b43-a2d0-dacd571298ec">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="aac220d5-e314-4d31-a7e3-cf32978d45e9"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="6f347288-941b-4ca4-9057-8b4ae09f0fe0"/>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="504268c1-1474-44f8-bb3d-2ec9fa3a7c9e">
+    <workspaceName>global-workspace</workspaceName>
+    <name>PLL_P</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="8874efc0-b3ee-4836-ae8e-1f867267f415"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e7a15a1e-cf2e-4786-b94d-5a89526943f2">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="8874efc0-b3ee-4836-ae8e-1f867267f415"/>
+    <valueIndices>1002</valueIndices>
+    <valueIndices>1002</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e74d754b-6683-4760-bcfe-cc0d136969ad">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="fe70ab13-eb40-4bb9-a17c-5524f47a0df0"/>
+    <valueIndices>1004</valueIndices>
+    <valueIndices>1004</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="c05a8289-d50f-4c12-8f24-23eacacf213e">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="c2bf1516-5113-413c-ad03-66fc46baa41e"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="919a9a87-ec55-4ff7-8406-9a962760a3e3"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="aae121f0-ff7e-44a8-9655-1e4c5135e353">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="2c0f243f-8a32-465f-80c3-feea3eb6f084"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="f66c07be-171e-42c9-8250-6a38f00348da"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="82aecd1e-1ed7-4ba9-92bd-1bcceb88cd61">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="dafbd944-f9ef-479b-8c48-1175282b2528"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>342</valueIndices>
+    <valueIndices>342</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="821c838e-db5b-4629-9a11-ee82826972a3">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="eb5b7670-bd10-490b-895a-40f5d13722ae"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>61</valueIndices>
+    <valueIndices>61</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="c2bf1516-5113-413c-ad03-66fc46baa41e">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Period</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="c05a8289-d50f-4c12-8f24-23eacacf213e"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="512ec2f6-5146-4f82-ab90-0cfab8defc14">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="0e422b38-2dc2-4e5a-84be-cfae80a08489"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="88e9c10a-1f99-47f0-96d5-2659973a6524"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="aac220d5-e314-4d31-a7e3-cf32978d45e9">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Coulomb &amp; Viscous Friction</blockPath>
-    <name>offset</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6d8d8583-2cda-4b43-a2d0-dacd571298ec"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="d7a66443-b21b-4ef7-906f-9005ddc108d0">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="51b01410-329e-4dcc-80be-6b0b29791fc2"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="06d4e82f-9ec0-4cc1-b245-a8ba9dba4d7a"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="919a9a87-ec55-4ff7-8406-9a962760a3e3">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="c05a8289-d50f-4c12-8f24-23eacacf213e"/>
+    <valueIndices>1003</valueIndices>
+    <valueIndices>1003</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="917c2b92-dfaf-47f0-b0bb-219e35939d7d">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="5c4ad9ec-8ff4-4c9b-8172-1a3d7eedf9d7"/>
+    <valueIndices>1006</valueIndices>
+    <valueIndices>1006</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="be87c2b9-f9a7-4e3f-8267-5fc1abda52f3">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="2c046553-351c-46c7-b89c-a49e54359b53"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>48</valueIndices>
+    <valueIndices>48</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="fe70ab13-eb40-4bb9-a17c-5524f47a0df0">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="d264d8ca-1548-4ddc-b937-4600ef1bcbc7"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e74d754b-6683-4760-bcfe-cc0d136969ad"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="17669f11-6a22-4327-ad03-d19a3663cba1">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="749f14d6-d5cf-4d17-992a-d923fa77f2ab"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5afe469c-4666-4c02-b062-72a90a090c4c"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="5afe469c-4666-4c02-b062-72a90a090c4c">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="17669f11-6a22-4327-ad03-d19a3663cba1"/>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="d264d8ca-1548-4ddc-b937-4600ef1bcbc7">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Pn</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="fe70ab13-eb40-4bb9-a17c-5524f47a0df0"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="87e8bbf1-9d22-4173-b252-95750acb7a33">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7826e806-ebc6-4147-bb8c-934f1cc8b6b6"/>
     <segmentIndex>2</segmentIndex>
     <valueIndices>38</valueIndices>
     <valueIndices>40</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="28086b0e-26ef-4030-8aa6-9908fdc842a2">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="830fb938-1e4e-47d6-8243-68481ab63631"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="c1cc5697-b85c-4017-819b-5edbb3d37206"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="07b99b1b-aa6f-4469-887a-b3b719afbafb">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="a54dc9fd-7564-4a30-95dc-d3fbdc31cf75"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="75527b94-71f7-44b6-9608-fe3b8c3736c6"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="830fb938-1e4e-47d6-8243-68481ab63631">
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="65d8ac24-5c2d-4c20-9159-54e940c6c59c">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="aa6eb8b5-b179-45da-b4bd-3cddc078db22"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2edc958c-37c7-4d78-88df-a8b87e358f82"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="a54dc9fd-7564-4a30-95dc-d3fbdc31cf75">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Rs</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="07b99b1b-aa6f-4469-887a-b3b719afbafb"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="75527b94-71f7-44b6-9608-fe3b8c3736c6">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="07b99b1b-aa6f-4469-887a-b3b719afbafb"/>
+    <valueIndices>1005</valueIndices>
+    <valueIndices>1005</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="5c4ad9ec-8ff4-4c9b-8172-1a3d7eedf9d7">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="6881273d-84db-44a8-b4f4-5941cd7fecd2"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="917c2b92-dfaf-47f0-b0bb-219e35939d7d"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="6881273d-84db-44a8-b4f4-5941cd7fecd2">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Ts</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="5c4ad9ec-8ff4-4c9b-8172-1a3d7eedf9d7"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="34d13e81-04d7-4259-9e60-143aae8b6d0d">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="52c44df1-f192-48f6-a71e-60a0ae772f80"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="bb9a83f7-84d9-41e8-8a66-b2b7e0beeee0"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="3499f5ca-338e-4644-a7ad-f0c8603be892">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="1b8e3d6a-d943-40b8-9d98-49d24bb73fd5"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="faffb65a-3d0b-430a-80eb-112b85dbabc5"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="5bd9c3b7-e95b-4b65-9933-444bb7278275">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="69d9e6d3-de08-49c9-8448-ae6d61d28cb4"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="174d1cec-0473-491c-9340-2ba3984068c4"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="1b8e3d6a-d943-40b8-9d98-49d24bb73fd5">
+    <workspaceName>global-workspace</workspaceName>
+    <name>Udc</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3499f5ca-338e-4644-a7ad-f0c8603be892"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="33ab2a72-5837-485b-a42c-6a1fdbf4a08b">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3c49534d-57f5-4896-9b9c-f094e2796566"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>318</valueIndices>
+    <valueIndices>318</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="334fe9e9-46de-43ac-ba88-96f742f962d6">
+    <id type="slsa.mm.param.rtp.VariableId" uuid="bd04c1f0-0c02-4355-96ac-2525f533b8ca"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="05985de7-50aa-44ac-a479-239dfc119126"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.VariableId type="slsa.mm.param.rtp.VariableId" uuid="bd04c1f0-0c02-4355-96ac-2525f533b8ca">
+    <workspaceName>global-workspace</workspaceName>
+    <name>flux</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="334fe9e9-46de-43ac-ba88-96f742f962d6"/>
+  </slsa.mm.param.rtp.VariableId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="05985de7-50aa-44ac-a479-239dfc119126">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="334fe9e9-46de-43ac-ba88-96f742f962d6"/>
+    <valueIndices>1008</valueIndices>
+    <valueIndices>1008</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="aeb11a09-a843-4204-8e0b-b76b710ea50c">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="1fc26e61-d7ba-478b-8caa-ffb2748da9e4"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>37</valueIndices>
+    <valueIndices>37</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2e4ae9d8-a701-4d95-9e27-a45e29288909">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3b064e7b-47c1-4de0-9b21-d3d55cd58b66"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>338</valueIndices>
+    <valueIndices>338</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2edc958c-37c7-4d78-88df-a8b87e358f82">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="65d8ac24-5c2d-4c20-9159-54e940c6c59c"/>
+    <segmentIndex>1</segmentIndex>
+    <valueIndices>0</valueIndices>
+    <valueIndices>0</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="0e422b38-2dc2-4e5a-84be-cfae80a08489">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Coulomb &amp; Viscous Friction</blockPath>
+    <name>gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="512ec2f6-5146-4f82-ab90-0cfab8defc14"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="1fc26e61-d7ba-478b-8caa-ffb2748da9e4">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="cb15c3c3-18c7-474e-8647-3f3b29d69c52"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="aeb11a09-a843-4204-8e0b-b76b710ea50c"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="cb15c3c3-18c7-474e-8647-3f3b29d69c52">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Coulomb &amp; Viscous Friction</blockPath>
+    <name>offset</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="1fc26e61-d7ba-478b-8caa-ffb2748da9e4"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="7826e806-ebc6-4147-bb8c-934f1cc8b6b6">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="8afe6632-cefd-46da-a4b1-d4c75c175ad4"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="87e8bbf1-9d22-4173-b252-95750acb7a33"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e9082862-5b0c-42cf-aa4f-eeab14d77fef">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="44869e1c-0ab5-4f7b-9c83-900a43a78a22"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>49</valueIndices>
+    <valueIndices>49</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="69d9e6d3-de08-49c9-8448-ae6d61d28cb4">
     <blockPath>based_FOC/Subsystem/Sensorless/Flux_observer/PLL/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete/Integrator</blockPath>
     <name>UpperSaturationLimit</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="28086b0e-26ef-4030-8aa6-9908fdc842a2"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="5bd9c3b7-e95b-4b65-9933-444bb7278275"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="060040e6-5423-4342-a6d7-8ad50a8fd5f7">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp1/Model/Gain</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a18e0a40-57aa-4342-a091-13f68ae9a3ae"/>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="57cd2913-f87d-4e3c-8805-8ed1aa4b928b">
+    <blockPath>based_FOC/Subsystem/Sensorless/Flux_observer/PLL/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete/Saturation</blockPath>
+    <name>LowerLimit</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="98600334-f562-4e86-9b7d-a8fad0ee8651"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="06d4e82f-9ec0-4cc1-b245-a8ba9dba4d7a">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="d7a66443-b21b-4ef7-906f-9005ddc108d0"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="174d1cec-0473-491c-9340-2ba3984068c4">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="5bd9c3b7-e95b-4b65-9933-444bb7278275"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>49</valueIndices>
-    <valueIndices>49</valueIndices>
+    <valueIndices>47</valueIndices>
+    <valueIndices>47</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="3d9f9854-b075-41ab-a130-1964eb3e8034">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="a93eb8bc-c068-45d3-82b5-21d02ffdc9d0"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="750a3eab-5973-40fd-98e8-538dbba59592"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="a93eb8bc-c068-45d3-82b5-21d02ffdc9d0">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm1/Model/Gain</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3d9f9854-b075-41ab-a130-1964eb3e8034"/>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="89eb48e0-3df9-448f-a046-507133d28315">
+    <blockPath>based_FOC/Subsystem/Sensorless/Flux_observer/PLL/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete/Integrator</blockPath>
+    <name>LowerSaturationLimit</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="2c046553-351c-46c7-b89c-a49e54359b53"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="750a3eab-5973-40fd-98e8-538dbba59592">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3d9f9854-b075-41ab-a130-1964eb3e8034"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>61</valueIndices>
-    <valueIndices>61</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="145cd2e5-dbd9-4734-ac3d-28d705a30ed9">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="3917d743-eb72-4ba0-b497-3ecd8192747b"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="9bd56536-f20e-4c1a-a12f-c3252b9d0c41"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="7fd0eed7-f4fb-440c-b897-e599a3bc837b">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="3c4596d8-a0a2-4c49-ba56-00848fc6f00d"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="6cec73f2-dadc-4be6-97b8-fedec3d01b4b"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="7fd8cd0c-5baf-4584-bc96-4f08142cd2ef">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="e8f01151-b43e-4b93-b94c-efc3dd297a6e"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="39c9f5d9-69d6-45bb-a55b-30f0b9636250"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="e8f01151-b43e-4b93-b94c-efc3dd297a6e">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm3/Model/Gain</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7fd8cd0c-5baf-4584-bc96-4f08142cd2ef"/>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="77d8f50c-63fa-48f7-ac0e-351f5a74be88">
+    <blockPath>based_FOC/Subsystem/Sensorless/Flux_observer/PLL/Low-Pass Filter (Discrete or Continuous)/Integrator (Discrete or Continuous)/Discrete/Saturation</blockPath>
+    <name>UpperLimit</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="44869e1c-0ab5-4f7b-9c83-900a43a78a22"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="a1345297-3599-483b-b243-60f3406db6ba">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="2cce4aa1-0d74-4343-9298-41aa3dbe48f6"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="470b7a8b-a093-48f3-97dd-0504aaeb8085"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="98600334-f562-4e86-9b7d-a8fad0ee8651">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="57cd2913-f87d-4e3c-8805-8ed1aa4b928b"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="61e7ea01-f8d9-449d-97ad-46a704f2bfba"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="a18e0a40-57aa-4342-a091-13f68ae9a3ae">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="060040e6-5423-4342-a6d7-8ad50a8fd5f7"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="96019286-9dcc-4167-82d7-8fdc2bd40955"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="96019286-9dcc-4167-82d7-8fdc2bd40955">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a18e0a40-57aa-4342-a091-13f68ae9a3ae"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="61d7f6f0-4c7a-4d27-b7d5-064c1adc53fb">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7f64436e-2d69-45a6-b53e-afebbf5f2a98"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>64</valueIndices>
-    <valueIndices>64</valueIndices>
+    <valueIndices>322</valueIndices>
+    <valueIndices>322</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="6bea5750-093f-484d-b7fd-489784f0c926">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="f7482f24-f60c-4fdd-954a-3ef401e22aa4"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="454bd928-e2c6-45b3-9d90-4b9b9561ae7e"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="6b6ee93f-3cfc-4434-892d-dd919ca4183d">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="56964ccd-5968-44bb-bbc8-5acefd2c688a"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="aef15f7f-86e8-4824-a181-a04949d6c34b"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="56964ccd-5968-44bb-bbc8-5acefd2c688a">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp2/Model/Gain</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6b6ee93f-3cfc-4434-892d-dd919ca4183d"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="aef15f7f-86e8-4824-a181-a04949d6c34b">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6b6ee93f-3cfc-4434-892d-dd919ca4183d"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>65</valueIndices>
-    <valueIndices>65</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="70fd5ff9-e420-4940-b74d-fd5161d90aed">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="f89ce6bf-75f6-4970-a19b-23faf3ef6542"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="94745047-a255-4f24-960d-cae635341b75"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="f89ce6bf-75f6-4970-a19b-23faf3ef6542">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp3/Model/Gain</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="70fd5ff9-e420-4940-b74d-fd5161d90aed"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="94745047-a255-4f24-960d-cae635341b75">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="70fd5ff9-e420-4940-b74d-fd5161d90aed"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>66</valueIndices>
-    <valueIndices>66</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="b6ee6bbe-6b65-4b30-85af-4597fc53c072">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="e393ead1-b85f-4d4d-bb5c-d34fa06ae7f7"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="cc5890f7-d1f8-413e-a52f-4de2fb1fcebb"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="e393ead1-b85f-4d4d-bb5c-d34fa06ae7f7">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Discrete-Time Integrator1</blockPath>
-    <name>InitialCondition</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="b6ee6bbe-6b65-4b30-85af-4597fc53c072"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="cc5890f7-d1f8-413e-a52f-4de2fb1fcebb">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="b6ee6bbe-6b65-4b30-85af-4597fc53c072"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>68</valueIndices>
-    <valueIndices>68</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e0373ab6-59e9-45ec-8784-14560ea09915">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6e8db9d0-7be2-4450-8b35-d43bc468a5a8"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>320</valueIndices>
-    <valueIndices>320</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="e03f68a6-6d46-44fe-bc9f-3793ac04b273">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="2d4bc88e-9720-4fa4-9ec1-88d1fd9e86b6"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="bbe9a86d-db34-4db1-af18-71c50569a631"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="2d4bc88e-9720-4fa4-9ec1-88d1fd9e86b6">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/Discrete-Time Integrator</blockPath>
-    <name>InitialCondition</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e03f68a6-6d46-44fe-bc9f-3793ac04b273"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="bbe9a86d-db34-4db1-af18-71c50569a631">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e03f68a6-6d46-44fe-bc9f-3793ac04b273"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>70</valueIndices>
-    <valueIndices>70</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="f7482f24-f60c-4fdd-954a-3ef401e22aa4">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/id/Discrete-Time Integrator</blockPath>
-    <name>InitialCondition</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6bea5750-093f-484d-b7fd-489784f0c926"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="454bd928-e2c6-45b3-9d90-4b9b9561ae7e">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6bea5750-093f-484d-b7fd-489784f0c926"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>72</valueIndices>
-    <valueIndices>72</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="1f29a56a-c4b4-46c7-867d-a93f903eded4">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="0bb44ae7-5265-41ac-bad9-3846a4083802"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="659e5752-da95-449c-bdde-3452307396d6"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="0bb44ae7-5265-41ac-bad9-3846a4083802">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Discrete-Time Integrator</blockPath>
-    <name>InitialCondition</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="1f29a56a-c4b4-46c7-867d-a93f903eded4"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="3242edee-3d3e-4523-a922-be1b94ce83bf">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="dcc66734-e8bc-4b1f-aec9-80b3ba57594c"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="91c98ca3-73f2-414a-ba44-1a1422a99576"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="91c98ca3-73f2-414a-ba44-1a1422a99576">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3242edee-3d3e-4523-a922-be1b94ce83bf"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>79</valueIndices>
-    <valueIndices>81</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.SFunctionParameter type="slsa.mm.param.rtp.SFunctionParameter" uuid="a69cc8dd-12ae-4767-95b5-496aa6665365">
-    <isInlined>true</isInlined>
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="c5af1f85-9011-4c9a-8b55-577f94daf88d"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7f550ce3-1bdc-4788-84d5-744745ac0cdb"/>
-  </slsa.mm.param.rtp.SFunctionParameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="c5af1f85-9011-4c9a-8b55-577f94daf88d">
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="61370e2f-ef98-4c74-8e5b-c8ced94e1f5e">
     <blockPath>based_FOC/powergui/EquivalentModel1/State-Space</blockPath>
     <name>DS_param</name>
-    <parameter type="slsa.mm.param.rtp.SFunctionParameter" uuid="a69cc8dd-12ae-4767-95b5-496aa6665365"/>
+    <parameter type="slsa.mm.param.rtp.SFunctionParameter" uuid="0bed0587-3020-423f-939e-eb50dfcdd456"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7f550ce3-1bdc-4788-84d5-744745ac0cdb">
-    <parameter type="slsa.mm.param.rtp.SFunctionParameter" uuid="a69cc8dd-12ae-4767-95b5-496aa6665365"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="61e7ea01-f8d9-449d-97ad-46a704f2bfba">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="98600334-f562-4e86-9b7d-a8fad0ee8651"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>100</valueIndices>
-    <valueIndices>297</valueIndices>
+    <valueIndices>50</valueIndices>
+    <valueIndices>50</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="85969c1f-04b7-44ed-8074-3fc7db835efe">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="7b68982f-3eb7-4195-a851-5546ec51c90c"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="3da42bb9-b5bd-4291-9ad1-f0b26c7562e3"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="6f0c310c-aaf7-45d5-864d-4bb623b6087c">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="945ad184-a105-431b-acae-6d0db6216076"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d9600a5c-97a6-43d9-aa40-14eb5d6dfb9f"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="7b68982f-3eb7-4195-a851-5546ec51c90c">
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="94922335-6108-4b17-a8f3-beb80f61d817">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e82d7532-f63a-4060-8716-0407c2cf5702"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>64</valueIndices>
+    <valueIndices>64</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="945ad184-a105-431b-acae-6d0db6216076">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm1/Model/Gain</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6f0c310c-aaf7-45d5-864d-4bb623b6087c"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d9600a5c-97a6-43d9-aa40-14eb5d6dfb9f">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6f0c310c-aaf7-45d5-864d-4bb623b6087c"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>60</valueIndices>
+    <valueIndices>60</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="eb5b7670-bd10-490b-895a-40f5d13722ae">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="13696021-0daa-4eeb-94e6-9cbec3fc2aa8"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="821c838e-db5b-4629-9a11-ee82826972a3"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="13696021-0daa-4eeb-94e6-9cbec3fc2aa8">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm2/Model/Gain</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="eb5b7670-bd10-490b-895a-40f5d13722ae"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="57ec1270-fbb7-4b1a-a6e3-eb57f9cd06da">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm3/Model/Gain</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="aa0e5889-b03e-4ff2-b556-1d1fa5b1ec15"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="46b146cb-acdb-4a66-91b5-1bd97d8a424f">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="aa0e5889-b03e-4ff2-b556-1d1fa5b1ec15"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>62</valueIndices>
+    <valueIndices>62</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="7d5704b3-1706-44fd-b49b-903598f0df22">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="d84ced6d-9105-4084-ba1e-232098bd912c"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="1dd17f8b-3240-463a-90f9-f57a8b3ccbbe"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="d84ced6d-9105-4084-ba1e-232098bd912c">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp1/Model/Gain</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7d5704b3-1706-44fd-b49b-903598f0df22"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="1dd17f8b-3240-463a-90f9-f57a8b3ccbbe">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7d5704b3-1706-44fd-b49b-903598f0df22"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>63</valueIndices>
+    <valueIndices>63</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="e82d7532-f63a-4060-8716-0407c2cf5702">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="54932508-19e2-400d-bb89-05ba671e44b4"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="94922335-6108-4b17-a8f3-beb80f61d817"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="54932508-19e2-400d-bb89-05ba671e44b4">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp2/Model/Gain</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e82d7532-f63a-4060-8716-0407c2cf5702"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.SFunctionParameter type="slsa.mm.param.rtp.SFunctionParameter" uuid="0bed0587-3020-423f-939e-eb50dfcdd456">
+    <isInlined>true</isInlined>
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="61370e2f-ef98-4c74-8e5b-c8ced94e1f5e"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="80b9ab66-cc15-4c64-8724-61b1394647d5"/>
+  </slsa.mm.param.rtp.SFunctionParameter>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="0b43ee82-aaac-421f-9a16-17c370718a54">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="7ed6da2b-4aa6-4e3a-be68-a11444f2fc1f"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d921f428-e09d-46b2-90a0-5b8dbbf2a61b"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="7ed6da2b-4aa6-4e3a-be68-a11444f2fc1f">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp3/Model/Gain</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="0b43ee82-aaac-421f-9a16-17c370718a54"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d921f428-e09d-46b2-90a0-5b8dbbf2a61b">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="0b43ee82-aaac-421f-9a16-17c370718a54"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>65</valueIndices>
+    <valueIndices>65</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="eaaf61a8-3ce1-4fe2-8cce-9660c0c91aa1">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="ec593bff-2747-4d7c-ad54-21c6deb2ce6a"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7a7e91aa-98c1-4472-90de-21f390d0f0cd"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="ec593bff-2747-4d7c-ad54-21c6deb2ce6a">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Discrete-Time Integrator1</blockPath>
+    <name>InitialCondition</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="eaaf61a8-3ce1-4fe2-8cce-9660c0c91aa1"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7a7e91aa-98c1-4472-90de-21f390d0f0cd">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="eaaf61a8-3ce1-4fe2-8cce-9660c0c91aa1"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>67</valueIndices>
+    <valueIndices>67</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="ba1b0944-9252-4941-8f42-ffaff7b6dae7">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="36317637-3472-4294-bd12-55f7c7f470c8"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7967131b-eb71-4ea8-ac51-526827638516"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="36317637-3472-4294-bd12-55f7c7f470c8">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/Discrete-Time Integrator</blockPath>
+    <name>InitialCondition</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ba1b0944-9252-4941-8f42-ffaff7b6dae7"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7967131b-eb71-4ea8-ac51-526827638516">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ba1b0944-9252-4941-8f42-ffaff7b6dae7"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>69</valueIndices>
+    <valueIndices>69</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="f110b8a8-353b-4904-91e5-5ca1feb237be">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="daf1bb77-2b8b-455f-b300-cfa76503a2a6"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="35e3b5df-2321-425b-a818-f0f0760ea78f"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="dafbd944-f9ef-479b-8c48-1175282b2528">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="39d8b8ab-4810-4fdb-b107-81487faf7c4e"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="82aecd1e-1ed7-4ba9-92bd-1bcceb88cd61"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="daffe94f-a12f-42d8-963b-2794f0e4c3d9">
     <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/id/1//Ld</blockPath>
     <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="85969c1f-04b7-44ed-8074-3fc7db835efe"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e9b5fc60-ac2a-46a4-920f-d56ec03d90ff"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="3da42bb9-b5bd-4291-9ad1-f0b26c7562e3">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="85969c1f-04b7-44ed-8074-3fc7db835efe"/>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="daf1bb77-2b8b-455f-b300-cfa76503a2a6">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/id/Discrete-Time Integrator</blockPath>
+    <name>InitialCondition</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="f110b8a8-353b-4904-91e5-5ca1feb237be"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="35e3b5df-2321-425b-a818-f0f0760ea78f">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="f110b8a8-353b-4904-91e5-5ca1feb237be"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>317</valueIndices>
-    <valueIndices>317</valueIndices>
+    <valueIndices>71</valueIndices>
+    <valueIndices>71</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="031f5ab7-91db-49b5-a897-27702819fb31">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="deb70e9a-9864-4195-a6d4-aecd579e5cb6"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="13d70d66-8e15-4e7a-9dfb-49c01eb0347e"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="23b8b122-ccff-4525-8c1e-d8971c0c823d">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="dcf3a6f5-f4cb-44a6-9dfb-4b2a14b0ce54"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="474e97fb-d481-4799-a6b3-e148061fba00"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="deb70e9a-9864-4195-a6d4-aecd579e5cb6">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Gain</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="031f5ab7-91db-49b5-a897-27702819fb31"/>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="dcf3a6f5-f4cb-44a6-9dfb-4b2a14b0ce54">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Discrete-Time Integrator</blockPath>
+    <name>InitialCondition</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="23b8b122-ccff-4525-8c1e-d8971c0c823d"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="13d70d66-8e15-4e7a-9dfb-49c01eb0347e">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="031f5ab7-91db-49b5-a897-27702819fb31"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="474e97fb-d481-4799-a6b3-e148061fba00">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="23b8b122-ccff-4525-8c1e-d8971c0c823d"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>318</valueIndices>
-    <valueIndices>318</valueIndices>
+    <valueIndices>73</valueIndices>
+    <valueIndices>73</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="cea2e88e-f178-48ee-8d81-e06edcd03bb5">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="364ee00e-0102-4e1f-88f1-36c000639f33"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7c993869-b809-4ddb-a0f1-6254f7d8ef77"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="8b8791dd-0dd7-4dd0-ad0e-78a54a74639b">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="b15ed56a-948a-42f4-8c0f-0ee4f066383a"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="8634555d-651f-429a-923f-d1369b66453e"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="364ee00e-0102-4e1f-88f1-36c000639f33">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/id/Lq//Ld</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="cea2e88e-f178-48ee-8d81-e06edcd03bb5"/>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="b15ed56a-948a-42f4-8c0f-0ee4f066383a">
+    <blockPath>based_FOC/Subsystem2/Subsystem1/Repeating Sequence1/Look-Up Table1</blockPath>
+    <name>BreakpointsForDimension1</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="8b8791dd-0dd7-4dd0-ad0e-78a54a74639b"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="7c993869-b809-4ddb-a0f1-6254f7d8ef77">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="cea2e88e-f178-48ee-8d81-e06edcd03bb5"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="8634555d-651f-429a-923f-d1369b66453e">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="8b8791dd-0dd7-4dd0-ad0e-78a54a74639b"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>319</valueIndices>
-    <valueIndices>319</valueIndices>
+    <valueIndices>78</valueIndices>
+    <valueIndices>80</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="6e8db9d0-7be2-4450-8b35-d43bc468a5a8">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="d15bb00d-0d3a-48cf-83b9-6c6d9981b2dc"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="e0373ab6-59e9-45ec-8784-14560ea09915"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="80b9ab66-cc15-4c64-8724-61b1394647d5">
+    <parameter type="slsa.mm.param.rtp.SFunctionParameter" uuid="0bed0587-3020-423f-939e-eb50dfcdd456"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>99</valueIndices>
+    <valueIndices>296</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="e9177236-f56d-42cc-a494-55e53591cf33">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="354a44fb-3b47-492d-a028-68d84a2580b7"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d20774c8-e8d3-407a-92a5-38f06a653ac5"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="d15bb00d-0d3a-48cf-83b9-6c6d9981b2dc">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/id/R//Ld</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6e8db9d0-7be2-4450-8b35-d43bc468a5a8"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="ff81de4a-a248-49e8-a5c5-c5925db55d0c">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="f3427cf4-2251-47e0-94ca-a298afa4fe97"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="8c83cb1b-8b17-49a7-9667-aca1f8875779"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="e9b5fc60-ac2a-46a4-920f-d56ec03d90ff">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="daffe94f-a12f-42d8-963b-2794f0e4c3d9"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="529c4b73-71ed-4f5f-81e7-564a997577f8"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="f3427cf4-2251-47e0-94ca-a298afa4fe97">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/1//Lq</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ff81de4a-a248-49e8-a5c5-c5925db55d0c"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="8c83cb1b-8b17-49a7-9667-aca1f8875779">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ff81de4a-a248-49e8-a5c5-c5925db55d0c"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>321</valueIndices>
-    <valueIndices>321</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="fe26cd3b-5268-49d2-a91e-ec4545cf98fa">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="41f04acf-5ac2-45a6-a6ab-584fec8166ad"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="0933fb3d-6e23-4481-9df0-71061c045160"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="41f04acf-5ac2-45a6-a6ab-584fec8166ad">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/Ld//Lq</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="fe26cd3b-5268-49d2-a91e-ec4545cf98fa"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="0933fb3d-6e23-4481-9df0-71061c045160">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="fe26cd3b-5268-49d2-a91e-ec4545cf98fa"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>322</valueIndices>
-    <valueIndices>322</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="de50a5bd-f340-4db3-9c05-a9f01bcafd5e">
-    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm3/Model/eee</blockPath>
-    <name>Value</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="db61826d-1a2c-41ff-8db8-f5a617960962"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="deecc346-12c7-405e-aec1-17c9ef642eab">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="f5e0ed58-875b-485b-9c91-fb9a4e1ad49e"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="4f740c7c-6ff3-4253-ac85-1ad708f7e95f"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="f5e0ed58-875b-485b-9c91-fb9a4e1ad49e">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/R//Lq</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="deecc346-12c7-405e-aec1-17c9ef642eab"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="4f740c7c-6ff3-4253-ac85-1ad708f7e95f">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="deecc346-12c7-405e-aec1-17c9ef642eab"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>323</valueIndices>
-    <valueIndices>323</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="85253fe0-d796-4ca5-bbf6-0aeb1180983b">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="3f9ccac9-1ce1-454a-ac45-e3365f296f5e"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="86dc2bdb-6325-4960-8454-164732d7f1e0"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="3f9ccac9-1ce1-454a-ac45-e3365f296f5e">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/lam//Lq</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="85253fe0-d796-4ca5-bbf6-0aeb1180983b"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="86dc2bdb-6325-4960-8454-164732d7f1e0">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="85253fe0-d796-4ca5-bbf6-0aeb1180983b"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>324</valueIndices>
-    <valueIndices>324</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="694d4bb8-9180-4a00-bde4-5941225fff2f">
-    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Gain2</blockPath>
-    <name>Gain</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="55c35a54-75d6-4901-ad4d-9c46c382f0cb"/>
-  </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="716b47e8-776d-485a-84c7-d42a0b63cf9e">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="55c35a54-75d6-4901-ad4d-9c46c382f0cb"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>325</valueIndices>
-    <valueIndices>325</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="470b7a8b-a093-48f3-97dd-0504aaeb8085">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="a1345297-3599-483b-b243-60f3406db6ba"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>333</valueIndices>
-    <valueIndices>333</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="3c4596d8-a0a2-4c49-ba56-00848fc6f00d">
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="52c44df1-f192-48f6-a71e-60a0ae772f80">
     <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm2/Model/eee</blockPath>
     <name>Value</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7fd0eed7-f4fb-440c-b897-e599a3bc837b"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="34d13e81-04d7-4259-9e60-143aae8b6d0d"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="6cec73f2-dadc-4be6-97b8-fedec3d01b4b">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7fd0eed7-f4fb-440c-b897-e599a3bc837b"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="529c4b73-71ed-4f5f-81e7-564a997577f8">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e9b5fc60-ac2a-46a4-920f-d56ec03d90ff"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>335</valueIndices>
-    <valueIndices>335</valueIndices>
+    <valueIndices>316</valueIndices>
+    <valueIndices>316</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="db61826d-1a2c-41ff-8db8-f5a617960962">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="de50a5bd-f340-4db3-9c05-a9f01bcafd5e"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2509e5ef-8a05-4608-8167-aab4466cffee"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="069a3e01-99b5-4777-b7a7-6160909ab0e8">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="3d9eb7b2-580f-411f-84a7-8a5802537783"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="45014010-3d4d-42bf-93b3-7aa4afad4371"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2509e5ef-8a05-4608-8167-aab4466cffee">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="db61826d-1a2c-41ff-8db8-f5a617960962"/>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="3d9eb7b2-580f-411f-84a7-8a5802537783">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Gain</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="069a3e01-99b5-4777-b7a7-6160909ab0e8"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="45014010-3d4d-42bf-93b3-7aa4afad4371">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="069a3e01-99b5-4777-b7a7-6160909ab0e8"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>337</valueIndices>
-    <valueIndices>337</valueIndices>
+    <valueIndices>317</valueIndices>
+    <valueIndices>317</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="949fbfa2-1d24-44cf-9c5d-c8a656ace11e">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="dfcbe44d-e6c2-4288-b444-bb8f03fabd6c"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="341eb62e-3d60-446c-b685-693e9aa4e078"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="3c49534d-57f5-4896-9b9c-f094e2796566">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="6cdde521-d7fc-44e5-b309-061234f0a640"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="33ab2a72-5837-485b-a42c-6a1fdbf4a08b"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="dfcbe44d-e6c2-4288-b444-bb8f03fabd6c">
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="6cdde521-d7fc-44e5-b309-061234f0a640">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/id/Lq//Ld</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3c49534d-57f5-4896-9b9c-f094e2796566"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="eb2013c2-202d-45b9-895b-b260fcbca48c">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="83b857e1-ac8e-4573-9a1a-363891787d40"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="a4f4769d-3302-4305-afa5-92b801a4feb8"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="83b857e1-ac8e-4573-9a1a-363891787d40">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/id/R//Ld</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="eb2013c2-202d-45b9-895b-b260fcbca48c"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="a4f4769d-3302-4305-afa5-92b801a4feb8">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="eb2013c2-202d-45b9-895b-b260fcbca48c"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>319</valueIndices>
+    <valueIndices>319</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="5df2321f-f82b-4465-9b4f-669290b7a0a8">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="a649b311-3ad5-44e6-a5f8-4198359a4338"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="3c8018c3-370d-4d48-8849-4af3e98f7638"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="a649b311-3ad5-44e6-a5f8-4198359a4338">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/1//Lq</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="5df2321f-f82b-4465-9b4f-669290b7a0a8"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="3c8018c3-370d-4d48-8849-4af3e98f7638">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="5df2321f-f82b-4465-9b4f-669290b7a0a8"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>320</valueIndices>
+    <valueIndices>320</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="6a9a76ce-4879-4061-a38e-f76d3fe5310c">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/Ld//Lq</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ff3cfef4-feff-40ae-9c04-1b361bff014e"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="ae56ff6d-d8fd-4c27-9a8a-c6d8bc4bc1cf">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="ff3cfef4-feff-40ae-9c04-1b361bff014e"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>321</valueIndices>
+    <valueIndices>321</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="7f64436e-2d69-45a6-b53e-afebbf5f2a98">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="2dfc08de-4f1d-4d61-930d-18fa5fbc00a3"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="61d7f6f0-4c7a-4d27-b7d5-064c1adc53fb"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="2dfc08de-4f1d-4d61-930d-18fa5fbc00a3">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/R//Lq</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="7f64436e-2d69-45a6-b53e-afebbf5f2a98"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="e3894630-7620-4384-89c7-b124869ecf0a">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="75bd94e0-bc1a-436d-8335-e8b7c20512ac"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="cac332c4-43e4-40c2-9e84-ea11d5a058d8"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="75bd94e0-bc1a-436d-8335-e8b7c20512ac">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Electrical model/iq,id/iq/lam//Lq</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e3894630-7620-4384-89c7-b124869ecf0a"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="cac332c4-43e4-40c2-9e84-ea11d5a058d8">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e3894630-7620-4384-89c7-b124869ecf0a"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>323</valueIndices>
+    <valueIndices>323</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="354a44fb-3b47-492d-a028-68d84a2580b7">
+    <blockPath>based_FOC/Permanent Magnet Synchronous Machine1/Mechanical model/Gain2</blockPath>
+    <name>Gain</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e9177236-f56d-42cc-a494-55e53591cf33"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="d20774c8-e8d3-407a-92a5-38f06a653ac5">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="e9177236-f56d-42cc-a494-55e53591cf33"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>324</valueIndices>
+    <valueIndices>324</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="6531eec8-1e13-4d68-865e-bd6109bff0d8">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm1/Model/eee</blockPath>
+    <name>Value</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="44f2e9a2-5402-4e56-af85-f1d47b777666"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="9bbff27a-d38e-412a-8b97-37d964cf2e07">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="e1066cc2-3e42-4699-94e3-edc1df6de819"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="b2fc0f8a-4957-4dde-8246-649548fd68da"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="9b8110e5-b67c-488b-ad63-8b79a62b7371">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="44f2e9a2-5402-4e56-af85-f1d47b777666"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>332</valueIndices>
+    <valueIndices>332</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="bb9a83f7-84d9-41e8-8a66-b2b7e0beeee0">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="34d13e81-04d7-4259-9e60-143aae8b6d0d"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>334</valueIndices>
+    <valueIndices>334</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="e1066cc2-3e42-4699-94e3-edc1df6de819">
+    <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dm3/Model/eee</blockPath>
+    <name>Value</name>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="9bbff27a-d38e-412a-8b97-37d964cf2e07"/>
+  </slsa.mm.param.rtp.BlockParameterId>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="b2fc0f8a-4957-4dde-8246-649548fd68da">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="9bbff27a-d38e-412a-8b97-37d964cf2e07"/>
+    <segmentIndex>2</segmentIndex>
+    <valueIndices>336</valueIndices>
+    <valueIndices>336</valueIndices>
+  </slsa.mm.param.rtp.RtpLocation>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="3b064e7b-47c1-4de0-9b21-d3d55cd58b66">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="568fc3e7-c0ef-4b10-900d-46ea7e913e9c"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2e4ae9d8-a701-4d95-9e27-a45e29288909"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="568fc3e7-c0ef-4b10-900d-46ea7e913e9c">
     <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp1/Model/eee</blockPath>
     <name>Value</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="949fbfa2-1d24-44cf-9c5d-c8a656ace11e"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="3b064e7b-47c1-4de0-9b21-d3d55cd58b66"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="341eb62e-3d60-446c-b685-693e9aa4e078">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="949fbfa2-1d24-44cf-9c5d-c8a656ace11e"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>339</valueIndices>
-    <valueIndices>339</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="ab343c89-e0cd-4697-a056-5744979004e7">
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="d0b744c3-c6f6-4bd2-812b-0e5edafdae7c">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="c0f598ec-3fe5-425f-85a9-b3d0a801bc73"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="31512c7b-9b18-4c75-9d63-9b57f8a2258c"/>
+  </slsa.mm.param.rtp.Parameter>
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="c0f598ec-3fe5-425f-85a9-b3d0a801bc73">
     <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp2/Model/eee</blockPath>
     <name>Value</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="4a4f805a-959e-470d-93e5-d79dd703008f"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="d0b744c3-c6f6-4bd2-812b-0e5edafdae7c"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="2bd9822c-bacb-4e8c-b009-44e155bfc9f2">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="4a4f805a-959e-470d-93e5-d79dd703008f"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="31512c7b-9b18-4c75-9d63-9b57f8a2258c">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="d0b744c3-c6f6-4bd2-812b-0e5edafdae7c"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>341</valueIndices>
-    <valueIndices>341</valueIndices>
+    <valueIndices>340</valueIndices>
+    <valueIndices>340</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="33885722-b9a8-4708-814a-5448b56a94eb">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="22fcdac6-8330-4a55-ad34-49c8dc2e961a"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="35d61129-99ce-4799-b808-ec65a0089c9a"/>
-  </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="22fcdac6-8330-4a55-ad34-49c8dc2e961a">
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="39d8b8ab-4810-4fdb-b107-81487faf7c4e">
     <blockPath>based_FOC/Two-Level Converter1/Model/Power/Dp3/Model/eee</blockPath>
     <name>Value</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="33885722-b9a8-4708-814a-5448b56a94eb"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="dafbd944-f9ef-479b-8c48-1175282b2528"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="35d61129-99ce-4799-b808-ec65a0089c9a">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="33885722-b9a8-4708-814a-5448b56a94eb"/>
-    <segmentIndex>2</segmentIndex>
-    <valueIndices>343</valueIndices>
-    <valueIndices>343</valueIndices>
-  </slsa.mm.param.rtp.RtpLocation>
-  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="6349b94c-6769-4c97-bafd-d9a8892dea47">
-    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="43aff2fe-c64c-43e0-838c-c8b267ed6e06"/>
-    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="ec8f36fb-594f-49ef-9ac9-dd46beccbe27"/>
+  <slsa.mm.param.rtp.Parameter type="slsa.mm.param.rtp.Parameter" uuid="f3750072-b1f6-4bfa-b9aa-bd61fb6f4e44">
+    <id type="slsa.mm.param.rtp.BlockParameterId" uuid="5bdaa926-3543-44bd-803e-9b40968c95a5"/>
+    <rtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="4eef596a-d51f-4ebc-afb6-2baf525dfc25"/>
   </slsa.mm.param.rtp.Parameter>
-  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="43aff2fe-c64c-43e0-838c-c8b267ed6e06">
+  <slsa.mm.param.rtp.BlockParameterId type="slsa.mm.param.rtp.BlockParameterId" uuid="5bdaa926-3543-44bd-803e-9b40968c95a5">
     <blockPath>based_FOC/Subsystem2/Subsystem1/Repeating Sequence1/Constant</blockPath>
     <name>Value</name>
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6349b94c-6769-4c97-bafd-d9a8892dea47"/>
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="f3750072-b1f6-4bfa-b9aa-bd61fb6f4e44"/>
   </slsa.mm.param.rtp.BlockParameterId>
-  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="ec8f36fb-594f-49ef-9ac9-dd46beccbe27">
-    <parameter type="slsa.mm.param.rtp.Parameter" uuid="6349b94c-6769-4c97-bafd-d9a8892dea47"/>
+  <slsa.mm.param.rtp.RtpLocation type="slsa.mm.param.rtp.RtpLocation" uuid="4eef596a-d51f-4ebc-afb6-2baf525dfc25">
+    <parameter type="slsa.mm.param.rtp.Parameter" uuid="f3750072-b1f6-4bfa-b9aa-bd61fb6f4e44"/>
     <segmentIndex>2</segmentIndex>
-    <valueIndices>346</valueIndices>
-    <valueIndices>346</valueIndices>
+    <valueIndices>345</valueIndices>
+    <valueIndices>345</valueIndices>
   </slsa.mm.param.rtp.RtpLocation>
 </MF0>

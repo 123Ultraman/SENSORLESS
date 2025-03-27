@@ -25,11 +25,11 @@ typedef struct VESC_Observer
     float sin_theta;
     float theta;
     float theta_pre;
-		float Last_theta;
-		float Speed;
-		float Speed_pre;
-		float ud;
-		float uq;
+	float Last_theta;
+	float Speed;
+	float Speed_pre;
+	float ud;
+	float uq;
     float filtered_PLL_Out;
     float theta_atan2;
     float previous_theta;
@@ -37,12 +37,11 @@ typedef struct VESC_Observer
     PLL_VESC PLL;
 } VESC_Observer;
 
-//检查浮点数是否为非数值或者无穷大
 #define UTILS_IS_INF(x) ((x) == (1.0 / 0.0) || (x) == (-1.0 / 0.0))
-#define UTILS_IS_NAN(x) ((x) != (x)) // 判断是否为非数值
+#define UTILS_IS_NAN(x) ((x) != (x)) //
 #define UTILS_NAN_ZERO(x) (x = UTILS_IS_NAN(x) ? 0.0f : x)
-#define U1          6.9282031f       //  U1 = U_dc/sqrt(3)    线性调制区间
-// 求平方
+#define U1          6.9282031f       //  U1 = U_dc/sqrt(3)
+//square
 #define SQ(x) ((x) * (x))
 #define threshold 7.639442f
 extern VESC_Observer observer;
@@ -55,8 +54,9 @@ float U_ref_lookup(float F1_vaule);
 void AntiPark_Overmodulation(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E);
 void myfun(float T3, float T4, float* T1, float* T2) ;
 void SVPWM_120(UI_2s* UI_2s);
-int Get_Field_State(float modulu,UI_2r* I_2r,float SpeedRef);
-
+int Get_Field_State(float modulu,float SpeedRef);
+void flux_weaken_init(float SpeedKp,float SpeedKi,float CurrentKp,float CurrentKi);
+void flux_weaken(void);
 static const float F1[] = { 6.914319, \
 				6.940969, 6.964049, 6.985143, 7.004737, 7.023078, \
 				7.040321, 7.056577, 7.071930, 7.086446, 7.100181, \
