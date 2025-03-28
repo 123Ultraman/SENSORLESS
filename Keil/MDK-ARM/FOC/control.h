@@ -3,48 +3,31 @@
 
 #include "main.h"
 #include "stdint.h"
+#include "FOC.h"
 
-typedef struct
+extern MOTOR_HandleTypeDef Motor;
+extern uint32_t ADC1_value[4];
+extern uint32_t ADC2_value[2];
+
+typedef enum
 {
-    float Kp;
-    float Ki;
-    float Kd;
-    float MaxOut;
+    IDIE_STATE,
+	OPEN_LOOP,
+	SPEED_CLOSE_LOOP,
+    SPEED_CURRENT_CLOSE_LOOP_SENSORLESS,
+    SPEED_CURRENT_CLOSE_LOOP_OVERMODU_FW,
+} FOC_MODE_TYPE;
 
-    float IntegralLimit; // »ý·ÖÏÞ·ù
-
-    float Measure;
-    float Last_Measure;
-    float Err;
-    float Last_Err;
-    float Last_ITerm;
-    float Pout;
-    float Iout;
-    float Dout;
-    float ITerm;
-    float OutPut;
-    float Last_Output;
-    float Last_Dout;
-
-    float Ref;
-
-    uint32_t DWT_CNT;
-    float dt;
-}PID_;
-
-typedef struct
+typedef enum
 {
-    float Kp;
-    float Ki;
-    float Kd;
-    float MaxOut;
-}PID_Init;
-
-void Trapezoid_Intergral(PID_ *pid);
-void Integral_Limit(PID_ *pid);
-void Output_Limit(PID_ *pid);
-void PID_Curr_Init(PID_ *pid_curr_iq,PID_ *pid_curr_id, float Udc);
-float PIDCalculate(PID_ *pid, float measure, float ref);
-void PID_Speed_Init(PID_ *pid_speed,float Udc);
+    WARNING_STATE,
+	ADC_CALIBRATION,
+	RS_IDENTIFY_VOLTAGE_DESIGM,
+	PARAMETER_IDENTIFY_Rs,
+	PARAMETER_IDENTIFY_L,
+	PARAMETER_IDENTIFY_Flux,
+	PARAMETER_IDENTIFY_J,
+	FOC_RUN,
+}STSTEM_STATE_TYPE;
 
 #endif

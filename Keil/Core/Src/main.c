@@ -29,7 +29,7 @@
 /* USER CODE BEGIN Includes */
 #include "foc.h"
 #include "stdio.h"
-#include "sensorless.h"
+#include "algorithm.h"
 #include "usart.h"
 #include <stdarg.h>
 #include <string.h>
@@ -44,12 +44,7 @@ extern UI_2s I_2s;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-uint32_t ADC1_value[4];
-uint32_t ADC2_value[2];
-extern MOTOR_HandleTypeDef Motor;
-extern int Field_State;
-extern float modulu;
-extern float Uref;
+
 //float temp[3] = {196.625f,196.625f,196.625f};
 
 /* USER CODE END PD */
@@ -113,13 +108,13 @@ int main(void)
   MX_USART2_UART_Init();
   MX_ADC2_Init();
   /* USER CODE BEGIN 2 */
-	FocInit();
+  FocInit();
+  /* USER CODE END 2 */
+
+  /* Infinite loop */
+  /* USER CODE BEGIN WHILE */
   while (1)
   {
-		// printf("%f,%f,%f,%f,%f,%f\n",observer.Speed,observer.theta*57.295779513f,observer.cos_theta,  \
-		// observer.sin_theta,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.AngleE);
-//	printf("%d,%f,%f,%f\n",Field_State,modulu,Motor.FOC_Parameter.SpeedMachRef,Uref);
-//	HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

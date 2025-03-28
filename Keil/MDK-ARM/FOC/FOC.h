@@ -64,32 +64,54 @@ typedef struct PI_Structure
 	float output;
 }PI_Structure;
 
-
-
-typedef enum
+typedef struct
 {
-	ADC_CALIBRATION,
-	RS_IDENTIFY_VOLTAGE_DESIGM,
-	PARAMETER_IDENTIFY_Rs,
-	PARAMETER_IDENTIFY_L,
-	PARAMETER_IDENTIFY_Flux,
-	PARAMETER_IDENTIFY_J,
-	FOC_RUN,
-}SystStatusEnum;
+    float Kp;
+    float Ki;
+
+    float MaxOut;
+    float IntegralLimit; // Integral limiting
+
+    float Measure;       //real value
+    float Last_Measure;
+    float Err;
+    float Last_Err;
+    float Last_ITerm;
+    float Pout;
+    float Iout;
+    float Dout;
+    float ITerm;
+    float OutPut;
+    float Last_Output;
+    float Last_Dout;
+
+    float Ref;
+
+    uint32_t DWT_CNT;
+    float dt;
+}PID_Structure;
+
+typedef struct
+{
+    float Kp;
+    float Ki;
+    float Kd;
+    float MaxOut;
+}PID_Init;
 
 typedef enum
 {
 	OK,
 	error,
-} StateType;
+} FAULT_STATE_TYPE;
 
 typedef struct FaultStateStruct
 {
-	StateType Overtemperature;
-	StateType Overvoltage;
-	StateType Undervoltage;
-	StateType Overcurrent;
-	StateType L6230Fault;
+	FAULT_STATE_TYPE Overtemperature;
+	FAULT_STATE_TYPE Overvoltage;
+	FAULT_STATE_TYPE Undervoltage;
+	FAULT_STATE_TYPE Overcurrent;
+	FAULT_STATE_TYPE L6230Fault;
 } FaultStateStruct;
 
 typedef struct MOTOR_HandleTypeDef
@@ -102,11 +124,11 @@ typedef struct MOTOR_HandleTypeDef
 	UI_2s I_2s;
 	UI_2s Last_I_2s;
 	UI_3s I_3s;
-	PI_Structure SpeedPI;
-	PI_Structure IqPI;
-	PI_Structure IdPI;
-	PI_Structure FWSpeedPI;
-	PI_Structure FWCurrentPI;
+    PID_Structure SpeedPID;
+    PID_Structure IqPID;
+    PID_Structure IdPID;
+    PID_Structure FWSpeedPID;
+    PID_Structure FWCurrentPID;
 	Motor_P Motor_Parameter;
 }MOTOR_HandleTypeDef;
 
@@ -126,11 +148,19 @@ void AntiPark(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E);
 void SVPWM(UI_2s* UI_2s);
 void PWM_Start(void);
 void PWM_Stop(void);
-void PIControler(PI_Structure* PIStruct,float real_value,float set_value,float limti_value);
 void FocInit(void);
 float temperature_lookup(int ADC_value);
 void Protection(void);
 void atan2_cordic(float x,float y, float* RES);
+static void Trapezoid_Intergral(PID_Structure *pid);
+void Integral_Limit(PID_Structure *pid);
+void Output_Limit(PID_Structure *pid);
+void PID_Curr_Init(PID_Structure *pid_curr_iq,PID_Structure *pid_curr_id, float Udc);
+float PIDCalculate(PID_Structure *pid, float measure, float ref);
+void PID_Speed_Init(PID_Structure *pid_speed,float Udc);
+#ifndef abs
+#define abs(x) ((x > 0) ? x : -x)
+#endif
 #define RS					0.60f
 #define LS                  0.00045f
 #define PHI                 0.0058f                         
@@ -141,7 +171,7 @@ void atan2_cordic(float x,float y, float* RES);
 #define THETA_360_Q31       11930464                        //1/180*2^31
 #define VALUE_Q31_FLOAT     2147483648.0f                   //2^31 float to Q31
 #define VALUE_SQRT3         1.732050807568878f			    //sqrt(3
-#define VALUE_1_SQRT3       0.577350269189626f              //  1/sqrt(3)
+#define VALUE_1_SQRT3       0.577350269189626f              //1/sqrt(3)
 #define Ts                  0.0001f                         //Ts 0.0001s
 #define Period              17000                           //count per cycle
 #define Period_2            8500                            //8500
@@ -152,9 +182,9 @@ void atan2_cordic(float x,float y, float* RES);
 #define ZeroSpeedCntMax     2000                            //maxmum count of zero speed,if ZeroSpeedCnt>ZeroSpeedCntMax,write 0 to motor speed
 #define K_adc               712.092F                        //ADC Convert factor,  0.33*(2.2/(0.68+2.2))*((2.2+2.2)/2.2)/2.9*4096
 #define VBUS_MAX            24                              //maxmum voltage
-#define VBUS_MIN            6                               //minmum voltage
+#define VBUS_MIN            4                               //minmum voltage
 #define MOTOR_DEFAULT       {{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0},{0,0,0,0,1,0,1,1,0.99,1e5,1e5,1e5,12,12}}
-#define temperature_MAX     50                              //maxmum temperature
+#define temperature_MAX     80                              //maxmum temperature
 #define current_MAX         10                              //maxmum current
 #define FLASH_PAGE_ADDR     0x0801F800  				    //flash address to write motor parameters
 #define CURRENT_BASE        1.0                             //rated current

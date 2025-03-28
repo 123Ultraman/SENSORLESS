@@ -2,16 +2,16 @@
 #define OBSERVE_H
 #include "foc.h"
 #include "stdint.h"
-typedef struct PLL_VESC
+typedef struct PLL_Structure
 {
     float err;
     float Kp;
     float Ki;
     float iterm;
     float Out;
-}PLL_VESC;
+}PLL_Structure;
 
-typedef struct VESC_Observer
+typedef struct Observer
 {
     float x1_hat;
     float x2_hat;
@@ -34,8 +34,14 @@ typedef struct VESC_Observer
     float theta_atan2;
     float previous_theta;
     float omega ;
-    PLL_VESC PLL;
-} VESC_Observer;
+    PLL_Structure PLL;
+} Observer;
+
+typedef enum
+{
+	NO_FIELD_WEAKEN,
+	FIELD_WEAKEN,
+} FW_STATE_TYPE;
 
 #define UTILS_IS_INF(x) ((x) == (1.0 / 0.0) || (x) == (-1.0 / 0.0))
 #define UTILS_IS_NAN(x) ((x) != (x)) //
@@ -44,17 +50,17 @@ typedef struct VESC_Observer
 //square
 #define SQ(x) ((x) * (x))
 #define threshold 7.639442f
-extern VESC_Observer observer;
+extern Observer observer;
 float utils_fast_atan2(float y, float x);
 int utils_truncate_number_abs(float *number, float max);
-void Non_flux_Init(VESC_Observer *observer);
-void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta, VESC_Observer *observer);
+void Non_flux_Init(Observer *observer);
+void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta, Observer *observer);
 float Hysteresis(float modulus);
 float U_ref_lookup(float F1_vaule);
 void AntiPark_Overmodulation(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E);
 void myfun(float T3, float T4, float* T1, float* T2) ;
 void SVPWM_120(UI_2s* UI_2s);
-int Get_Field_State(float modulu,float SpeedRef);
+FW_STATE_TYPE Get_Field_State(float modulu,float SpeedRef);
 void flux_weaken_init(float SpeedKp,float SpeedKi,float CurrentKp,float CurrentKi);
 void flux_weaken(void);
 static const float F1[] = { 6.914319, \

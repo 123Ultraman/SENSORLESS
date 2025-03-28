@@ -81,3 +81,5 @@ void Flash_Read_PartialStruct(Motor_P *data)
 {
     memcpy(data, (void*)FLASH_PAGE_ADDR, 24);
 }
+
+

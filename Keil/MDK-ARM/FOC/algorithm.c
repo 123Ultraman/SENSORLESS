@@ -1,15 +1,13 @@
-#include "sensorless.h"
+#include "algorithm.h"
 #include "foc.h"
 #include "arm_common_tables.h"
 #include "arm_math.h"  
 #include "stdio.h"
-
-VESC_Observer observer;
-PI_Structure FWSpeedPI;
-PI_Structure FWCurrentPI;
+#include "FOC.h"
+Observer observer;
 float D = 0,Q = 0;
 extern MOTOR_HandleTypeDef Motor;
-int Field_State = 0;
+FW_STATE_TYPE FW_STATE = NO_FIELD_WEAKEN;
 
 int utils_truncate_number_abs(float *number, float max)
 {
@@ -30,18 +28,18 @@ int utils_truncate_number_abs(float *number, float max)
 }
 
 
-void LPF(VESC_Observer *observer,float LPFFilter)
+void LPF(Observer *observer,float LPFFilter)
 {
 	observer->Speed=((observer->PLL.Out/Pn)*30.0f/(PI*observer->dt)-observer->Speed_pre)*LPFFilter+observer->Speed_pre;
 	observer->Speed_pre=observer->Speed;
 
 }
 
-float VESC_sin,VESC_cos;
+float sin_value,cos_value;
 
 //init flux observer
 
-void Non_flux_Init(VESC_Observer *observer)
+void Non_flux_Init(Observer *observer)
 {
     observer->Gain = 400000;//50000000;
     observer->PLL.Kp = 0.2;
@@ -53,7 +51,7 @@ void Non_flux_Init(VESC_Observer *observer)
     observer->theta=0.0f;
 }
 
-void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,VESC_Observer *observer)
+void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,Observer *observer)
 {
     observer->dt = Ts;
     float y1, y2,n1,n2;
@@ -84,7 +82,7 @@ void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,VESC
     UTILS_NAN_ZERO(observer->sin_theta);
     
     //PLL Phase-locked loop
-    observer->PLL.err = observer->sin_theta * VESC_cos - observer->cos_theta *VESC_sin;
+    observer->PLL.err = observer->sin_theta * cos_value - observer->cos_theta *sin_value;
     observer->PLL.iterm += observer->PLL.Ki * observer->PLL.err*observer->dt;
     observer->PLL.Out = observer->PLL.err * observer->PLL.Kp + observer->PLL.iterm;
     LPF(observer,0.008f);
@@ -97,8 +95,8 @@ void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,VESC
         observer->theta += 2*PI;
     }
     
-    VESC_sin = arm_sin_f32(observer->theta);
-    VESC_cos = arm_cos_f32(observer->theta);
+    sin_value = arm_sin_f32(observer->theta);
+    cos_value = arm_cos_f32(observer->theta);
 }
 
 void AntiPark_Overmodulation(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E)
@@ -110,7 +108,7 @@ void AntiPark_Overmodulation(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E)
 	atan_theta = atan2f(UI_2r->Q,UI_2r->D);
 	arm_sqrt_f32((UI_2r->D*UI_2r->D+UI_2r->Q*UI_2r->Q),&modulu);
 	
-	Field_State = Get_Field_State(modulu,Motor.FOC_Parameter.SpeedMachRef);
+	FW_STATE = Get_Field_State(modulu,Motor.FOC_Parameter.SpeedMachRef);
 	
 	Uref = U_ref_lookup(modulu);
 	theta = atan_theta + Theta_E;
@@ -172,32 +170,43 @@ void myfun(float T3, float T4, float* T1, float* T2)
 	arm_abs_f32(&T3,&T3_abs,1);
 	arm_abs_f32(&T4,&T4_abs,1);
 
-    if (T3_abs <= Period_2 && T4_abs <= Period_2) {
+    if (T3_abs <= Period_2 && T4_abs <= Period_2) 
+	{
         *T1 = T3;
         *T2 = T4;
-    } else if (T3_abs >= Period_2 && T4_abs >= Period_2) {
+    } 
+	else if (T3_abs >= Period_2 && T4_abs >= Period_2) 
+	{
         *T1 = Period_2;
         *T2 = Period_2;
-    } else if (T3_abs >= T4_abs) {
-        if (T3_abs - T4_abs >= Period_2) {
+    } 
+	else if (T3_abs >= T4_abs) 
+	{
+        if (T3_abs - T4_abs >= Period_2) 
+		{
             *T1 = Period_2;
             *T2 = 0.0f;
-        } else {
+        } 
+		else 
+		{
             *T1 = Period_2;
             *T2 = Period_2 * T4 / T3;
         }
-    } else {
-        if (T4_abs - T3_abs >= Period_2) {
+    } 
+	else 
+	{
+        if (T4_abs - T3_abs >= Period_2) 
+		{
             *T1 = 0.0f;
             *T2 = Period_2;
-        } else {
+        } 
+		else 
+		{
             *T1 = Period_2 * T3 / T4;
             *T2 = Period_2;
         }
     }
 }
-
-
 
 float U_ref_lookup(float F1_vaule)
 {
@@ -253,12 +262,13 @@ float Hysteresis(float modulus)
 	}
 }
 
-int Get_Field_State(float modulu,float SpeedRef)
+FW_STATE_TYPE Get_Field_State(float modulu,float SpeedRef)
 {
-	static int State = 0,count = 0;
+	static FW_STATE_TYPE State = NO_FIELD_WEAKEN;
+	static int count = 0;
 	switch(State)
 	{
-		case 0:
+		case NO_FIELD_WEAKEN:
 		{
 			if(modulu >= threshold)
 			{
@@ -271,16 +281,16 @@ int Get_Field_State(float modulu,float SpeedRef)
 			
 			if(count >= 20 && SpeedRef >= 6500)
 			{
-				State = 1;
+				State = FIELD_WEAKEN;
 				count = 0;
-				flux_weaken_init(-0.001,-0.000001,0.0002,0.00001);
+				flux_weaken_init(-0.001,-0.01,0.002,0.3);
 			}
 			break;
 		}
 
-		case 1:
+		case FIELD_WEAKEN:
 		{
-			if(modulu <= threshold*0.9f)
+			if(SpeedRef <= 6500)
 			{
 				count ++;
 			}
@@ -291,7 +301,7 @@ int Get_Field_State(float modulu,float SpeedRef)
 			
 			if(count >= 50 && SpeedRef <= 6500)
 			{
-				State = 0;
+				State = NO_FIELD_WEAKEN;
 				count = 0;
 			}
 			break;
@@ -304,26 +314,32 @@ int Get_Field_State(float modulu,float SpeedRef)
 
 void flux_weaken_init(float SpeedKp,float SpeedKi,float CurrentKp,float CurrentKi)
 {
-	FWSpeedPI.Kp = SpeedKp;
-	FWSpeedPI.Ki = SpeedKp;
-	FWCurrentPI.Kp = CurrentKp;
-	FWCurrentPI.Ki = CurrentKi;
-	FWSpeedPI.error = 0;
-	FWSpeedPI.integral = 0;
-	FWSpeedPI.last_error = 0;
-	FWSpeedPI.output = 0;
-	FWSpeedPI.gain = 0;
-	FWCurrentPI.error = 0;
-	FWCurrentPI.integral = 0;
-	FWCurrentPI.last_error = 0;
-	FWCurrentPI.output = 0;
-	FWCurrentPI.gain = 0;
+	Motor.FWSpeedPID.Kp = SpeedKp;
+	Motor.FWSpeedPID.Ki = SpeedKp;
+	Motor.FWCurrentPID.Kp = CurrentKp;
+	Motor.FWCurrentPID.Ki = CurrentKi;
+	Motor.FWSpeedPID.Err = 0;
+	Motor.FWSpeedPID.Iout = 0;
+	Motor.FWSpeedPID.Last_Err = 0;
+	Motor.FWSpeedPID.OutPut = 0;
+	Motor.FWSpeedPID.Pout= 0;
+	Motor.FWCurrentPID.Err = 0;
+	Motor.FWCurrentPID.Iout = 0;
+	Motor.FWCurrentPID.Last_Err = 0;
+	Motor.FWCurrentPID.OutPut = 0;
+	Motor.FWCurrentPID.Pout = 0;
+	Motor.FWSpeedPID.MaxOut = 10;
+	Motor.FWSpeedPID.IntegralLimit = 10;
+	Motor.FWCurrentPID.MaxOut = 4.0F;
+	Motor.FWCurrentPID.IntegralLimit = 4.0F;
 }
 
 void flux_weaken(void)
 {
-	PIControler(&FWSpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef,10);
-	PIControler(&FWCurrentPI,Motor.I_2r.D,FWSpeedPI.output,4);
-	Motor.U_2r.D = FWCurrentPI.output;
+	PIDCalculate(&Motor.FWSpeedPID,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef);
+	PIDCalculate(&Motor.FWCurrentPID,Motor.I_2r.D,Motor.FWSpeedPID.OutPut);
+	// PIControler(&Motor.FWSpeedPI,Motor.FOC_Parameter.SpeedMachReal,Motor.FOC_Parameter.SpeedMachRef,10);
+	// PIControler(&Motor.FWCurrentPI,Motor.I_2r.D,Motor.FWSpeedPI.output,4);
+	Motor.U_2r.D = Motor.FWCurrentPID.OutPut;
 	arm_sqrt_f32(SQ(threshold) - SQ(Motor.U_2r.D),&Motor.U_2r.Q);
 }

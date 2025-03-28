@@ -155,25 +155,16 @@
             "path": "FOC/control.c"
           },
           {
-            "path": "FOC/Flux_observer.c"
-          },
-          {
             "path": "FOC/FOC.c"
           },
           {
             "path": "FOC/offline_pi.c"
           },
           {
-            "path": "FOC/sensorless.c"
-          },
-          {
             "path": "FOC/BSP_DWT.h"
           },
           {
             "path": "FOC/control.h"
-          },
-          {
-            "path": "FOC/Flux_observer.h"
           },
           {
             "path": "FOC/FOC.h"
@@ -185,7 +176,10 @@
             "path": "FOC/rtwtypes.h"
           },
           {
-            "path": "FOC/sensorless.h"
+            "path": "FOC/algorithm.c"
+          },
+          {
+            "path": "FOC/algorithm.h"
           }
         ],
         "folders": []

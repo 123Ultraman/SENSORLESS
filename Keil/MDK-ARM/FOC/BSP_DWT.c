@@ -7,19 +7,16 @@ static uint32_t CYCCNT_LAST;
 uint64_t CYCCNT64;
 static void DWT_CNT_Update(void);
 /**
- * @brief          DWT��ʼ��
- * @param[in]      CPU_Freq_mHz��cpu��Ƶ�������������õ���160MHZ
+ * @brief          ENABLE DWT
+ * @param[in]      CPU_Freq_mHz frequency of mcu
  * @retval         none
  */
 void DWT_Init(uint32_t CPU_Freq_mHz)
 {
-    /* ʹ��DWT���� */
     CoreDebug->DEMCR |= CoreDebug_DEMCR_TRCENA_Msk;
 
-    /* DWT CYCCNT�Ĵ���������0 */
     DWT->CYCCNT = (uint32_t)0u;
 
-    /* ʹ��Cortex-M DWT CYCCNT�Ĵ��� */
     DWT->CTRL |= DWT_CTRL_CYCCNTENA_Msk;
 
     CPU_FREQ_Hz = CPU_Freq_mHz * 1000000;
