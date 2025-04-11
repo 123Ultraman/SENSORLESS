@@ -4,7 +4,8 @@
 #include "arm_math.h"  
 #include "stdio.h"
 #include "FOC.h"
-Observer observer;
+FluxObserver observer;
+HFSVI_Structure HFSVI; 
 float D = 0,Q = 0;
 extern MOTOR_HandleTypeDef Motor;
 FW_STATE_TYPE FW_STATE = NO_FIELD_WEAKEN;
@@ -27,19 +28,11 @@ int utils_truncate_number_abs(float *number, float max)
     return did_trunc;
 }
 
-
-void LPF(Observer *observer,float LPFFilter)
-{
-	observer->Speed=((observer->PLL.Out/Pn)*30.0f/(PI*observer->dt)-observer->Speed_pre)*LPFFilter+observer->Speed_pre;
-	observer->Speed_pre=observer->Speed;
-
-}
-
 float sin_value,cos_value;
 
 //init flux observer
 
-void Non_flux_Init(Observer *observer)
+void Non_flux_Init(FluxObserver *observer)
 {
     observer->Gain = 400000;//50000000;
     observer->PLL.Kp = 0.2;
@@ -49,9 +42,10 @@ void Non_flux_Init(Observer *observer)
     observer->x2_hat=0;
     observer->x2_hat_pre=0;
     observer->theta=0.0f;
+	observer->LPFFilter=0.08f;
 }
 
-void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,Observer *observer)
+void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,FluxObserver *observer)
 {
     observer->dt = Ts;
     float y1, y2,n1,n2;
@@ -60,7 +54,7 @@ void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,Obse
 
     n1 = observer->x1_hat_pre - LS * i_alpha;
     n2 = observer->x2_hat_pre - LS * i_beta;
-
+	
     observer->err = SQ(PHI) - (SQ(n1) + SQ(n2));
     
 //    if(observer->err>0.0)
@@ -85,7 +79,10 @@ void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta,Obse
     observer->PLL.err = observer->sin_theta * cos_value - observer->cos_theta *sin_value;
     observer->PLL.iterm += observer->PLL.Ki * observer->PLL.err*observer->dt;
     observer->PLL.Out = observer->PLL.err * observer->PLL.Kp + observer->PLL.iterm;
-    LPF(observer,0.008f);
+	//LPF
+    observer->Speed=((observer->PLL.Out/Pn)*30.0f/(PI*observer->dt)-observer->Speed_pre)*observer->LPFFilter+observer->Speed_pre;
+	observer->Speed_pre=observer->Speed;
+	//intergral
     observer->theta = observer->theta + observer->PLL.Out;
 
     while(observer->theta>2*PI) {
@@ -342,4 +339,48 @@ void flux_weaken(void)
 	// PIControler(&Motor.FWCurrentPI,Motor.I_2r.D,Motor.FWSpeedPI.output,4);
 	Motor.U_2r.D = Motor.FWCurrentPID.OutPut;
 	arm_sqrt_f32(SQ(threshold) - SQ(Motor.U_2r.D),&Motor.U_2r.Q);
+}
+
+void HFSVI_Sensorless_Init(HFSVI_Structure *hfsvi)
+{
+
+	hfsvi->Ialpha_pre = 0;
+	hfsvi->Ibeta_pre = 0;
+	hfsvi->theta_pre = 0;
+	hfsvi->dt = Ts;
+	hfsvi->singalUh = -1;
+	hfsvi->Speed = 0;
+	hfsvi->we = 0;
+	hfsvi->theta = 0;
+	hfsvi->LPFFilter = 0.03;
+}	
+
+void HFSVI_Sensorless(HFSVI_Structure *hfsvi,MOTOR_HandleTypeDef *motor)
+{
+	hfsvi->delta_Ialpha = motor->I_2s.Alpha - hfsvi->Ialpha_pre;
+	hfsvi->delta_Ibeta = motor->I_2s.Beta - hfsvi->Ibeta_pre;
+	hfsvi->Icos = hfsvi->delta_Ialpha * hfsvi->singalUh;
+	hfsvi->Isin = hfsvi->delta_Ibeta * hfsvi->singalUh;
+	arm_sqrt_f32((SQ(hfsvi->Icos)+SQ(hfsvi->Isin)),&hfsvi->modulu);
+	hfsvi->IcosNormalized = hfsvi->Icos/hfsvi->modulu;
+	hfsvi->IsinNormalized = hfsvi->Isin/hfsvi->modulu;
+	hfsvi->tildeTheta = hfsvi->IcosNormalized*arm_sin_f32(hfsvi->theta_pre)-hfsvi->IsinNormalized*arm_cos_f32(hfsvi->theta_pre);
+	//PLL
+	hfsvi->PLL.err = hfsvi->tildeTheta;
+    hfsvi->PLL.iterm += hfsvi->PLL.Ki * hfsvi->PLL.err*hfsvi->dt;
+    hfsvi->PLL.Out = hfsvi->PLL.err * hfsvi->PLL.Kp + hfsvi->PLL.iterm;
+	hfsvi->theta = fmod((hfsvi->theta + hfsvi->PLL.Out*hfsvi->dt),pi_2);
+	if(hfsvi->theta < 0)
+	{
+		hfsvi->theta = hfsvi->theta + pi_2;
+	}
+	//LPF
+    hfsvi->we = hfsvi->PLL.Out*hfsvi->LPFFilter + hfsvi->we_pre*(1-hfsvi->LPFFilter);
+	hfsvi->Speed = hfsvi->we * 4.7746482f;//hfsvi->we/Pn/(2*pi)*60;
+
+	hfsvi->we_pre = hfsvi->we;
+	hfsvi->theta_pre = hfsvi->theta;
+	hfsvi->Ialpha_pre = motor->I_2s.Alpha;
+	hfsvi->Ibeta_pre = motor->I_2s.Beta;
+	hfsvi->singalUh = -hfsvi->singalUh;
 }

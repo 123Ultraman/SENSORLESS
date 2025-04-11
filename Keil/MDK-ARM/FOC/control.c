@@ -8,7 +8,6 @@ int ZeroSpeedCnt = 0;
 float AngleSum = 0;
 uint32_t ADC1_value[4];
 uint32_t ADC2_value[2];
-
 extern  FW_STATE_TYPE FW_STATE;
 STSTEM_STATE_TYPE SYSTEM_STATE = ADC_CALIBRATION;
 FOC_MODE_TYPE FOC_MODE = IDIE_STATE;
@@ -39,6 +38,7 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
      //read motor parameters form flash
      Flash_Read_PartialStruct(&Motor.Motor_Parameter);
      Non_flux_Init(&observer);
+     HFSVI_Sensorless_Init(&HFSVI);
      SysTick->LOAD = 17000000-1;
  }
 
@@ -70,7 +70,7 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
         Motor.I_3s.B = ( -(int)ADC1_value[1] + offset[1] ) / K_adc;
         Motor.I_3s.C = ( -(int)ADC1_value[2] + offset[2] ) / K_adc;
         Clark(&Motor.I_3s,&Motor.I_2s);
-        Park(&Motor.I_2s,&Motor.I_2r,Motor.FOC_Parameter.AngleE_rad);
+        // Park(&Motor.I_2s,&Motor.I_2r,Motor.FOC_Parameter.AngleE_rad);
         
         //zero speed check
         ZeroSpeedCnt ++;
@@ -83,7 +83,7 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
         Motor.FOC_Parameter.AngleE = fmod((Motor.FOC_Parameter.AngleBase + AngleSum),360.0f);
         Motor.FOC_Parameter.AngleE_rad = Motor.FOC_Parameter.AngleE*0.017453292519943f;///1/180*pi;
         //protection
-        Protection();
+        // Protection();
         
         switch (SYSTEM_STATE)
         {
@@ -206,14 +206,12 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                     SVPWM(&Motor.U_2s);	
                 }
                 else if (stage >= 2 && stage <= 6)  //high frequency injection for 5 seconds
-                {
-                        
+                {       
                     angle = 0.6283185f * (Count % 10);
                     Motor.U_2r.Q = 0.2f*Motor.Motor_Parameter.Udc;
                     Motor.U_2r.D = 0;
                     AntiPark(&Motor.U_2s,&Motor.U_2r,angle);
                     SVPWM(&Motor.U_2s);
-                    
                     float u1,u2,u3,u4;
 
                     u1 = Motor.I_2s.Alpha - Motor.Last_I_2s.Alpha;
@@ -405,10 +403,10 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                         break;
                     }
 
-                    case SPEED_CURRENT_CLOSE_LOOP_SENSORLESS:
+                    case SPEED_CURRENT_CLOSE_LOOP_FLUX_OBSERVER:
                     {
-                        Park(&Motor.I_2s,&Motor.I_2r,observer.theta);
                         flux_observer(Motor.U_2s.Alpha,Motor.U_2s.Beta,Motor.I_2s.Alpha,Motor.I_2s.Beta,&observer);
+                        Park(&Motor.I_2s,&Motor.I_2r,observer.theta);
                         if(LED_Count%2500 == 0)
                         {
                             HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
@@ -433,6 +431,7 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                         {
                             HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
                         }
+                        HFSVI_Sensorless(&HFSVI,&Motor);
                         Motor.FOC_Parameter.SpeedMachRef = ((float)ADC1_value[3]/4095.0f)*7450.0f;
                         switch(FW_STATE)
                         {
@@ -443,8 +442,8 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                             PIDCalculate(&Motor.IqPID,Motor.I_2r.Q,Motor.SpeedPID.OutPut);
                             PIDCalculate(&Motor.IdPID,Motor.I_2r.D,0);
                             Motor.U_2r.Q = Motor.IqPID.OutPut;
-                            Motor.U_2r.D = Motor.IdPID.OutPut;
-
+                            Motor.U_2r.D = Motor.IdPID.OutPut+HFSVI.Uh*HFSVI.singalUh;
+                            
                             break;
 
                             case FIELD_WEAKEN:
@@ -455,9 +454,126 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                         }
                         AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,Motor.FOC_Parameter.AngleE_rad);
                         SVPWM_120(&Motor.U_2s);
+                        
                         break;
                     }
-                    default:break;
+
+                    case SPEED_CURRENT_CLOSE_LOOP_HFSVI:
+                    {
+                        static float IA[60] = {0};
+                        static float IB[60] = {0};
+                        if (Count <= 11062)
+                        {
+                            Count++;
+                        }
+                        if (Count <= 10000)  // beta axis positioning: Beta=3, Alpha=0
+                        {
+                            HFSVI_Sensorless(&HFSVI,&Motor);
+                            Park(&Motor.I_2s,&Motor.I_2r,HFSVI.theta);
+                            PIDCalculate(&Motor.IqPID,Motor.I_2r.Q,0);
+                            PIDCalculate(&Motor.IdPID,Motor.I_2r.D,0);
+                            Motor.U_2r.Q = Motor.IqPID.OutPut;
+                            Motor.U_2r.D = Motor.IdPID.OutPut + HFSVI.Uh*HFSVI.singalUh;//injection
+                            AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,HFSVI.theta);
+                            SVPWM_120(&Motor.U_2s);
+                        }
+                        else if(Count >= 10000 && Count < 11000)
+                        {
+                            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, Period/2);
+                            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, Period/2);
+                            __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, Period/2);
+                        }
+                        else if(Count >= 11000&& Count <= 11060)
+                        {
+                            
+                            if(Count >= 11000&& Count <= 11015)
+                            {
+                                Motor.U_2r.Q = 0;
+                                Motor.U_2r.D = 7;//injection
+                                AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,HFSVI.theta);
+                                SVPWM_120(&Motor.U_2s);
+                            }
+                            else if(Count >= 11030&& Count <= 11045)
+                            {
+                                Motor.U_2r.Q = 0;
+                                Motor.U_2r.D = 7;//injection
+                                AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,HFSVI.theta+pi);
+                                SVPWM_120(&Motor.U_2s);
+                            }
+                            else
+                            {
+                                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_1, Period/2);
+                                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_2, Period/2);
+                                __HAL_TIM_SET_COMPARE(&htim1, TIM_CHANNEL_3, Period/2);
+                            }
+                            if(Count >= 11000&& Count <= 11060)
+                            {
+                                Park(&Motor.I_2s,&Motor.I_2r,HFSVI.theta);
+                                // IA[Count-11000] = arm_abs_f32(Motor.I_2r.D);
+                                // IB[Count-11000] = arm_abs_f32(Motor.I_2r.Q);
+                                arm_abs_f32(&Motor.I_2r.D,&IA[Count-11000],1);
+                                arm_abs_f32(&Motor.I_2r.Q,&IB[Count-11000],1);
+                            }
+                        }
+                        else if (Count == 11061)
+                        {
+                            float max_value1 = 0;
+                            uint32_t max_index1 = 0;
+                            float max_value2 = 0;
+                            uint32_t max_index2 = 0;
+                            float theta0 = 0;
+                            float theta1 = 0;
+                            arm_max_f32(IA,30,&max_value1,&max_index1);
+                            arm_max_f32(&IA[30],30,&max_value2,&max_index2);
+                            theta0 = HFSVI.theta;
+                            if(max_value1 < max_value2)
+                            {
+                                HFSVI.theta = HFSVI.theta+pi;
+                                if (HFSVI.theta > 2*pi)
+                                {
+                                    HFSVI.theta = HFSVI.theta - 2*pi;
+                                }
+                                else if (HFSVI.theta < 0)
+                                {
+                                    HFSVI.theta = HFSVI.theta + 2*pi;
+                                }
+                            }
+                            theta1 = HFSVI.theta;
+                            Park(&Motor.I_2s,&Motor.I_2r,HFSVI.theta);
+                            Motor.FOC_Parameter.SpeedMachRef = 1000;
+                            //speed loop
+                            PIDCalculate(&Motor.SpeedPID,HFSVI.Speed,Motor.FOC_Parameter.SpeedMachRef);
+                            //current loop
+                            PIDCalculate(&Motor.IqPID,Motor.I_2r.Q,Motor.SpeedPID.OutPut);
+                            PIDCalculate(&Motor.IdPID,Motor.I_2r.D,0);
+                            Motor.U_2r.Q = Motor.IqPID.OutPut;
+                            Motor.U_2r.D = Motor.IdPID.OutPut + HFSVI.Uh*HFSVI.singalUh;//injection
+                            AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,HFSVI.theta);
+                            SVPWM_120(&Motor.U_2s);
+                        }
+                        else
+                        {
+                            HFSVI_Sensorless(&HFSVI,&Motor);
+                            Park(&Motor.I_2s,&Motor.I_2r,HFSVI.theta);
+                            if(LED_Count%625 == 0)
+                            {
+                                HAL_GPIO_TogglePin(LED_GPIO_Port,LED_Pin);
+                            }
+                            //Motor.FOC_Parameter.SpeedMachRef = ((float)ADC1_value[3]/4095.0f)*7300.0f;
+                            Motor.FOC_Parameter.SpeedMachRef = -2000;
+                            //speed loop
+                            PIDCalculate(&Motor.SpeedPID,HFSVI.Speed,Motor.FOC_Parameter.SpeedMachRef);
+                            //current loop
+                            PIDCalculate(&Motor.IqPID,Motor.I_2r.Q,Motor.SpeedPID.OutPut);
+                            PIDCalculate(&Motor.IdPID,Motor.I_2r.D,0);
+                            Motor.U_2r.Q = Motor.IqPID.OutPut;
+                            Motor.U_2r.D = Motor.IdPID.OutPut + HFSVI.Uh*HFSVI.singalUh;//injection
+                            AntiPark_Overmodulation(&Motor.U_2s,&Motor.U_2r,HFSVI.theta);
+                            SVPWM_120(&Motor.U_2s);
+                        }
+                        break;
+                    }
+                    default:PWM_Stop();break;
                 }
                 break;
             }
@@ -472,7 +588,6 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
             default:PWM_Stop();break;
         }
      }
- timecount = SysTick->LOAD - SysTick->VAL;
  } 
  
  /**
@@ -534,17 +649,17 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
             uint32_t hold_time = HAL_GetTick() - start_time;  //calculate the time of pressed
             if (hold_time < 1000)//if short pressed,switch foc mode 
             {
-                FOC_MODE++;
+                FOC_MODE  ++;
                 PWM_Start();
-                if(FOC_MODE > 4 )
+                if(FOC_MODE > 4 )//HFSVI mode is not available
                 {
-                    FOC_MODE = IDIE_STATE;
+                    FOC_MODE =  IDIE_STATE;
                 }
                 switch(FOC_MODE)
                 {
                     case IDIE_STATE:
                         PWM_Stop();
-                        HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_RESET );
+                        HAL_GPIO_WritePin(LED_GPIO_Port,LED_Pin,GPIO_PIN_RESET);
                         break;
                     case SPEED_CLOSE_LOOP:
                     {
@@ -556,7 +671,7 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                         // Motor.SpeedPI.Ki = 1.0E-6f;
                         break;
                     }
-                    case SPEED_CURRENT_CLOSE_LOOP_SENSORLESS:
+                    case SPEED_CURRENT_CLOSE_LOOP_FLUX_OBSERVER:
                     {
                         Non_flux_Init(&observer);
                         Motor.SpeedPID.Kp = 1.0E-4F;
@@ -566,17 +681,18 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
 
                         Motor.IqPID.Kp = 1.0F;
                         Motor.IqPID.Ki = 0.01F;
-                        Motor.IqPID.MaxOut = threshold;
-                        Motor.IqPID.IntegralLimit = threshold;
+                        Motor.IqPID.MaxOut = 6.914319;
+                        Motor.IqPID.IntegralLimit = 6.914319;
 
                         Motor.IdPID.Kp = 0.0001F;
                         Motor.IdPID.Ki = 0.01F;
-                        Motor.IdPID.MaxOut = threshold;
-                        Motor.IdPID.IntegralLimit = threshold;
+                        Motor.IdPID.MaxOut = 6.914319;
+                        Motor.IdPID.IntegralLimit = 6.914319;
                         break;
                     }
                     case SPEED_CURRENT_CLOSE_LOOP_OVERMODU_FW:
                     {
+                        HFSVI_Sensorless_Init(&HFSVI);
                         Motor.SpeedPID.Kp = 1.0E-4F;
                         Motor.SpeedPID.Ki = 2.0E-3F;
                         Motor.SpeedPID.MaxOut = 50;
@@ -591,7 +707,28 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                         Motor.IdPID.Ki = 0.01F;
                         Motor.IdPID.MaxOut = threshold;
                         Motor.IdPID.IntegralLimit = threshold;
+                        break;
+                    }
+                    case SPEED_CURRENT_CLOSE_LOOP_HFSVI:
+                    {
+                        HFSVI_Sensorless_Init(&HFSVI);
+                        HFSVI.PLL.Kp = 200;
+                        HFSVI.PLL.Ki = 50000;
+                        HFSVI.Uh = 1;
+                        Motor.SpeedPID.Kp = 2.0E-2F;
+                        Motor.SpeedPID.Ki = 1.0E-3F;
+                        Motor.SpeedPID.MaxOut = 10;
+                        Motor.SpeedPID.IntegralLimit = 10;
 
+                        Motor.IqPID.Kp = 0.001F;
+                        Motor.IqPID.Ki = 0.01F;
+                        Motor.IqPID.MaxOut = threshold;
+                        Motor.IqPID.IntegralLimit = threshold;
+
+                        Motor.IdPID.Kp = 0.001F;
+                        Motor.IdPID.Ki = 0.05F;
+                        Motor.IdPID.MaxOut = threshold;
+                        Motor.IdPID.IntegralLimit = threshold;
                         break;
                     }
                     default:break;
@@ -623,4 +760,6 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
          }
      }
  }
+ 
+ 
  

@@ -35,6 +35,8 @@
 #include <string.h>
 extern UI_3s I_3s;
 extern UI_2s I_2s;
+extern HFSVI_Structure HFSVI; 
+extern MOTOR_HandleTypeDef Motor;
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -115,6 +117,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+//    printf("%f,%f\n",Motor.I_2r.D,Motor.I_2r.Q,HFSVI.theta);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

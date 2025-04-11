@@ -11,7 +11,7 @@ typedef struct PLL_Structure
     float Out;
 }PLL_Structure;
 
-typedef struct Observer
+typedef struct FluxObserver
 {
     float x1_hat;
     float x2_hat;
@@ -35,7 +35,32 @@ typedef struct Observer
     float previous_theta;
     float omega ;
     PLL_Structure PLL;
-} Observer;
+	float LPFFilter;
+} FluxObserver;
+
+typedef struct HFSVI_Structure
+{
+    float Ialpha_pre;
+	float Ibeta_pre;
+	float delta_Ialpha;
+	float delta_Ibeta;
+	int singalUh;
+	float Uh;
+	float Icos;
+	float Isin;
+	float modulu;
+	float IsinNormalized;
+	float IcosNormalized;
+	float tildeTheta;
+	PLL_Structure PLL;
+	float we;
+	float we_pre;
+	float theta;
+	float theta_pre;
+	float dt;
+	float LPFFilter;
+	float Speed;
+} HFSVI_Structure;
 
 typedef enum
 {
@@ -50,11 +75,12 @@ typedef enum
 //square
 #define SQ(x) ((x) * (x))
 #define threshold 7.639442f
-extern Observer observer;
+extern FluxObserver observer;
+extern HFSVI_Structure HFSVI;
 float utils_fast_atan2(float y, float x);
 int utils_truncate_number_abs(float *number, float max);
-void Non_flux_Init(Observer *observer);
-void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta, Observer *observer);
+void Non_flux_Init(FluxObserver *observer);
+void flux_observer(float V_alpha, float V_beta, float i_alpha, float i_beta, FluxObserver *observer);
 float Hysteresis(float modulus);
 float U_ref_lookup(float F1_vaule);
 void AntiPark_Overmodulation(UI_2s* UI_2s,UI_2r* UI_2r,float Theta_E);
@@ -63,6 +89,8 @@ void SVPWM_120(UI_2s* UI_2s);
 FW_STATE_TYPE Get_Field_State(float modulu,float SpeedRef);
 void flux_weaken_init(float SpeedKp,float SpeedKi,float CurrentKp,float CurrentKi);
 void flux_weaken(void);
+void HFSVI_Sensorless_Init(HFSVI_Structure *hfsvi);
+void HFSVI_Sensorless(HFSVI_Structure *hfsvi,MOTOR_HandleTypeDef *motor);
 static const float F1[] = { 6.914319, \
 				6.940969, 6.964049, 6.985143, 7.004737, 7.023078, \
 				7.040321, 7.056577, 7.071930, 7.086446, 7.100181, \

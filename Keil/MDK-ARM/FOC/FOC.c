@@ -302,6 +302,62 @@ float PIDCalculate(PID_Structure *pid,float measure,float ref)
 }
 
 /**
+ * @brief          PID controler
+ * @param[in]  pid    PID structure
+ * @param[in]  measure  the measured value
+ * @param[in]  ref    the reference value
+ * @retval         output of PID controler
+ */
+float PIDCalculate_Q(PID_Structure *pid,float measure,float ref)
+{
+    pid->dt = Ts;
+    pid->Measure = measure;
+    pid->Ref = ref;
+    pid->Err = pid->Ref - pid->Measure;
+    pid->Pout = pid->Kp * pid->Err;
+    pid->ITerm = pid->Ki * pid->Err;
+    Trapezoid_Intergral(pid);
+    // Integral_Limit(pid);     //intergral limiting
+
+	static float temp_Output, temp_Iout;
+    temp_Iout = pid->Iout + pid->ITerm;
+    temp_Output = pid->Pout + pid->Iout;
+    // if (abs(temp_Output) >= pid->MaxOut) //achieve the limit of output
+    // {
+    //     if (pid->Err * pid->Iout > 0) //but the integral keep going
+    //     {
+    //         pid->ITerm = 0; // The current integral term is set to zero
+    //                         //   if (abs(pid->Err) < 1)
+    //                         //   pid->Iout = 0;
+    //     }
+    // }
+
+    if (temp_Iout > pid->IntegralLimit)
+    {
+        // pid->ITerm = 0; //stop integral
+        pid->Iout = pid->IntegralLimit;
+    }
+    if (temp_Iout < -pid->IntegralLimit)
+    {
+        // pid->ITerm = 0; //stop integral
+        pid->Iout = -pid->IntegralLimit;
+    }
+
+    pid->Iout += pid->ITerm;           // intergral
+    pid->OutPut = pid->Pout+pid->Iout; // the is no Dout
+
+    Output_Limit(pid);
+
+    // save current value for the next cycle
+    pid->Last_Measure = pid->Measure;
+    pid->Last_Output = pid->OutPut;
+    pid->Last_Err = pid->Err;
+    pid->Last_ITerm = pid->ITerm;
+
+    return pid->OutPut;
+}
+
+/**
   * @brief  start PWM
   * @param 	none
   * @retval none

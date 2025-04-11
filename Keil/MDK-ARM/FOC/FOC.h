@@ -158,6 +158,7 @@ void Output_Limit(PID_Structure *pid);
 void PID_Curr_Init(PID_Structure *pid_curr_iq,PID_Structure *pid_curr_id, float Udc);
 float PIDCalculate(PID_Structure *pid, float measure, float ref);
 void PID_Speed_Init(PID_Structure *pid_speed,float Udc);
+float PIDCalculate_Q(PID_Structure *pid,float measure,float ref);
 #ifndef abs
 #define abs(x) ((x > 0) ? x : -x)
 #endif
@@ -189,6 +190,7 @@ void PID_Speed_Init(PID_Structure *pid_speed,float Udc);
 #define FLASH_PAGE_ADDR     0x0801F800  				    //flash address to write motor parameters
 #define CURRENT_BASE        1.0                             //rated current
 #define pi                  3.1415927f
+#define pi_2                6.2831855f
 #define U_dc                12	                            //rated VBUS
 #define T1_Table {                                                               \
         0.0000000e+00, 5.0000000e-01, 1.0000000e+00, 1.5000000e+00, 2.0000000e+00, \
