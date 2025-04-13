@@ -49,11 +49,9 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
   */
  void HAL_ADC_ConvCpltCallback ( ADC_HandleTypeDef* hadc ) 
  {
-     static int timecount = 0;
      static float offset[3] = {2201.0f};
      static int LED_Count = 0;
      static int Count = 0;
-     timecount = 0;
      SysTick->VAL = SysTick->LOAD;
     //  if(hadc == &hadc2)
     //  {
@@ -521,11 +519,11 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                             uint32_t max_index1 = 0;
                             float max_value2 = 0;
                             uint32_t max_index2 = 0;
-                            float theta0 = 0;
-                            float theta1 = 0;
+                            // float theta0 = 0;
+                            // float theta1 = 0;
                             arm_max_f32(IA,30,&max_value1,&max_index1);
                             arm_max_f32(&IA[30],30,&max_value2,&max_index2);
-                            theta0 = HFSVI.theta;
+                            // theta0 = HFSVI.theta;
                             if(max_value1 < max_value2)
                             {
                                 HFSVI.theta = HFSVI.theta+pi;
@@ -538,7 +536,7 @@ MOTOR_HandleTypeDef Motor = MOTOR_DEFAULT;
                                     HFSVI.theta = HFSVI.theta + 2*pi;
                                 }
                             }
-                            theta1 = HFSVI.theta;
+                            // theta1 = HFSVI.theta;
                             Park(&Motor.I_2s,&Motor.I_2r,HFSVI.theta);
                             Motor.FOC_Parameter.SpeedMachRef = 1000;
                             //speed loop

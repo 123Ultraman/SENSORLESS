@@ -147,8 +147,8 @@ rtwCAPI_ModelMappingStaticInfo mmiStatic = { { rtBlockSignals , 64 ,
 rtRootInputs , 0 , rtRootOutputs , 0 } , { rtBlockParameters , 143 ,
 rtModelParameters , 12 } , { ( NULL ) , 0 } , { rtDataTypeMap ,
 rtDimensionMap , rtFixPtMap , rtElementMap , rtSampleTimeMap ,
-rtDimensionArray } , "float" , { 3954885090U , 639552656U , 4129184934U ,
-38426574U } , ( NULL ) , 0 , ( boolean_T ) 0 , rt_LoggedStateIdxList } ;
+rtDimensionArray } , "float" , { 3882063023U , 2812955237U , 891024981U ,
+2338554480U } , ( NULL ) , 0 , ( boolean_T ) 0 , rt_LoggedStateIdxList } ;
 const rtwCAPI_ModelMappingStaticInfo * based_FOC_GetCAPIStaticMap ( void ) {
 return & mmiStatic ; }
 #ifndef HOST_CAPI_BUILD
